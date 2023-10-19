@@ -9,23 +9,23 @@ public class Node {
   public Node() {
     isWord = false;
 
-    for(int i = 0; i < ALPHABET_SIZE; i++) {
+    for (int i = 0; i < ALPHABET_SIZE; i++) {
       children[i] = null;
     }
   }
 
-  public void setWord() {
+  public void setIsWord() {
     isWord = true;
   }
 
   public Node update(char c) {
-    int id = (int)c - (int)'a';
+    int id = (int) c - (int) 'a';
 
     if (children[id] == null) {
       children[id] = new Node();
     }
 
-    return  children[id];
+    return children[id];
   }
 
   public void setOrder(int order) {
@@ -37,6 +37,6 @@ public class Node {
   }
 
   public boolean getIsWord() {
-    return  isWord;
+    return isWord;
   }
 }
