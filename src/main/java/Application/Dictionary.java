@@ -1,11 +1,13 @@
 package Application;
 
+import Trie.Trie;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Dictionary {
 
   List<Word> wordList = new ArrayList<Word>();
+  Trie trie = new Trie();
 
   public Dictionary() {
   }
@@ -19,6 +21,9 @@ public class Dictionary {
     if (data.charAt(0) == '|') {
       data = data.replace("|", "");
       wordList.add(new Word(data));
+
+      int length = wordList.size();
+      trie.insert(data, length - 1);
     } else {
       int length = wordList.size();
 
@@ -29,9 +34,6 @@ public class Dictionary {
       }
     }
   }
-
-
-
   public void addWord(Word word) {
     wordList.add(word);
   }
@@ -42,5 +44,16 @@ public class Dictionary {
 
   public void clearWordList() {
     wordList.clear();
+  }
+
+  public List<String> prefixList(String text) {
+
+    List<String> storage = new ArrayList<String>();
+
+    for(Integer i : trie.matchingPrefix(text)) {
+      storage.add(wordList.get(i).getTargetWord());
+    }
+
+    return storage;
   }
 }

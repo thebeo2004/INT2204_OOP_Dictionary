@@ -1,6 +1,8 @@
 package Application;
 
+import Trie.Trie;
 import java.io.*;
+import java.util.List;
 import java.util.Scanner;
 
 public class DictionaryManagement {
@@ -64,12 +66,19 @@ public class DictionaryManagement {
     }
   }
 
-  public void showAllWords(Dictionary dictionary) {
+  public void showAllWords(Dictionary dictionary, Trie trie) {
     if (dictionary.getWordList() == null) {
       return;
     }
     for (Word word : dictionary.getWordList()) {
-      System.out.println(word.getInfo());
+      System.out.println(word.getTargetWord());
+    }
+  }
+
+  public void search(Dictionary dictionary, String text) {
+
+    for(String s : dictionary.prefixList(text)) {
+      System.out.println(s);
     }
   }
 }

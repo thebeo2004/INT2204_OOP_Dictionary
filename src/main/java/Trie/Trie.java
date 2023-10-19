@@ -2,6 +2,7 @@ package Trie;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Trie {
   private Node root;
@@ -38,10 +39,8 @@ public class Trie {
       wordList.add(curNode.getOrder());
     }
 
-    for (Node i : curNode.children) {
-      if (i != null) {
-        prefixMatchingWord(i);
-      }
+    for (Map.Entry<Character, Node> i : curNode.hashMap.entrySet()) {
+        prefixMatchingWord(i.getValue());
     }
   }
 
@@ -50,4 +49,5 @@ public class Trie {
     prefixMatchingWord(traversal(text));
     return wordList;
   }
+
 }

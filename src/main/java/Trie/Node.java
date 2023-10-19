@@ -1,17 +1,15 @@
 package Trie;
 
+import java.util.HashMap;
+
 public class Node {
-  static final int ALPHABET_SIZE = 26;
   private boolean isWord;
   private int order;
-  public Node[] children = new Node[ALPHABET_SIZE];
+  public HashMap<Character, Node> hashMap;
 
   public Node() {
     isWord = false;
-
-    for (int i = 0; i < ALPHABET_SIZE; i++) {
-      children[i] = null;
-    }
+    hashMap = new HashMap<Character, Node>();
   }
 
   public void setIsWord() {
@@ -19,13 +17,12 @@ public class Node {
   }
 
   public Node update(char c) {
-    int id = (int) c - (int) 'a';
 
-    if (children[id] == null) {
-      children[id] = new Node();
+    if (hashMap.get(c) == null) {
+      hashMap.put((Character) c, new Node());
     }
 
-    return children[id];
+    return hashMap.get(c);
   }
 
   public void setOrder(int order) {
