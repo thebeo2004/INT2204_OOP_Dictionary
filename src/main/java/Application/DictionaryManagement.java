@@ -12,7 +12,6 @@ public class DictionaryManagement {
       String explainWord = scanner.nextLine();
       Word newWord = new Word(targetWord, explainWord);
       dictionary.addWord(newWord);
-      System.out.println(newWord.toString());
     }
     scanner.close();
   }
@@ -21,6 +20,5 @@ public class DictionaryManagement {
     for (Word word : dictionary.getWordList()) {
       System.out.println(word.getInfo());
     }
-    return;
   }
 }
