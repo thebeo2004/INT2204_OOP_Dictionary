@@ -10,19 +10,19 @@ public class Trie {
     root = new Node();
   }
 
-  public Node traversal(String txt) {
+  public Node traversal(String text) {
     Node curNode = root;
 
-    for(int i = 0; i < txt.length(); i++) {
-      curNode = curNode.update(txt.charAt(i));
+    for (int i = 0; i < text.length(); i++) {
+      curNode = curNode.update(text.charAt(i));
     }
 
     return curNode;
   }
 
-  public void insert(String txt, int order) {
-    Node curNode = traversal(txt);
-    curNode.setWord();
+  public void insert(String text, int order) {
+    Node curNode = traversal(text);
+    curNode.setIsWord();
     curNode.setOrder(order);
   }
 
@@ -38,16 +38,16 @@ public class Trie {
       wordList.add(curNode.getOrder());
     }
 
-    for(Node i : curNode.children) {
+    for (Node i : curNode.children) {
       if (i != null) {
         prefixMatchingWord(i);
       }
     }
-
   }
-  public List<Integer> matchingPrefix(String txt) {
+
+  public List<Integer> matchingPrefix(String text) {
     wordList.clear();
-    prefixMatchingWord(traversal(txt));
+    prefixMatchingWord(traversal(text));
     return wordList;
   }
 }
