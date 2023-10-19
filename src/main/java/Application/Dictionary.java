@@ -47,14 +47,6 @@ public class Dictionary {
     }
   }
 
-  public String showAllWords() {
-    String output = "";
-    for (Word word : wordList) {
-      output = output + (word.getInfo() + "\n");
-    }
-    return output;
-  }
-
   public void addWord(Word word) {
     wordList.add(word);
   }
