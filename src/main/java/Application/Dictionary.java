@@ -10,7 +10,7 @@ public class Dictionary {
 
   List<Word> wordList = new ArrayList<Word>();
 
-  private void process(String data) {
+  private void loadWord(String data) {
 
     if (data.isEmpty()) {
       return;
@@ -34,21 +34,32 @@ public class Dictionary {
     try {
       Scanner scanner = new Scanner(new File("src/main/resources/Data/dictionaries.txt"));
 
-      while(scanner.hasNextLine()) {
-        process(scanner.nextLine());
+      while (scanner.hasNextLine()) {
+        loadWord(scanner.nextLine());
       }
 
       scanner.close();
+
+      System.out.println("Dictionary loaded!");
     } catch (FileNotFoundException e) {
-      System.out.println("An error occured.");
+      System.out.println("Dictionary initiation failed.");
       e.printStackTrace();
     }
   }
 
-  public void show() {
-
-    for(Word w: wordList) {
-      System.out.println(w.getInfor());
+  public String showAllWords() {
+    String output = "";
+    for (Word word : wordList) {
+      output = output + (word.getInfo() + "\n");
     }
+    return output;
+  }
+
+  public void addWord(Word word) {
+    wordList.add(word);
+  }
+
+  public List<Word> getWordList() {
+    return wordList;
   }
 }
