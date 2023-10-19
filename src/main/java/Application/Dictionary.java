@@ -1,16 +1,16 @@
 package Application;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Dictionary {
 
   List<Word> wordList = new ArrayList<Word>();
 
-  private void loadWord(String data) {
+  public Dictionary() {
+  }
+
+  protected void loadWord(String data) {
 
     if (data.isEmpty()) {
       return;
@@ -30,22 +30,7 @@ public class Dictionary {
     }
   }
 
-  public Dictionary() {
-    try {
-      Scanner scanner = new Scanner(new File("src/main/resources/Data/dictionaries.txt"));
 
-      while (scanner.hasNextLine()) {
-        loadWord(scanner.nextLine());
-      }
-
-      scanner.close();
-
-      System.out.println("Dictionary loaded!");
-    } catch (FileNotFoundException e) {
-      System.out.println("Dictionary initiation failed.");
-      e.printStackTrace();
-    }
-  }
 
   public void addWord(Word word) {
     wordList.add(word);
@@ -53,5 +38,9 @@ public class Dictionary {
 
   public List<Word> getWordList() {
     return wordList;
+  }
+
+  public void clearWordList() {
+    wordList.clear();
   }
 }
