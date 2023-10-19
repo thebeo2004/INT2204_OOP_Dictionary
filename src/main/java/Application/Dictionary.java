@@ -10,7 +10,7 @@ public class Dictionary {
 
   List<Word> wordList = new ArrayList<Word>();
 
-  private void process(String data) {
+  private void loadWord(String data) {
 
     if (data.isEmpty()) {
       return;
@@ -35,7 +35,7 @@ public class Dictionary {
       Scanner scanner = new Scanner(new File("src/main/resources/Data/dictionaries.txt"));
 
       while(scanner.hasNextLine()) {
-        process(scanner.nextLine());
+        loadWord(scanner.nextLine());
       }
 
       scanner.close();
@@ -45,10 +45,10 @@ public class Dictionary {
     }
   }
 
-  public void show() {
-
-    for(Word w: wordList) {
-      System.out.println(w.getInfor());
-    }
-  }
+//  public void show() {
+//
+//    for(Word w: wordList) {
+//      System.out.println(w.getInfor());
+//    }
+//  }
 }
