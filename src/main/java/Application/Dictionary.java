@@ -34,21 +34,24 @@ public class Dictionary {
     try {
       Scanner scanner = new Scanner(new File("src/main/resources/Data/dictionaries.txt"));
 
-      while(scanner.hasNextLine()) {
+      while (scanner.hasNextLine()) {
         loadWord(scanner.nextLine());
       }
 
       scanner.close();
+
+      System.out.println("Dictionary loaded!");
     } catch (FileNotFoundException e) {
-      System.out.println("An error occured.");
+      System.out.println("Dictionary initiation failed.");
       e.printStackTrace();
     }
   }
 
-//  public void show() {
-//
-//    for(Word w: wordList) {
-//      System.out.println(w.getInfor());
-//    }
-//  }
+  public void addWord(Word word) {
+    wordList.add(word);
+  }
+
+  public List<Word> getWordList() {
+    return wordList;
+  }
 }

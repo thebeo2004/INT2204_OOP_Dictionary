@@ -8,8 +8,20 @@ public class Word {
 
   public Word(String targetWord) {
     this.targetWord = targetWord;
-    ipa = "";
-    explainWord = "";
+    this.ipa = "";
+    this.explainWord = "";
+  }
+
+  public Word(String targetWord, String explainWord) {
+    this.targetWord = targetWord;
+    this.ipa = "";
+    this.explainWord = explainWord;
+  }
+
+  public Word(String targetWord, String explainWord, String ipa) {
+    this.targetWord = targetWord;
+    this.ipa = ipa;
+    this.explainWord = explainWord;
   }
 
   public void setIpa(String ipa) {
@@ -20,8 +32,8 @@ public class Word {
     this.explainWord += explainWord + "\n";
   }
 
-  public String getInfor() {
+  public String getInfo() {
     return targetWord + "\n" + ipa + "\n" + explainWord;
   }
-}
 
+}
