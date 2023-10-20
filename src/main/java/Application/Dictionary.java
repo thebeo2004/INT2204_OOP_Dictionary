@@ -56,4 +56,13 @@ public class Dictionary {
 
     return storage;
   }
+
+  public String lookUp(String text) {
+    int id = trie.lookUp(text);
+
+    if (id == -1) {
+      return "This word doesn't exist";
+    }
+    return wordList.get(id).getInfo();
+  }
 }

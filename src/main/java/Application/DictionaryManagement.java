@@ -2,6 +2,7 @@ package Application;
 
 import Trie.Trie;
 import java.io.*;
+import java.lang.management.ManagementFactory;
 import java.util.List;
 import java.util.Scanner;
 
@@ -81,4 +82,9 @@ public class DictionaryManagement {
       System.out.println(s);
     }
   }
+
+  public void lookUp(Dictionary dictionary, String text) {
+    System.out.println(dictionary.lookUp(text));
+  }
+
 }

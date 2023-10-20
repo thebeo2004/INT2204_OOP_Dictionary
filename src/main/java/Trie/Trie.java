@@ -50,4 +50,14 @@ public class Trie {
     return wordList;
   }
 
+  public int lookUp(String text) {
+    Node curNode = traversal(text);
+
+    if (curNode.getIsWord()) {
+      return curNode.getOrder();
+    }
+
+    return -1;
+  }
+
 }
