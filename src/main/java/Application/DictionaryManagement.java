@@ -67,8 +67,8 @@ public class DictionaryManagement {
     }
   }
 
-  public void showAllWords(Dictionary dictionary, Trie trie) {
-    if (dictionary.getWordList() == null) {
+  public void showAllWords(Dictionary dictionary) {
+    if (dictionary.getWordList().isEmpty()) {
       return;
     }
     for (Word word : dictionary.getWordList()) {
@@ -83,8 +83,8 @@ public class DictionaryManagement {
     }
   }
 
-  public void lookUp(Dictionary dictionary, String text) {
-    System.out.println(dictionary.lookUp(text));
+  public String lookUp(Dictionary dictionary, String text) {
+    return dictionary.lookUp(text);
   }
 
 }
