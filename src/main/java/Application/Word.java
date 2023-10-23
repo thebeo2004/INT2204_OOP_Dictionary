@@ -4,11 +4,13 @@ public class Word {
 
   private String targetWord;
   private String ipa;
+  private String function;
   private String explainWord;
 
   public Word(String targetWord) {
     this.targetWord = targetWord;
     this.ipa = "";
+    this.function = "";
     this.explainWord = "";
   }
 
@@ -21,6 +23,13 @@ public class Word {
   public Word(String targetWord, String explainWord, String ipa) {
     this.targetWord = targetWord;
     this.ipa = ipa;
+    this.explainWord = explainWord;
+  }
+
+  public Word(String targetWord, String explainWord, String ipa, String function) {
+    this.targetWord = targetWord;
+    this.ipa = ipa;
+    this.function = function;
     this.explainWord = explainWord;
   }
 
@@ -48,8 +57,20 @@ public class Word {
     this.explainWord += explainWord + "\n";
   }
 
+  public String getFunction() {
+    return function;
+  }
+
+  public void setFunction(String function) {
+    this.function = function;
+  }
+
   public String getInfo() {
-    return targetWord + "\n" + ipa + "\n" + explainWord;
+    String ans = targetWord;
+    if (!ipa.isEmpty()) ans += "\n" + ipa;
+    if (!function.isEmpty()) ans += "\n" + function;
+    if (!explainWord.isEmpty()) ans += "\n" + explainWord;
+    return ans;
   }
 
 }
