@@ -38,13 +38,26 @@ public class DictionaryManagement {
     }
   }
 
-  public void exportDictionary(Dictionary dictionary) {
+  public void write(BufferedWriter writer, Word word) {
+    try {
+      writer.write("|" + word.getTargetWord() + "\n");
+      if (!word.getIpa().isEmpty()) writer.write(word.getIpa() + "\n");
+      if (!word.getFunction().isEmpty()) writer.write("*" + word.getFunction() + "\n");
+      int n = word.getExplainWord().length();
+      writer.write("-" + word.getExplainWord());
+      //writer.newLine();
+    } catch (Exception e) {
+      System.out.println("Writer error.");
+    }
+
+  }
+
+  public void exportDictionary(Dictionary dictionary, String file) {
     try {
       BufferedWriter writer =
-          new BufferedWriter(new FileWriter("src/main/resources/Data/dictionaryExport.txt"));
+          new BufferedWriter(new FileWriter(file));
       for (Word word : dictionary.getWordList()) {
-        writer.write(word.getInfo() + "\n");
-        writer.newLine();
+        write(writer, word);
       }
       writer.close();
     } catch (Exception e) {
@@ -52,19 +65,29 @@ public class DictionaryManagement {
     }
   }
 
+  public void exportDictionary(Dictionary dictionary) {
+    exportDictionary(dictionary, "src/main/resources/Data/dictionaryExport.txt");
+  }
+
   public void addWord(Dictionary dictionary, Word word) {
     try {
       BufferedWriter writer =
               new BufferedWriter(new FileWriter("src/main/resources/Data/dictionaries.txt", true));
-      writer.write("|" + word.getTargetWord() + "\n");
-      if (!word.getIpa().isEmpty()) writer.write(word.getIpa() + "\n");
-      writer.write("- " + word.getExplainWord());
-      writer.newLine();
+      write(writer, word);
+      writer.write("\n");
       writer.close();
       loadDictionary(dictionary);
     } catch (Exception e) {
       System.out.println("Add word error.");
     }
+  }
+
+  public void deleteWord(Dictionary dictionary, String text) {
+    int id = dictionary.getId(text);
+    if (id == -1) return;
+    dictionary.deleteWord(dictionary.getWordList().get(id));
+    exportDictionary(dictionary, "src/main/resources/Data/dictionaries.txt");
+    loadDictionary(dictionary);
   }
 
   public void showAllWords(Dictionary dictionary) {
@@ -73,6 +96,12 @@ public class DictionaryManagement {
     }
     for (Word word : dictionary.getWordList()) {
       System.out.println(word.getTargetWord());
+    }
+  }
+
+  public void print(Dictionary dictionary) {
+    for (Word word : dictionary.getWordList()) {
+      System.out.println(word.getInfo());
     }
   }
 
