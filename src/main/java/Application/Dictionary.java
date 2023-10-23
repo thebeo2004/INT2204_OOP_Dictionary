@@ -29,6 +29,8 @@ public class Dictionary {
 
       if (data.charAt(0) == '/') {
         wordList.get(length - 1).setIpa(data);
+      } else if (data.charAt(0) == '*') {
+        wordList.get(length - 1).setFunction(data);
       } else {
         wordList.get(length - 1).setExplainWord(data);
       }
@@ -57,8 +59,12 @@ public class Dictionary {
     return storage;
   }
 
+  public int getId(String text) {
+    return trie.lookUp(text);
+  }
+
   public String lookUp(String text) {
-    int id = trie.lookUp(text);
+    int id = getId(text);
 
     if (id == -1) {
       return "This word doesn't exist";
