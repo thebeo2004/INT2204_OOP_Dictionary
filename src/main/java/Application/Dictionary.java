@@ -38,6 +38,21 @@ public class Dictionary {
   }
   public void addWord(Word word) {
     wordList.add(word);
+
+    int length = wordList.size();
+    trie.insert(word.getTargetWord(), length - 1);
+  }
+
+  public void deleteWord(String text) {
+    trie.deleteWord(text);
+  }
+
+  public void editWord(Word word) {
+    int id = getId(word.getTargetWord());
+
+    wordList.get(id).setIpa(word.getIpa());
+    wordList.get(id).setFunction(word.getFunction());
+    wordList.get(id).setExplainWord(word.getExplainWord());
   }
 
   public List<Word> getWordList() {
