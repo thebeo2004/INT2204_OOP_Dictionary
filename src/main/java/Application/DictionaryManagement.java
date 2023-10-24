@@ -52,48 +52,68 @@ public class DictionaryManagement {
 
   }
 
-  public void exportDictionary(Dictionary dictionary, String file) {
-    try {
-      BufferedWriter writer =
-          new BufferedWriter(new FileWriter(file));
-      for (Word word : dictionary.getWordList()) {
-        write(writer, word);
-      }
-      writer.close();
-    } catch (Exception e) {
-      System.out.println("Dictionary export error.");
-    }
-  }
+//  public void exportDictionary(Dictionary dictionary, String file) {
+//    try {
+//      BufferedWriter writer =
+//          new BufferedWriter(new FileWriter(file));
+//      for (Word word : dictionary.getWordList()) {
+//        write(writer, word);
+//      }
+//      writer.close();
+//    } catch (Exception e) {
+//      System.out.println("Dictionary export error.");
+//    }
+//  }
 
-  public void exportDictionary(Dictionary dictionary) {
-    exportDictionary(dictionary, "src/main/resources/Data/dictionaryExport.txt");
+//  public void exportDictionary(Dictionary dictionary) {
+//    exportDictionary(dictionary, "src/main/resources/Data/dictionaryExport.txt");
+//  }
+
+  private void updateDictionary(Dictionary dictionary) {
+
+    for(Word word : dictionary.getWordList()) {
+      if (dictionary.getId(word.getTargetWord()) != -1) {
+        //Task of NDH: write word to dictionary.txt
+        write();
+      }
+    }
   }
 
   public void addWord(Dictionary dictionary, Word word) {
-    try {
-      BufferedWriter writer =
-              new BufferedWriter(new FileWriter("src/main/resources/Data/dictionaries.txt", true));
-      write(writer, word);
-      writer.write("\n");
-      writer.close();
-      loadDictionary(dictionary);
-    } catch (Exception e) {
-      System.out.println("Add word error.");
-    }
+//    try {
+//      BufferedWriter writer =
+//              new BufferedWriter(new FileWriter("src/main/resources/Data/dictionaries.txt", true));
+//      write(writer, word);
+//      writer.write("\n");
+//      writer.close();
+
+      dictionary.addWord(word);
+      updateDictionary(dictionary);
+//    } catch (Exception e) {
+//      System.out.println("Add word error.");
+//    }
   }
 
   public void deleteWord(Dictionary dictionary, String text) {
     int id = dictionary.getId(text);
     if (id == -1) return;
-    dictionary.deleteWord(dictionary.getWordList().get(id));
-    exportDictionary(dictionary, "src/main/resources/Data/dictionaries.txt");
-    loadDictionary(dictionary);
+
+    dictionary.deleteWord(text);
+    updateDictionary(dictionary);
+//    exportDictionary(dictionary, "src/main/resources/Data/dictionaries.txt");
+  }
+
+  public void editWord(Dictionary dictionary, Word word) {
+
+    int id = dictionary.getId(word.getTargetWord());
+    if (id == -1) {
+      return;
+    }
+    dictionary.editWord(word);
+    updateDictionary(dictionary);
   }
 
   public void showAllWords(Dictionary dictionary) {
-    if (dictionary.getWordList().isEmpty()) {
-      return;
-    }
     for (Word word : dictionary.getWordList()) {
       System.out.println(word.getTargetWord());
     }
@@ -106,7 +126,6 @@ public class DictionaryManagement {
   }
 
   public void search(Dictionary dictionary, String text) {
-
     for(String s : dictionary.prefixList(text)) {
       System.out.println(s);
     }
