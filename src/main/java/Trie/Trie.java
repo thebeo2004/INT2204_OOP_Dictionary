@@ -27,6 +27,11 @@ public class Trie {
     curNode.setOrder(order);
   }
 
+  public void deleteWord(String text) {
+    Node curNode = traversal(text);
+    curNode.setNotWord();
+  }
+
   private List<Integer> wordList = new ArrayList<Integer>();
 
   public void prefixMatchingWord(Node curNode) {
@@ -59,5 +64,6 @@ public class Trie {
 
     return -1;
   }
+
 
 }

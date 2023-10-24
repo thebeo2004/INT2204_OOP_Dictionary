@@ -16,6 +16,10 @@ public class Node {
     isWord = true;
   }
 
+  public void setNotWord() {
+    isWord = false;
+  }
+
   public Node update(char c) {
 
     if (hashMap.get(c) == null) {
