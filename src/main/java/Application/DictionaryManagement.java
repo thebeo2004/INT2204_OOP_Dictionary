@@ -43,7 +43,6 @@ public class DictionaryManagement {
       writer.write("|" + word.getTargetWord() + "\n");
       if (!word.getIpa().isEmpty()) writer.write(word.getIpa() + "\n");
       if (!word.getFunction().isEmpty()) writer.write('*' + word.getFunction() + "\n");
-      int n = word.getExplainWord().length();
       writer.write(word.getExplainWord());
       //writer.newLine();
     } catch (Exception e) {
@@ -69,7 +68,7 @@ public class DictionaryManagement {
 //    exportDictionary(dictionary, "src/main/resources/Data/dictionaryExport.txt");
 //  }
 
-  public void updateDictionary(Dictionary dictionary) {
+  private void updateDictionary(Dictionary dictionary) {
     BufferedWriter writer = null;
     try {
       writer = new BufferedWriter(new FileWriter("src/main/resources/Data/dictionaries.txt/", false));
