@@ -30,6 +30,7 @@ public class Dictionary {
       if (data.charAt(0) == '/') {
         wordList.get(length - 1).setIpa(data);
       } else if (data.charAt(0) == '*') {
+        data = data.substring(1);
         wordList.get(length - 1).setFunction(data);
       } else {
         wordList.get(length - 1).setExplainWord(data);
