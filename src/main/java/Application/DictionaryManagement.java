@@ -42,9 +42,9 @@ public class DictionaryManagement {
     try {
       writer.write("|" + word.getTargetWord() + "\n");
       if (!word.getIpa().isEmpty()) writer.write(word.getIpa() + "\n");
-      if (!word.getFunction().isEmpty()) writer.write("*" + word.getFunction() + "\n");
+      if (!word.getFunction().isEmpty()) writer.write('*' + word.getFunction() + "\n");
       int n = word.getExplainWord().length();
-      writer.write("-" + word.getExplainWord());
+      writer.write(word.getExplainWord());
       //writer.newLine();
     } catch (Exception e) {
       System.out.println("Writer error.");
@@ -69,13 +69,23 @@ public class DictionaryManagement {
 //    exportDictionary(dictionary, "src/main/resources/Data/dictionaryExport.txt");
 //  }
 
-  private void updateDictionary(Dictionary dictionary) {
+  public void updateDictionary(Dictionary dictionary) {
+    BufferedWriter writer = null;
+    try {
+      writer = new BufferedWriter(new FileWriter("src/main/resources/Data/dictionaries.txt/", false));
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
 
-    for(Word word : dictionary.getWordList()) {
+    for (Word word : dictionary.getWordList()) {
       if (dictionary.getId(word.getTargetWord()) != -1) {
-        //Task of NDH: write word to dictionary.txt
-        write();
+        write(writer, word);
       }
+    }
+    try {
+      writer.close();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
     }
   }
 
@@ -86,9 +96,11 @@ public class DictionaryManagement {
 //      write(writer, word);
 //      writer.write("\n");
 //      writer.close();
+      if (lookUp(dictionary, word.getTargetWord()).equals("This word doesn't exist")) {
+        dictionary.addWord(word);
+        updateDictionary(dictionary);
+      }
 
-      dictionary.addWord(word);
-      updateDictionary(dictionary);
 //    } catch (Exception e) {
 //      System.out.println("Add word error.");
 //    }
