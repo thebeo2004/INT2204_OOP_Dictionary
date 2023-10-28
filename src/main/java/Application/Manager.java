@@ -24,4 +24,18 @@ public abstract class Manager {
     public String lookUp(Dictionary dictionary, String text) {
         return dictionary.lookUp(text);
     }
+
+    public void editWord(Dictionary dictionary, Word word) {
+        int id = dictionary.getId(word.getTargetWord());
+        if (id == -1) {
+            return;
+        }
+        dictionary.editWord(word);
+    }
+
+    public void deleteWord(Dictionary dictionary, String text) {
+        int id = dictionary.getId(text);
+        if (id == -1) return;
+        dictionary.deleteWord(text);
+    }
 }
