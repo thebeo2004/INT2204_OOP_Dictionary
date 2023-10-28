@@ -77,21 +77,26 @@ public class DictionaryManagement extends Manager {
     }
   }
 
+  @Override
   public void deleteWord(Dictionary dictionary, String text) {
-    int id = dictionary.getId(text);
-    if (id == -1) return;
+//    int id = dictionary.getId(text);
+//    if (id == -1) return;
+//
+//    dictionary.deleteWord(text);
 
-    dictionary.deleteWord(text);
+    super.deleteWord(dictionary, text);
     updateDictionary(dictionary);
 
   }
 
+  @Override
   public void editWord(Dictionary dictionary, Word word) {
-    int id = dictionary.getId(word.getTargetWord());
-    if (id == -1) {
-      return;
-    }
-    dictionary.editWord(word);
+//    int id = dictionary.getId(word.getTargetWord());
+//    if (id == -1) {
+//      return;
+//    }
+//    dictionary.editWord(word);
+    super.editWord(dictionary, word);
     updateDictionary(dictionary);
   }
 
