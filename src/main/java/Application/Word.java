@@ -55,7 +55,7 @@ public class Word {
   }
 
   public void setExplainWord(String explainWord) {
-    this.explainWord += explainWord + "\n";
+    this.explainWord = explainWord + "\n";
   }
 
   public String getFunction() {
