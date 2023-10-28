@@ -17,6 +17,7 @@ public class Word {
   public Word(String targetWord, String explainWord) {
     this.targetWord = targetWord;
     this.ipa = "";
+    this.function = "";
     this.explainWord = explainWord;
   }
 
@@ -67,9 +68,9 @@ public class Word {
 
   public String getInfo() {
     String ans = targetWord;
-    if (!ipa.isEmpty()) ans += "\n" + ipa;
-    if (!function.isEmpty()) ans += "\n" + function;
-    if (!explainWord.isEmpty()) ans += "\n" + explainWord;
+    if (ipa != null && !ipa.isEmpty()) ans += "\n" + ipa;
+    if (function != null && !function.isEmpty()) ans += "\n" + function;
+    if (explainWord != null && !explainWord.isEmpty()) ans += "\n" + explainWord;
     return ans;
   }
 
