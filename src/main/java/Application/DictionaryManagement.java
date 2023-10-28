@@ -1,12 +1,10 @@
 package Application;
 
-import Trie.Trie;
 import java.io.*;
-import java.lang.management.ManagementFactory;
-import java.util.List;
 import java.util.Scanner;
 
-public class DictionaryManagement {
+public class DictionaryManagement extends Manager {
+
   public void insertFromCommandline(Dictionary dictionary) {
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
@@ -20,6 +18,7 @@ public class DictionaryManagement {
     scanner.close();
   }
 
+  @Override
   public void loadDictionary(Dictionary dictionary) {
     dictionary.clearWordList();
     try {
@@ -51,23 +50,6 @@ public class DictionaryManagement {
 
   }
 
-//  public void exportDictionary(Dictionary dictionary, String file) {
-//    try {
-//      BufferedWriter writer =
-//          new BufferedWriter(new FileWriter(file));
-//      for (Word word : dictionary.getWordList()) {
-//        write(writer, word);
-//      }
-//      writer.close();
-//    } catch (Exception e) {
-//      System.out.println("Dictionary export error.");
-//    }
-//  }
-
-//  public void exportDictionary(Dictionary dictionary) {
-//    exportDictionary(dictionary, "src/main/resources/Data/dictionaryExport.txt");
-//  }
-
   private void updateDictionary(Dictionary dictionary) {
     BufferedWriter writer = null;
     try {
@@ -89,20 +71,10 @@ public class DictionaryManagement {
   }
 
   public void addWord(Dictionary dictionary, Word word) {
-//    try {
-//      BufferedWriter writer =
-//              new BufferedWriter(new FileWriter("src/main/resources/Data/dictionaries.txt", true));
-//      write(writer, word);
-//      writer.write("\n");
-//      writer.close();
-      if (lookUp(dictionary, word.getTargetWord()).equals("This word doesn't exist")) {
-        dictionary.addWord(word);
-        updateDictionary(dictionary);
-      }
-
-//    } catch (Exception e) {
-//      System.out.println("Add word error.");
-//    }
+    if (lookUp(dictionary, word.getTargetWord()).equals("This word doesn't exist")) {
+      dictionary.addWord(word);
+      updateDictionary(dictionary);
+    }
   }
 
   public void deleteWord(Dictionary dictionary, String text) {
@@ -111,11 +83,10 @@ public class DictionaryManagement {
 
     dictionary.deleteWord(text);
     updateDictionary(dictionary);
-//    exportDictionary(dictionary, "src/main/resources/Data/dictionaries.txt");
+
   }
 
   public void editWord(Dictionary dictionary, Word word) {
-
     int id = dictionary.getId(word.getTargetWord());
     if (id == -1) {
       return;
@@ -124,26 +95,30 @@ public class DictionaryManagement {
     updateDictionary(dictionary);
   }
 
-  public void showAllWords(Dictionary dictionary) {
-    for (Word word : dictionary.getWordList()) {
-      System.out.println(word.getTargetWord());
-    }
-  }
 
-  public void print(Dictionary dictionary) {
-    for (Word word : dictionary.getWordList()) {
-      System.out.println(word.getInfo());
-    }
-  }
-
-  public void search(Dictionary dictionary, String text) {
-    for(String s : dictionary.prefixList(text)) {
-      System.out.println(s);
-    }
-  }
-
-  public String lookUp(Dictionary dictionary, String text) {
-    return dictionary.lookUp(text);
-  }
+  /*
+  Các hàm dưới này đều đã được khai báo trong abstract class Manager, nên không cần thiết nữa.
+   */
+//  public void showAllWords(Dictionary dictionary) {
+//    for (Word word : dictionary.getWordList()) {
+//      System.out.println(word.getTargetWord());
+//    }
+//  }
+//
+//  public void print(Dictionary dictionary) {
+//    for (Word word : dictionary.getWordList()) {
+//      System.out.println(word.getInfo());
+//    }
+//  }
+//
+//  public void search(Dictionary dictionary, String text) {
+//    for(String s : dictionary.prefixList(text)) {
+//      System.out.println(s);
+//    }
+//  }
+//
+//  public String lookUp(Dictionary dictionary, String text) {
+//    return dictionary.lookUp(text);
+//  }
 
 }
