@@ -33,7 +33,7 @@ public class Dictionary {
         data = data.substring(1);
         wordList.get(length - 1).setFunction(data);
       } else {
-        wordList.get(length - 1).setExplainWord(data);
+        wordList.get(length - 1).appendExplainWord(data);
       }
     }
   }

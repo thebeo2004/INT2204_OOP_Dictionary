@@ -74,4 +74,7 @@ public class Word {
     return ans;
   }
 
+  public void appendExplainWord(String explainWord) {
+    this.explainWord += explainWord + "\n";
+  }
 }

@@ -43,7 +43,6 @@ public class DictionaryManagement extends Manager {
       if (!word.getIpa().isEmpty()) writer.write(word.getIpa() + "\n");
       if (!word.getFunction().isEmpty()) writer.write('*' + word.getFunction() + "\n");
       writer.write(word.getExplainWord());
-      //writer.newLine();
     } catch (Exception e) {
       System.out.println("Writer error.");
     }
@@ -79,11 +78,6 @@ public class DictionaryManagement extends Manager {
 
   @Override
   public void deleteWord(Dictionary dictionary, String text) {
-//    int id = dictionary.getId(text);
-//    if (id == -1) return;
-//
-//    dictionary.deleteWord(text);
-
     super.deleteWord(dictionary, text);
     updateDictionary(dictionary);
 
@@ -91,39 +85,8 @@ public class DictionaryManagement extends Manager {
 
   @Override
   public void editWord(Dictionary dictionary, Word word) {
-//    int id = dictionary.getId(word.getTargetWord());
-//    if (id == -1) {
-//      return;
-//    }
-//    dictionary.editWord(word);
     super.editWord(dictionary, word);
     updateDictionary(dictionary);
   }
-
-
-  /*
-  Các hàm dưới này đều đã được khai báo trong abstract class Manager, nên không cần thiết nữa.
-   */
-//  public void showAllWords(Dictionary dictionary) {
-//    for (Word word : dictionary.getWordList()) {
-//      System.out.println(word.getTargetWord());
-//    }
-//  }
-//
-//  public void print(Dictionary dictionary) {
-//    for (Word word : dictionary.getWordList()) {
-//      System.out.println(word.getInfo());
-//    }
-//  }
-//
-//  public void search(Dictionary dictionary, String text) {
-//    for(String s : dictionary.prefixList(text)) {
-//      System.out.println(s);
-//    }
-//  }
-//
-//  public String lookUp(Dictionary dictionary, String text) {
-//    return dictionary.lookUp(text);
-//  }
 
 }
