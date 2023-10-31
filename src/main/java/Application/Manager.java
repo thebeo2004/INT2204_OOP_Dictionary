@@ -11,7 +11,9 @@ public abstract class Manager {
 
     public void print(Dictionary dictionary) {
         for (Word word : dictionary.getWordList()) {
-            System.out.println(word.getInfo());
+            if (dictionary.getId(word.getTargetWord()) != -1) {
+                System.out.println(word.getTargetWord());
+            }
         }
     }
 
