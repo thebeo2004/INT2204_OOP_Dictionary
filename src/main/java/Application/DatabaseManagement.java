@@ -7,9 +7,7 @@ import java.sql.Statement;
 
 public class DatabaseManagement extends Manager {
 
-    private String url = "jdbc:sqlite:D:/demo/demo/src/main/resources/Data/envidict.db";
-    private String username = "root";
-    private String password = "hieu1804bgg";
+    private String url = "jdbc:sqlite:src/main/resources/Data/envidict.db";
     private Connection connection = null;
     private ResultSet resultSet = null;
 
