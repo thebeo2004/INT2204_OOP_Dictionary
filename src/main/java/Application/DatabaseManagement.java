@@ -59,7 +59,7 @@ public class DatabaseManagement extends Manager {
 
     @Override
     public void deleteWord(Dictionary dictionary, String text) {
-        dictionary.deleteWord(text);
+        super.deleteWord(dictionary, text);
         String query = "DELETE FROM dictionary WHERE target = '" + text + "';";
         try {
             Class.forName("org.sqlite.JDBC");
@@ -79,7 +79,7 @@ public class DatabaseManagement extends Manager {
     @Override
     public void editWord(Dictionary dictionary, Word word) {
         super.editWord(dictionary, word);
-        dictionary.editWord(word);
+        //dictionary.editWord(word);
         String query = "UPDATE dictionary SET definition = '" + word.getExplainWord() + "' WHERE target = '" + word.getTargetWord() + "';";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
