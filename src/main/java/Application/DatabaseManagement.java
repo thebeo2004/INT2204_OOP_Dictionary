@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class DatabaseManagement extends Manager {
 
-    private String url = "jdbc:mysql://localhost:3306/envidict";
+    private String url = "jdbc:sqlite:D:/demo/demo/src/main/resources/Data/envidict.db";
     private String username = "root";
     private String password = "hieu1804bgg";
     private Connection connection = null;
@@ -18,9 +18,9 @@ public class DatabaseManagement extends Manager {
         dictionary.clearWordList();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("org.sqlite.JDBC");
 
-            connection = DriverManager.getConnection(url, username, password);
+            connection = DriverManager.getConnection(url);
 
             Statement statement = connection.createStatement();
 
@@ -42,9 +42,9 @@ public class DatabaseManagement extends Manager {
             dictionary.addWord(word);
             String query = "INSERT INTO dictionary (id, target, definition) VALUES (null, '" + word.getTargetWord() + "', '" + word.getExplainWord() + "');";
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                Class.forName("org.sqlite.JDBC");
 
-                connection = DriverManager.getConnection(url, username, password);
+                connection = DriverManager.getConnection(url);
 
                 Statement statement = connection.createStatement();
 
@@ -62,9 +62,9 @@ public class DatabaseManagement extends Manager {
         super.deleteWord(dictionary, text);
         String query = "DELETE FROM dictionary WHERE target = '" + text + "';";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("org.sqlite.JDBC");
 
-            connection = DriverManager.getConnection(url, username, password);
+            connection = DriverManager.getConnection(url);
 
             Statement statement = connection.createStatement();
 
@@ -79,7 +79,7 @@ public class DatabaseManagement extends Manager {
     @Override
     public void editWord(Dictionary dictionary, Word word) {
         super.editWord(dictionary, word);
-        dictionary.editWord(word);
+        //dictionary.editWord(word);
         String query = "UPDATE dictionary SET definition = '" + word.getExplainWord() + "' WHERE target = '" + word.getTargetWord() + "';";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
