@@ -7,6 +7,6 @@ module com.example.demo2 {
   requires java.sql;
   requires freetts;
 
-  opens com.example.demo2 to javafx.fxml;
-  exports com.example.demo2;
+  opens GUI to javafx.fxml;
+  exports GUI;
 }
