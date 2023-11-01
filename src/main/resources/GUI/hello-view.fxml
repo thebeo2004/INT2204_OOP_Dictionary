@@ -66,6 +66,30 @@
                 <Insets left="20.0" />
               </padding>
             </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="118.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="129.0" stylesheets="@../css/styling.css" text="Flash Card" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/card.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="154.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="129.0" stylesheets="@../css/styling.css" text="Download" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/download.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Button>
           </children>
         </VBox>
       </left>
