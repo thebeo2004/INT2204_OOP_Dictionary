@@ -82,7 +82,7 @@ public class DatabaseManagement extends Manager {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            connection = DriverManager.getConnection(url, username, password);
+            connection = DriverManager.getConnection(url);
 
             Statement statement = connection.createStatement();
 
