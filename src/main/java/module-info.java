@@ -1,4 +1,4 @@
-module com.example.demo2 {
+module GUI {
   requires javafx.controls;
   requires javafx.fxml;
 
@@ -6,6 +6,7 @@ module com.example.demo2 {
   requires org.kordamp.bootstrapfx.core;
   requires java.sql;
   requires freetts;
+  requires jlayer;
 
   opens GUI to javafx.fxml;
   exports GUI;
