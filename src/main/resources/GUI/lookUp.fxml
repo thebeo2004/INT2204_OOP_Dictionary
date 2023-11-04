@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="835.0" prefWidth="1035.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <left>
-      <VBox prefHeight="835.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="600.0" prefWidth="220.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="150.0" prefWidth="350.0">
+            <HBox prefHeight="30.0" prefWidth="220.0">
                <children>
-                  <TextField prefHeight="150.0" prefWidth="350.0" />
+                  <TextField prefHeight="30.0" prefWidth="220.0" />
                </children>
             </HBox>
-            <HBox prefHeight="685.0" prefWidth="350.0">
+            <HBox prefHeight="570.0" prefWidth="220.0">
                <children>
-                  <TableView prefHeight="635.0" prefWidth="350.0">
+                  <TableView prefHeight="570.0" prefWidth="220.0">
                     <columns>
-                      <TableColumn prefWidth="350.0" text="C1" />
+                      <TableColumn maxWidth="570.0" prefWidth="220.0" text="C1" />
                     </columns>
                   </TableView>
                </children>
@@ -29,11 +31,25 @@
          </children>
       </VBox>
    </left>
-   <center>
-      <VBox prefHeight="835.0" prefWidth="685.0" BorderPane.alignment="CENTER">
+   <right>
+      <VBox prefHeight="600.0" prefWidth="520.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField editable="false" prefHeight="835.0" prefWidth="685.0" />
+            <HBox prefHeight="30.0" prefWidth="520.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Definition" wrappingWidth="433.71429324150085">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
          </children>
       </VBox>
-   </center>
+   </right>
 </BorderPane>
