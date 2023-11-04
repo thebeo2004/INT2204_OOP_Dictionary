@@ -36,7 +36,7 @@ public class DatabaseManagement extends Manager {
     }
 
     public void addWord(Dictionary dictionary, Word word) {
-        if (lookUp(dictionary, word.getTargetWord()).equals("This word doesn't exist")) {
+        if (lookUp(dictionary, word.getTargetWord()) == null) {
             dictionary.addWord(word);
             String query = "INSERT INTO dictionary (id, target, definition) VALUES (null, '" + word.getTargetWord() + "', '" + word.getExplainWord() + "');";
             try {

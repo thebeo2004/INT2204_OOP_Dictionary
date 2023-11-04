@@ -70,7 +70,7 @@ public class DictionaryManagement extends Manager {
   }
 
   public void addWord(Dictionary dictionary, Word word) {
-    if (lookUp(dictionary, word.getTargetWord()).equals("This word doesn't exist")) {
+    if (lookUp(dictionary, word.getTargetWord()) == null) {
       dictionary.addWord(word);
       updateDictionary(dictionary);
     }

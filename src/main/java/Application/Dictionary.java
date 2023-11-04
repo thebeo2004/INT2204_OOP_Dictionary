@@ -79,12 +79,12 @@ public class Dictionary {
     return trie.lookUp(text);
   }
 
-  public String lookUp(String text) {
+  public Word lookUp(String text) {
     int id = getId(text);
 
     if (id == -1) {
-      return "This word doesn't exist";
+      return null;
     }
-    return wordList.get(id).getInfo();
+    return wordList.get(id);
   }
 }

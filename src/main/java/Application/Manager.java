@@ -1,5 +1,7 @@
 package Application;
 
+import java.util.List;
+
 public abstract class Manager {
     public void loadDictionary(Dictionary dictionary) {};
 
@@ -17,13 +19,11 @@ public abstract class Manager {
         }
     }
 
-    public void search(Dictionary dictionary, String text) {
-        for(String s : dictionary.prefixList(text)) {
-            System.out.println(s);
-        }
+    public List<String> search(Dictionary dictionary, String text) {
+        return dictionary.prefixList(text);
     }
 
-    public String lookUp(Dictionary dictionary, String text) {
+    public Word lookUp(Dictionary dictionary, String text) {
         return dictionary.lookUp(text);
     }
 
