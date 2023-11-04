@@ -156,4 +156,7 @@
          </children>
       </VBox>
    </left>
+   <center>
+      <BorderPane prefHeight="835.0" prefWidth="1035.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
