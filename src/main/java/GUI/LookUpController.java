@@ -55,6 +55,10 @@ public class LookUpController implements Initializable {
 
     tableView.getItems().clear();
 
+    if (typing.getText().isEmpty()) {
+      return;
+    }
+
     for(String s : dictionaryManagement.search(dictionary, typing.getText())) {
       tableView.getItems().add(s);
     }
@@ -89,6 +93,10 @@ public class LookUpController implements Initializable {
 
   @FXML
   void choosingFromList(MouseEvent event) {
+    if (tableView.getSelectionModel().getSelectedItem() == null) {
+      return;
+    }
+
     Word word = dictionaryManagement.lookUp(dictionary, tableView.getSelectionModel().getSelectedItem());
     if (word != null) {
       show(word);
