@@ -12,10 +12,25 @@ import java.io.IOException;
 public class HelloController {
 
   @FXML
-  private Button lookUp;
+  private BorderPane borderPane;
 
   @FXML
-  private BorderPane borderPane;
+  private Button contribute;
+
+  @FXML
+  private Button download;
+
+  @FXML
+  private Button flashCard;
+
+  @FXML
+  private Button ggTranslate;
+
+  @FXML
+  private Button home;
+
+  @FXML
+  private Button lookUp;
 
   @FXML
   public void loadPage(String page) {
@@ -28,9 +43,62 @@ public class HelloController {
     borderPane.setCenter(root);
   }
 
+  void turnOff(Button button) {
+    button.setStyle("-fx-background-color: #035e8c;\n"
+        + "    color: #cbe1ea;");
+  }
+
+  void turnOn(Button button) {
+    button.setStyle("-fx-background-color: #1d2a57;\n"
+        + "  color: #cbe1ea;\n"
+        + "  -fx-border-color: #ffff;\n"
+        + "  -fx-border-width: 0px 0px 0px 3px;");
+  }
+
+  void turnOffAll() {
+    turnOff(lookUp);
+    turnOff(download);
+    turnOff(home);
+    turnOff(contribute);
+    turnOff(flashCard);
+    turnOff(ggTranslate);
+  }
+
   @FXML
   void loadLookUp(MouseEvent event) {
     loadPage("lookUp");
+    turnOffAll();
+    turnOn(lookUp);
+  }
+
+  @FXML
+  void loadContribute(MouseEvent event) {
+    turnOffAll();
+    turnOn(contribute);
+  }
+
+  @FXML
+  void loadDownload(MouseEvent event) {
+    turnOffAll();
+    turnOn(download);
+  }
+
+  @FXML
+  void loadFlashCard(MouseEvent event) {
+    turnOffAll();
+    turnOn(flashCard);
+  }
+
+  @FXML
+  void loadHome(MouseEvent event) {
+    turnOffAll();
+    turnOn(home);
+  }
+
+  @FXML
+  void loadggTranslate(MouseEvent event) {
+    turnOffAll();
+    turnOn(ggTranslate);
   }
 
 }
