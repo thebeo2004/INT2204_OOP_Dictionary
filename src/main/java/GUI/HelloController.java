@@ -13,6 +13,7 @@ public class HelloController {
 
   @FXML
   private Button lookUp;
+  private Button ggtranslate;
 
   @FXML
   private BorderPane borderPane;
@@ -31,6 +32,11 @@ public class HelloController {
   @FXML
   void loadLookUp(MouseEvent event) {
     loadPage("lookUp");
+  }
+
+  @FXML
+  void loadGGTranslate(MouseEvent event) {
+    loadPage("ggtranslate");
   }
 
 }
