@@ -61,6 +61,11 @@ public class LookUpController implements Initializable {
   }
 
   void show(Word word) {
+    targetWord.setText("");
+    ipa.setText("");
+    function.setText("");
+    explainWord.setText("");
+
     targetWord.setText(word.getTargetWord());
     ipa.setText(word.getIpa());
     function.setText(word.getFunction());
@@ -71,10 +76,6 @@ public class LookUpController implements Initializable {
   void show(ActionEvent event) {
 
     Word word = dictionaryManagement.lookUp(dictionary, typing.getText());
-    targetWord.setText("");
-    ipa.setText("");
-    function.setText("");
-    explainWord.setText("");
 
     if (word != null) {
       show(word);
@@ -82,8 +83,8 @@ public class LookUpController implements Initializable {
       targetWord.setText("This word doesn't exist");
     }
 
-    tableView.getItems().clear();
-    typing.clear();
+//    tableView.getItems().clear();
+//    typing.clear();
   }
 
   @FXML
@@ -92,6 +93,9 @@ public class LookUpController implements Initializable {
     if (word != null) {
       show(word);
     }
+
+//    tableView.getItems().clear();
+//    typing.clear();
   }
 
 }

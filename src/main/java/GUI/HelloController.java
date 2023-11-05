@@ -30,7 +30,7 @@ public class HelloController {
 
   @FXML
   void loadLookUp(MouseEvent event) {
-    loadPage("lookUpPage");
+    loadPage("lookUp");
   }
 
 }

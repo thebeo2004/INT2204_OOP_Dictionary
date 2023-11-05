@@ -68,9 +68,13 @@
     -fx-fill : white ;
 }
 
+.table-row-cell:hover {
+    -fx-background-color: #beecff;
+}
+
 .table-row-cell:focused {
-    -fx-border-color: #beecff;
-    -fx-border-width: 0px 0px 0px 1px;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0px 0px 0px 5px;
 }
 
 /* scroll bar starts hear */
