@@ -9,16 +9,35 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HelloController">
    <left>
-      <VBox prefHeight="600.0" prefWidth="200.0" styleClass="primary-color" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+      <VBox prefHeight="600.0" prefWidth="200.0" styleClass="primary-color" stylesheets="@../css/lookUp.css" BorderPane.alignment="CENTER">
          <children>
             <VBox pickOnBounds="false" prefHeight="611.0" prefWidth="200.0">
                <children>
-                  <HBox prefHeight="50.0" prefWidth="200.0" />
+                  <HBox prefHeight="51.0" prefWidth="200.0" />
                   <HBox prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/style.css" text="Look up" textFill="WHITE">
+                        <Button fx:id="home" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadHome" onMouseReleased="#loadHome" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Home" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="16.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="80.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="lookUp" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadLookUp" onMouseReleased="#loadLookUp" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Look up" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -43,7 +62,7 @@
                   </HBox>
                   <HBox prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/style.css" text="Contribute" textFill="WHITE">
+                        <Button fx:id="contribute" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadContribute" onMouseReleased="#loadContribute" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Contribute" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -62,26 +81,7 @@
                   </HBox>
                   <HBox prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/style.css" text="Edit" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Icons/edit.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <padding>
-                              <Insets left="16.0" />
-                           </padding>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="80.0" prefWidth="200.0">
-                     <children>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/style.css" text="Google Translate" textFill="WHITE">
+                        <Button fx:id="ggTranslate" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadggTranslate" onMouseReleased="#loadggTranslate" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Google Translate" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -100,7 +100,7 @@
                   </HBox>
                   <HBox prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/style.css" text="Flash card" textFill="WHITE">
+                        <Button fx:id="flashCard" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadFlashCard" onMouseReleased="#loadFlashCard" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Flash card" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -117,9 +117,9 @@
                         </Button>
                      </children>
                   </HBox>
-                  <HBox prefHeight="80.0" prefWidth="200.0">
+                  <HBox layoutX="10.0" layoutY="460.0" prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/style.css" text="Download" textFill="WHITE">
+                        <Button fx:id="download" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadDownload" onMouseReleased="#loadDownload" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Download" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -134,14 +134,13 @@
                               <Insets left="16.0" />
                            </padding>
                         </Button>
-                     </children>
-                  </HBox>
+                     </children></HBox>
                </children>
             </VBox>
          </children>
       </VBox>
    </left>
    <center>
-      <BorderPane prefHeight="600.0" prefWidth="760.0" BorderPane.alignment="CENTER" />
+      <BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="760.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
