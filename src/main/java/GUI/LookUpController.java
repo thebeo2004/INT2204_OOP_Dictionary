@@ -1,9 +1,12 @@
 package GUI;
 
-import static GUI.HelloApplication.dictionary;
-import static GUI.HelloApplication.dictionaryManagement;
+import static GUI.Utility.dictionary;
+import static GUI.Utility.dictionaryManagement;
+import static GUI.Utility.searchingHistory;
 
 import Application.Word;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,6 +19,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -45,22 +50,33 @@ public class LookUpController implements Initializable {
   @FXML
   private TextField typing;
 
+  @FXML
+  private ImageView timeIcon;
+
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     tableColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue()));
   }
 
+  void loadTimeIcon(String path) throws FileNotFoundException {
+    Image image = new Image(new FileInputStream(path));
+    timeIcon.setImage(image);
+  }
+
   @FXML
-  void search(KeyEvent event) {
+  void search(KeyEvent event) throws FileNotFoundException {
 
     tableView.getItems().clear();
-
+    loadTimeIcon("src/main/resources/Icons/delivery_time.png");
+    tableColumn.setText("Searching History");
     for(String s : dictionaryManagement.search(dictionary, typing.getText())) {
       tableView.getItems().add(s);
     }
   }
 
   void show(Word word) {
+    searchingHistory.add(word.getTargetWord());
+
     targetWord.setText("");
     ipa.setText("");
     function.setText("");
@@ -98,4 +114,13 @@ public class LookUpController implements Initializable {
 //    typing.clear();
   }
 
+  @FXML
+  void showSearchingHistory(MouseEvent event) throws FileNotFoundException {
+    tableView.getItems().clear();
+    tableColumn.setText("Searching History");
+    loadTimeIcon("src/main/resources/Icons/delivery_time(1).png");
+    for(String s : searchingHistory) {
+      tableView.getItems().add(s);
+    }
+  }
 }

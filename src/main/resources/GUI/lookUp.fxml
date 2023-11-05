@@ -29,7 +29,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="timeIcon" fitHeight="23.0" fitWidth="23.0" onMousePressed="#showSearchingHistory" onMouseReleased="#showSearchingHistory" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Icons/delivery_time.png" />
                      </image>
