@@ -27,7 +27,7 @@ public class Dictionary {
     } else {
       int length = wordList.size();
 
-      if (data.charAt(0) == '/') {
+      if (data.charAt(0) == '/' || data.charAt(0) == '@') {
         wordList.get(length - 1).setIpa(data);
       } else if (data.charAt(0) == '*') {
         data = data.substring(1);
