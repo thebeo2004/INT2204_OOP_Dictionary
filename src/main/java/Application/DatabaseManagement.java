@@ -26,8 +26,15 @@ public class DatabaseManagement extends Manager {
 
             while (resultSet.next()) {
                 Word word = new Word(resultSet.getString("target"), resultSet.getString("definition"));
+
+                String[] arr = resultSet.getString("definition").split("\n");
+
+                dictionary.loadWord("|" + resultSet.getString("target"));
+                for (String i : arr) {
+                    dictionary.loadWord(i);
+                }
+
                 if (word.getTargetWord() == null) continue;
-                dictionary.addWord(word);
             }
             connection.close();
         } catch (Exception e) {

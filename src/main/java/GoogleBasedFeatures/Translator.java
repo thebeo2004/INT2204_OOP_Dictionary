@@ -10,15 +10,9 @@ import java.nio.charset.StandardCharsets;
 
 public class Translator {
 
-  String target;
-  String explain;
+  public Translator() {};
 
-  public Translator(String target, String explain) {
-    this.target = target;
-    this.explain = explain;
-  }
-
-  public String translate(String text) {
+  public String translate(String text, String target, String explain) {
     StringBuilder response = new StringBuilder();
     try {
       String urlStr =
