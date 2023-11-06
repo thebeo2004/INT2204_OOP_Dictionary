@@ -4,6 +4,7 @@ import static GUI.Utility.dictionary;
 import static GUI.Utility.databaseManagement;
 import static GUI.Utility.searchingHistory;
 import static GUI.deleteWordController.deletedWord;
+import static GUI.editingDialogController.editingWord;
 
 import Application.Word;
 import java.io.FileInputStream;
@@ -38,6 +39,8 @@ import javafx.stage.StageStyle;
 public class LookUpController implements Initializable {
 
   public static boolean isShowDeleteDialog;
+  public static boolean isShowEditingDialog;
+  private boolean isEditing = false;
   @FXML
   private TextArea explainWord;
 
@@ -61,7 +64,13 @@ public class LookUpController implements Initializable {
 
   @FXML
   private ImageView timeIcon;
-  private deleteWordController deleteController;
+
+  @FXML
+  private HBox editButton;
+
+  @FXML
+  private HBox updateButton;
+
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -182,5 +191,60 @@ public class LookUpController implements Initializable {
     }
   }
 
+  void turnOnEdit() {
+    ipa.setEditable(true);
+    function.setEditable(true);
+    explainWord.setEditable(true);
+    updateButton.setVisible(true);
 
+    ipa.setStyle("-fx-background-color: #bfbfbf;");
+    function.setStyle("-fx-background-color: #bfbfbf;");
+    explainWord.setStyle("-fx-background-color: #bfbfbf;");
+  }
+
+  void turnOffEdit() {
+    ipa.setEditable(false);
+    function.setEditable(false);
+    explainWord.setEditable(false);
+    updateButton.setVisible(false);
+    ipa.setStyle("-fx-background-color: #ffff;");
+    function.setStyle("-fx-background-color: #ffff;");
+    explainWord.setStyle("-fx-background-color: #ffff;");
+  }
+  @FXML
+  void editWordAction(MouseEvent event) {
+
+    if (!isEditing) {
+
+      if(targetWord.getText().equals("") || targetWord.getText().equals("This word doesn't exist")) {
+        return;
+      }
+      editButton.setStyle("-fx-background-color: #003d5f;\n"
+          + "    -fx-border-width: 3 0 0 0;\n"
+          + "    -fx-border-color: #FFFF;");
+
+      turnOnEdit();
+      isEditing = true;
+    } else {
+      editButton.setStyle("-fx-background-color: #0078ba;\n"
+          + "    -fx-border-width: 0 0 0 0;\n");
+
+      turnOffEdit();
+      isEditing = false;
+    }
+  }
+
+  @FXML
+  void updateButtonAction(MouseEvent event) throws IOException {
+    if(!updateButton.isVisible()) {
+      return;
+    }
+
+    if (!isShowEditingDialog) {
+      showAsDialog("editingDialog.fxml");
+      editingWord = new Word(targetWord.getText(), ipa.getText(), function.getText(), explainWord.getText());
+      isShowEditingDialog = true;
+    }
+
+  }
 }

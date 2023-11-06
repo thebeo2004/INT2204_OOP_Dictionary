@@ -136,3 +136,17 @@
 .exit:focused {
     -fx-background-color: #0491d8;
 }
+
+.updateAction {
+    -fx-background-color: #003d5f;
+}
+
+.updateAction:pressed {
+    -fx-border-width: 3 0 0 0;
+    -fx-border-color: #FFFF;
+}
+
+.updateAction:hover {
+    -fx-border-width: 3 0 0 0;
+    -fx-border-color: #FFFF;
+}
