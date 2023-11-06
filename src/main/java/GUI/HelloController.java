@@ -2,12 +2,14 @@ package GUI;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import javafx.stage.Stage;
 
 public class HelloController {
 
@@ -99,6 +101,12 @@ public class HelloController {
   void loadggTranslate(MouseEvent event) {
     turnOffAll();
     turnOn(ggTranslate);
+  }
+
+  @FXML
+  void exitWindow(MouseEvent event) {
+    Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    stage.close();
   }
 
 }
