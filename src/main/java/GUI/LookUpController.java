@@ -197,9 +197,9 @@ public class LookUpController implements Initializable {
     explainWord.setEditable(true);
     updateButton.setVisible(true);
 
-    ipa.setStyle("-fx-background-color: #bfbfbf;");
-    function.setStyle("-fx-background-color: #bfbfbf;");
-    explainWord.setStyle("-fx-background-color: #bfbfbf;");
+    ipa.setStyle("-fx-background-color: #a0d6ff;");
+    function.setStyle("-fx-background-color: #a0d6ff;");
+    explainWord.setStyle("-fx-background-color: #a0d6ff;");
   }
 
   void turnOffEdit() {
@@ -207,9 +207,9 @@ public class LookUpController implements Initializable {
     function.setEditable(false);
     explainWord.setEditable(false);
     updateButton.setVisible(false);
-    ipa.setStyle("-fx-background-color: #ffff;");
-    function.setStyle("-fx-background-color: #ffff;");
-    explainWord.setStyle("-fx-background-color: #ffff;");
+    ipa.setStyle("-fx-background-color: #bfbfbf;");
+    function.setStyle("-fx-background-color: #bfbfbf;");
+    explainWord.setStyle("-fx-background-color: #bfbfbf;");
 
     show(databaseManagement.lookUp(dictionary, targetWord.getText()));
   }
