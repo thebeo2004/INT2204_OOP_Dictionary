@@ -130,26 +130,26 @@
             </HBox>
             <HBox alignment="BASELINE_LEFT" layoutX="10.0" layoutY="66.0" prefHeight="35.0" prefWidth="545.0">
                <children>
-                  <Label fx:id="ipa" prefHeight="35.0" prefWidth="539.0" styleClass="transparent" stylesheets="@../css/lookUp.css" wrapText="true">
+                  <TextField fx:id="ipa" editable="false" prefHeight="44.0" prefWidth="560.0" styleClass="transparent" stylesheets="@../css/lookUp.css">
                      <font>
                         <Font name="System Italic" size="16.0" />
                      </font>
                      <padding>
                         <Insets left="25.0" />
                      </padding>
-                  </Label>
+                  </TextField>
                </children>
             </HBox>
             <HBox alignment="BASELINE_LEFT" layoutX="10.0" layoutY="101.0" prefHeight="35.0" prefWidth="545.0">
                <children>
-                  <Label fx:id="function" prefHeight="35.0" prefWidth="539.0" styleClass="transparent" stylesheets="@../css/lookUp.css" wrapText="true">
+                  <TextField fx:id="function" prefHeight="132.0" prefWidth="549.0" styleClass="transparent" stylesheets="@../css/lookUp.css">
                      <font>
                         <Font name="Arial Nova" size="16.0" />
                      </font>
                      <padding>
                         <Insets left="35.0" />
                      </padding>
-                  </Label>
+                  </TextField>
                </children>
             </HBox>
             <HBox prefHeight="446.0" prefWidth="545.0">

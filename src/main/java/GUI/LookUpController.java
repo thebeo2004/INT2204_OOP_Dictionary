@@ -42,10 +42,10 @@ public class LookUpController implements Initializable {
   private TextArea explainWord;
 
   @FXML
-  private Label ipa;
+  private TextField ipa;
 
   @FXML
-  private Label function;
+  private TextField function;
 
   @FXML
   private TableColumn<String, String> tableColumn;
@@ -110,6 +110,9 @@ public class LookUpController implements Initializable {
       show(word);
     } else {
       targetWord.setText("This word doesn't exist");
+      ipa.setText("");
+      function.setText("");
+      explainWord.setText("");
     }
 
 //    tableView.getItems().clear();
