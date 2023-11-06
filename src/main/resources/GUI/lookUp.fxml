@@ -40,7 +40,7 @@
                <children>
                   <TableView fx:id="tableView" onMousePressed="#choosingFromList" prefHeight="540.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../css/lookUp.css">
                     <columns>
-                      <TableColumn fx:id="tableColumn" prefWidth="200.0" text="Searching Result " />
+                      <TableColumn fx:id="tableColumn" prefWidth="198.66665649414062" text="Searching Result " />
                     </columns>
                      <HBox.margin>
                         <Insets />
@@ -60,37 +60,54 @@
    <center>
       <VBox prefHeight="439.0" prefWidth="411.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_RIGHT" prefHeight="56.0" prefWidth="545.0" spacing="10.0" styleClass="operation" stylesheets="@../css/lookUp.css">
+            <HBox prefHeight="56.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #0078ba;" styleClass="operation" stylesheets="@../css/lookUp.css">
                <children>
-                  <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="56.0" prefWidth="88.0" spacing="5.0">
+                  <HBox alignment="CENTER" layoutX="433.0" layoutY="10.0" maxHeight="-Infinity" prefHeight="55.0" prefWidth="65.0" spacing="5.0" styleClass="Action" stylesheets="@../css/lookUp.css">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/edit.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="27.0" prefWidth="51.0" text="Edit" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" onMousePressed="#deleteWord" prefHeight="55.0" prefWidth="85.0" spacing="5.0" styleClass="Action" stylesheets="@../css/lookUp.css">
                      <children>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Icons/delete.png" />
                            </image>
                         </ImageView>
-                        <Label text="Delete">
+                        <Label text="Delete" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" prefHeight="56.0" prefWidth="122.0" spacing="5.0">
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" prefHeight="56.0" prefWidth="122.0" spacing="5.0" styleClass="Action" stylesheets="@../css/lookUp.css">
                      <children>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Icons/add.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="27.0" prefWidth="91.0" text="Flash Card">
+                        <Label prefHeight="27.0" prefWidth="91.0" text="Flash Card" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
                </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
             </HBox>
             <HBox alignment="BASELINE_LEFT" prefHeight="31.0" prefWidth="545.0">
                <children>

@@ -1,40 +1,38 @@
 package GUI;
 
-import GoogleBasedFeatures.TextToSpeech;
-import GoogleBasedFeatures.Translator;
+import static GUI.Utility.*;
+import static GUI.Utility.dictionaryManagement;
+
+import java.io.FileInputStream;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
 
 import Application.*;
-import GoogleBasedFeatures.*;
+import javafx.stage.StageStyle;
 
 public class HelloApplication extends Application {
-
-  public static Dictionary dictionary = new Dictionary();
-  public static DatabaseManagement databaseManagement = new DatabaseManagement();
-  public static DictionaryManagement dictionaryManagement = new DictionaryManagement();
-  public static Translator translator = new Translator();
-  public static TextToSpeech textToSpeech = new TextToSpeech();
-
 
   @Override
   public void start(Stage stage) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sample.fxml"));
-    Scene scene = new Scene(fxmlLoader.load());
+    Scene scene = new Scene(fxmlLoader.load(), 960, 600);
     stage.setTitle("Hello!");
     stage.setScene(scene);
+    stage.setResizable(false);
+    stage.initStyle(StageStyle.UNDECORATED);
     stage.show();
-
-//    databaseManagement.loadDictionary(dictionary);
-//    //databaseManagement.print(dictionary);
-
   }
 
   public static void main(String[] args) {
     databaseManagement.loadDictionary(dictionary);
+
     launch();
   }
 }
