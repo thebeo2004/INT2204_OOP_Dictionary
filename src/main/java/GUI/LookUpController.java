@@ -210,6 +210,8 @@ public class LookUpController implements Initializable {
     ipa.setStyle("-fx-background-color: #ffff;");
     function.setStyle("-fx-background-color: #ffff;");
     explainWord.setStyle("-fx-background-color: #ffff;");
+
+    show(databaseManagement.lookUp(dictionary, targetWord.getText()));
   }
   @FXML
   void editWordAction(MouseEvent event) {
