@@ -140,9 +140,20 @@ public class LookUpController implements Initializable {
     tableView.getItems().clear();
     tableColumn.setText("Searching History");
     loadTimeIcon("src/main/resources/Icons/delivery_time(1).png");
-    for(String s : searchingHistory) {
-      tableView.getItems().add(s);
+
+    for(int i = searchingHistory.size() - 1; i >= 0; i--) {
+      boolean flag = true;
+
+      for(int j = i + 1; j < searchingHistory.size(); j++) {
+        if (searchingHistory.get(j).equals(searchingHistory.get(i))) {
+          flag = false;
+        }
+      }
+      if (flag) {
+        tableView.getItems().add(searchingHistory.get(i));
+      }
     }
+
   }
 
   private void showAsDialog(String path) throws IOException {
