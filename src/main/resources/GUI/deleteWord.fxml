@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="206.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.deleteWordController">
+   <children>
+      <VBox prefHeight="206.0" prefWidth="400.0">
+         <children>
+            <HBox alignment="CENTER" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="75.0" prefWidth="400.0" style="-fx-background-color: #025d8b;">
+               <children>
+                  <Label text="Warning" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="34.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="400.0" styleClass="hbox" stylesheets="@../css/deleteDialog.css">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/delete1.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="deleteTextField" editable="false" prefHeight="36.0" prefWidth="290.0" styleClass="transparent" stylesheets="@../css/deleteDialog.css" text="You actually want to delete this word?">
+                     <font>
+                        <Font name="System Italic" size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="400.0" spacing="20.0" styleClass="transparent" stylesheets="@../css/deleteDialog.css">
+               <children>
+                  <Label onMousePressed="#dialogDeleteWord" prefHeight="32.0" prefWidth="211.0" styleClass="deleteWord" stylesheets="@../css/deleteDialog.css" text="  Yes, I want to delete this word" textFill="#0b74d9">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="10.0" onMousePressed="#dialogReturnHome" prefHeight="32.0" prefWidth="161.0" styleClass="return" stylesheets="@../css/deleteDialog.css" text="  No, return homepage" textFill="#efefef">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

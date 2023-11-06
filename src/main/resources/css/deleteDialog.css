@@ -1,0 +1,33 @@
+.transparent {
+  -fx-background-color: #ffff;
+  -fx-text-fill: #a90f13;
+}
+
+.hbox {
+  -fx-background-color: #ffff;
+  -fx-border-color: #7e8181;
+  -fx-border-width: 0 0 0.5 0;
+}
+
+.deleteWord {
+  -fx-background-color: #ffff;
+  -fx-border-width: 1 1 1 1;
+  -fx-border-color: #bcebfe;
+}
+
+.deleteWord:hover {
+  -fx-background-color: #cdcdcd;
+}
+
+.return {
+  -fx-background-color: #0377ff;
+  -fx-border-width: 1 1 1 1;
+  -fx-border-color: #bcebfe;
+}
+
+.return:hover {
+  -fx-background-color: #0253b2;
+}
+
+
+

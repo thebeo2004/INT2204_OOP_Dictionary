@@ -35,6 +35,7 @@
 
 .search-border {
     -fx-border-color: #00609c;
+    -fx-border-width: 0.5 0.5 0.5 0;
 }
 
 .right-border {
@@ -100,4 +101,38 @@
     -fx-background-color: derive(#0080cf, 90%);
     -fx-background-insets: 2, 0, 0;
     -fx-background-radius: 2em;
+}
+
+.Action:focused {
+    -fx-background-color: #003d5f;
+    -fx-border-width: 0 3 0 0;
+    -fx-border-color: #FFFF;
+}
+
+.Action:pressed {
+    -fx-background-color: #003d5f;
+    -fx-border-width: 3 0 0 0;
+    -fx-border-color: #FFFF;
+}
+
+.Action:hover {
+    -fx-background-color: #003d5f;
+    -fx-border-width: 3 0 0 0;
+    -fx-border-color: #FFFF;
+}
+
+.exit {
+    -fx-border-width: 1 0 1 0;
+}
+
+.exit:hover {
+    -fx-background-color: #0491d8;
+}
+
+.exit:pressed {
+    -fx-background-color: #0491d8;
+}
+
+.exit:focused {
+    -fx-background-color: #0491d8;
 }
