@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DatabaseManagement extends Manager {
 
@@ -99,5 +100,33 @@ public class DatabaseManagement extends Manager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<Word> loadCrosswordList(int length) {
+
+        ArrayList<Word> result = new ArrayList<>();
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+
+            connection = DriverManager.getConnection(url);
+
+            Statement statement = connection.createStatement();
+
+            resultSet = statement.executeQuery("select * from dictionary where length(target) <= " + String.valueOf(length));
+
+            while (resultSet.next()) {
+                Word word = new Word(resultSet.getString("target"), resultSet.getString("definition"));
+
+
+                result.add(word);
+
+                if (word.getTargetWord() == null) continue;
+            }
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
