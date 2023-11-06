@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -30,14 +29,14 @@
                         <Image url="@../Icons/delete1.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="deleteTextField" editable="false" prefHeight="36.0" prefWidth="290.0" styleClass="transparent" stylesheets="@../css/deleteDialog.css" text="You actually want to delete this word?">
+                  <Label styleClass="transparent" stylesheets="@../css/deleteDialog.css" text="You actually want to delete this word?" textFill="#ae0a0a">
                      <font>
                         <Font name="System Italic" size="16.0" />
                      </font>
-                  </TextField>
+                  </Label>
                </children>
                <padding>
-                  <Insets left="20.0" />
+                  <Insets left="40.0" />
                </padding>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="400.0" spacing="20.0" styleClass="transparent" stylesheets="@../css/deleteDialog.css">

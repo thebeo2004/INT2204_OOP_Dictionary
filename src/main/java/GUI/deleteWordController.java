@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 
 public class deleteWordController {
 
-  @FXML
   public static String deletedWord;
   private double x;
   private double y;
