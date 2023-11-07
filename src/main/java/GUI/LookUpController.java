@@ -40,6 +40,7 @@ public class LookUpController implements Initializable {
 
   public static boolean isShowDeleteDialog;
   public static boolean isShowEditingDialog;
+  public static boolean isShowFlashcardDialog;
   private boolean isEditing = false;
   @FXML
   private TextArea explainWord;
@@ -258,5 +259,19 @@ public class LookUpController implements Initializable {
     //text to speech action
     //NDH will update later
     //....texttospeech(targetWord.getText())
+  }
+
+  @FXML
+  void addingFlashCardAction(MouseEvent event) throws IOException {
+    if(targetWord.getText().equals("") || targetWord.getText().equals("This word doesn't exist")) {
+      return;
+    }
+
+    if (!isShowFlashcardDialog) {
+      showAsDialog("flashcardDialog.fxml");
+      isShowFlashcardDialog = true;
+      //code update to flash card storage
+      //.....
+    }
   }
 }
