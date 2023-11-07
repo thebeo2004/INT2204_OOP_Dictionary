@@ -75,6 +75,7 @@ public class HelloController {
 
   @FXML
   void loadContribute(MouseEvent event) {
+    loadPage("contributeWord");
     turnOffAll();
     turnOn(contribute);
   }
