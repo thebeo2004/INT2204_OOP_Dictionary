@@ -247,6 +247,16 @@ public class LookUpController implements Initializable {
       editingWord = new Word(targetWord.getText(), ipa.getText(), function.getText(), explainWord.getText());
       isShowEditingDialog = true;
     }
+  }
 
+  @FXML
+  void volumeAction(MouseEvent event) {
+    if (targetWord.getText().equals("") || targetWord.getText().equals("This word doesn't exist")) {
+      return;
+    }
+
+    //text to speech action
+    //NDH will update later
+    //....texttospeech(targetWord.getText())
   }
 }
