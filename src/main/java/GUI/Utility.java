@@ -12,5 +12,8 @@ public class Utility {
   public static Translator translator = new Translator();
   public static TextToSpeech textToSpeech = new TextToSpeech();
 
+  public static Dictionary flashCards = new Dictionary();
+  public static FlashCardManagement flashCardManagement = new FlashCardManagement();
+
   public static List<String> searchingHistory = new ArrayList<String>();
 }
