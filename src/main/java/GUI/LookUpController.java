@@ -3,7 +3,7 @@ package GUI;
 import static GUI.Utility.dictionary;
 import static GUI.Utility.databaseManagement;
 import static GUI.Utility.searchingHistory;
-import static GUI.deleteWordController.deletedWord;
+import static GUI.deleteWordDialogController.deletedWord;
 import static GUI.editingDialogController.editingWord;
 
 import Application.Word;
@@ -20,7 +20,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -30,9 +29,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
-import java.util.List;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -187,7 +184,7 @@ public class LookUpController implements Initializable {
     }
     if (!isShowDeleteDialog) {
       deletedWord = targetWord.getText();
-      showAsDialog("deleteWord.fxml");
+      showAsDialog("deleteWordDialog.fxml");
       isShowDeleteDialog = true;
     }
   }

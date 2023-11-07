@@ -16,7 +16,7 @@
          <children>
             <HBox alignment="TOP_RIGHT" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="21.0" prefWidth="407.0" style="-fx-background-color: #014a6e;">
                <children>
-                  <Circle fill="#d23b4d" onMousePressed="#exitAction" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#d23b4d" onMousePressed="#close" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
                <padding>
                   <Insets right="5.0" top="5.0" />
