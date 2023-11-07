@@ -11,6 +11,15 @@ public class DatabaseManagement extends Manager {
     private String url = "jdbc:sqlite:src/main/resources/Data/envidict.db";
     private Connection connection = null;
     private ResultSet resultSet = null;
+    private String table = "dictionary";
+
+    protected void setUrl(String url) {
+        this.url = url;
+    }
+
+    protected void setTable(String table) {
+        this.table = table;
+    }
 
     @Override
     public void loadDictionary(Dictionary dictionary) {
@@ -23,7 +32,7 @@ public class DatabaseManagement extends Manager {
 
             Statement statement = connection.createStatement();
 
-            resultSet = statement.executeQuery("select * from dictionary");
+            resultSet = statement.executeQuery("select * from " + table);
 
             while (resultSet.next()) {
                 Word word = new Word(resultSet.getString("target"), resultSet.getString("definition"));
@@ -46,7 +55,7 @@ public class DatabaseManagement extends Manager {
     public void addWord(Dictionary dictionary, Word word) {
         if (lookUp(dictionary, word.getTargetWord()) == null) {
             dictionary.addWord(word);
-            String query = "INSERT INTO dictionary (id, target, definition) VALUES (null, '" + word.getTargetWord() + "', '" + word.getExplainWord() + "');";
+            String query = "INSERT INTO " + table + " (id, target, definition) VALUES (null, '" + word.getTargetWord() + "', '" + word.getExplainWord() + "');";
             try {
                 Class.forName("org.sqlite.JDBC");
 

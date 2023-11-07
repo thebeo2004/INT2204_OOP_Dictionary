@@ -1,8 +1,5 @@
 package GUI;
 
-import static GUI.HelloApplication.translator;
-import static GUI.HelloApplication.textToSpeech;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -15,6 +12,9 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
+
+import static GUI.Utility.textToSpeech;
+import static GUI.Utility.translator;
 
 public class GoogleController implements Initializable {
 
@@ -80,7 +80,4 @@ public class GoogleController implements Initializable {
         }
         textToSpeech.speak(input, languages.get(definitionBox.getValue()));
     }
-
-
-
 }
