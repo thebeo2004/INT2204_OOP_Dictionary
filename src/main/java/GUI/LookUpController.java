@@ -1,8 +1,6 @@
 package GUI;
 
-import static GUI.Utility.dictionary;
-import static GUI.Utility.databaseManagement;
-import static GUI.Utility.searchingHistory;
+import static GUI.Utility.*;
 import static GUI.deleteWordDialogController.deletedWord;
 import static GUI.editingDialogController.editingWord;
 
@@ -253,9 +251,7 @@ public class LookUpController implements Initializable {
       return;
     }
 
-    //text to speech action
-    //NDH will update later
-    //....texttospeech(targetWord.getText())
+    textToSpeech.speakEn(targetWord.getText());
   }
 
   @FXML
@@ -267,8 +263,9 @@ public class LookUpController implements Initializable {
     if (!isShowFlashcardDialog) {
       showAsDialog("flashcardDialog.fxml");
       isShowFlashcardDialog = true;
-      //code update to flash card storage
-      //.....
+      Word word = new Word(databaseManagement.lookUp(dictionary, targetWord.getText()).getTargetWord(),databaseManagement.lookUp(dictionary, targetWord.getText()).getExplainWord());
+      flashCardManagement.addWord(flashCards, word);
+      //System.out.println(databaseManagement.lookUp(dictionary, targetWord.getText()));
     }
   }
 }
