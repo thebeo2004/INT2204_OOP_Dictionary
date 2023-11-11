@@ -11,6 +11,7 @@ public class Utility {
   public static DictionaryManagement dictionaryManagement = new DictionaryManagement();
   public static Translator translator = new Translator();
   public static TextToSpeech textToSpeech = new TextToSpeech();
+  public static Synonyms synonyms = new Synonyms();
 
   public static Dictionary flashCards = new Dictionary();
   public static FlashCardManagement flashCardManagement = new FlashCardManagement();
