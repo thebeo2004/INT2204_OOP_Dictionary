@@ -14,7 +14,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Synonyms {
+public class Thesaurus {
 
     private List<String> synonyms = new ArrayList<>();
     private List<String> antonyms = new ArrayList<>();
