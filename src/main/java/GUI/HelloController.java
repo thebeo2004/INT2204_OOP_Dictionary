@@ -35,14 +35,17 @@ public class HelloController {
   private Button lookUp;
 
   @FXML
-  public void loadPage(String page) {
+  public FXMLLoader loadPage(String page) {
     Parent root = null;
+    FXMLLoader loader = null;
     try {
-      root = FXMLLoader.load(getClass().getResource(page + ".fxml"));
+      loader = new FXMLLoader(getClass().getResource(page + ".fxml"));
+      root = loader.load();
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
     borderPane.setCenter(root);
+    return loader;
   }
 
   void turnOff(Button button) {
@@ -88,7 +91,8 @@ public class HelloController {
 
   @FXML
   void loadFlashCard(MouseEvent event) {
-    loadPage("flashCard");
+    flashCardController OwO = loadPage("flashCard").getController();
+    OwO.setController(OwO);
     turnOffAll();
     turnOn(flashCard);
   }

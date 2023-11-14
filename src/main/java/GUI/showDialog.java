@@ -8,8 +8,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public abstract class showDialog {
-  protected void showAsDialog(String path) throws IOException {
-    Parent parent = FXMLLoader.load(getClass().getResource(path));
+  protected FXMLLoader showAsDialog(String path) throws IOException {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+    Parent parent = loader.load();
     Scene dialogScene = new Scene(parent);
     Stage dialogStage = new Stage();
     dialogStage.setScene(dialogScene);
@@ -17,5 +18,6 @@ public abstract class showDialog {
     dialogStage.setAlwaysOnTop(true);
     dialogStage.initStyle(StageStyle.UNDECORATED);
     dialogStage.show();
+    return loader;
   }
 }
