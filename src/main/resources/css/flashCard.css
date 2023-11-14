@@ -1,0 +1,28 @@
+.flip {
+  /*-fx-border-color: #2b2b2b;*/
+  -fx-background-radius: 10 ;
+
+}
+
+.hbox1 {
+  -fx-border-color: #2b2b2b;
+  -fx-border-width: 0 0 0.5 0;
+}
+
+.hbox2 {
+  -fx-border-color: #2b2b2b;
+  -fx-border-width: 0 0 0.5 0;
+}
+
+.text-area *.text {
+  -fx-text-alignment: center;
+}
+
+.Action:hover {
+  -fx-border-color: #00a4ff;
+  -fx-border-width: 0.5 0.5 0.5 0.5;
+}
+
+
+
+

@@ -17,7 +17,7 @@
    <left>
       <VBox prefHeight="400.0" prefWidth="215.0" styleClass="right-border" stylesheets="@../css/lookUp.css" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" spacing="10.0" styleClass="search-border">
+            <HBox alignment="CENTER" prefHeight="63.0" prefWidth="200.0" spacing="10.0" styleClass="search-border">
                <children>
                   <HBox maxHeight="-Infinity" prefHeight="30.0" prefWidth="180.0" styleClass="search-bar" stylesheets="@../css/lookUp.css">
                      <children>
@@ -55,7 +55,7 @@
    <center>
       <VBox prefHeight="439.0" prefWidth="411.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_RIGHT" prefHeight="56.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #0078ba;" styleClass="operation" stylesheets="@../css/lookUp.css">
+            <HBox alignment="TOP_RIGHT" prefHeight="63.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #0078ba;" styleClass="operation" stylesheets="@../css/lookUp.css">
                <children>
                   <HBox alignment="CENTER" layoutX="363.0" layoutY="10.0" maxHeight="-Infinity" onMousePressed="#updateButtonAction" prefHeight="67.0" prefWidth="96.0" spacing="5.0" styleClass="updateAction" stylesheets="@../css/lookUp.css">
                      <children>

@@ -10,9 +10,7 @@
 }
 
 .deleteWord {
-  -fx-background-color: #ffff;
-  -fx-border-width: 1 1 1 1;
-  -fx-border-color: #bcebfe;
+  -fx-background-color: #e6e6e6;
 }
 
 .deleteWord:hover {

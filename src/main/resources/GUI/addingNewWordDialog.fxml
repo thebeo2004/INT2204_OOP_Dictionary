@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.addingNewWordDialogController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="400.0" style="-fx-background-radius: 25;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.addingNewWordDialogController">
    <children>
       <VBox prefHeight="176.0" prefWidth="400.0">
          <children>
@@ -46,7 +46,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="65.0" prefWidth="400.0" spacing="20.0" styleClass="transparent" stylesheets="@../css/deleteDialog.css">
                <children>
-                  <Label onMousePressed="#addWordAction" prefHeight="32.0" prefWidth="197.0" styleClass="deleteWord" stylesheets="@../css/deleteDialog.css" text="  Yes, I want to add this word" textFill="#0b74d9">
+                  <Label onMousePressed="#addWordAction" prefHeight="32.0" prefWidth="197.0" style="-fx-background-radius: 10;" styleClass="deleteWord" stylesheets="@../css/deleteDialog.css" text="  Yes, I want to add this word" textFill="#0b74d9">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
