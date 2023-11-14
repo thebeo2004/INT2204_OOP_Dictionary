@@ -10,6 +10,12 @@ public class FlashCardManagement extends DatabaseManagement{
     }
 
     public List<Word> getFlashCards(Dictionary dictionary) {
-        return dictionary.getWordList();
+        List<Word> storage = new ArrayList<Word>();
+        for(Word word : dictionary.getWordList()) {
+            if (dictionary.getId(word.getTargetWord()) != -1) {
+                storage.add(word);
+            }
+        }
+        return storage;
     }
 }
