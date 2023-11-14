@@ -75,7 +75,7 @@ public class DatabaseManagement extends Manager {
     @Override
     public void deleteWord(Dictionary dictionary, String text) {
         super.deleteWord(dictionary, text);
-        String query = "DELETE FROM dictionary WHERE target = '" + text + "';";
+        String query = "DELETE FROM " + table + " WHERE target = '" + text + "';";
         try {
             Class.forName("org.sqlite.JDBC");
 
@@ -95,7 +95,7 @@ public class DatabaseManagement extends Manager {
     public void editWord(Dictionary dictionary, Word word) {
         super.editWord(dictionary, word);
         //dictionary.editWord(word);
-        String query = "UPDATE dictionary SET definition = '" + word.getExplainWord() + "' WHERE target = '" + word.getTargetWord() + "';";
+        String query = "UPDATE " + table + " SET definition = '" + word.getExplainWord() + "' WHERE target = '" + word.getTargetWord() + "';";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -122,7 +122,7 @@ public class DatabaseManagement extends Manager {
 
             Statement statement = connection.createStatement();
 
-            resultSet = statement.executeQuery("select * from dictionary where length(target) <= " + String.valueOf(length));
+            resultSet = statement.executeQuery("select * from " + table + " where length(target) <= " + String.valueOf(length));
 
             while (resultSet.next()) {
                 Word word = new Word(resultSet.getString("target"), resultSet.getString("definition"));
