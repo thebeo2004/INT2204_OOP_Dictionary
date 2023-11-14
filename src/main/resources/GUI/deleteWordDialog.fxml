@@ -46,7 +46,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="65.0" prefWidth="400.0" spacing="20.0" styleClass="transparent" stylesheets="@../css/deleteDialog.css">
                <children>
-                  <Label onMousePressed="#dialogDeleteWord" prefHeight="32.0" prefWidth="211.0" styleClass="deleteWord" stylesheets="@../css/deleteDialog.css" text="  Yes, I want to delete this word" textFill="#0b74d9">
+                  <Label onMousePressed="#dialogDeleteWord" prefHeight="32.0" prefWidth="211.0" style="-fx-background-radius: 10;" styleClass="deleteWord" stylesheets="@../css/deleteDialog.css" text="  Yes, I want to delete this word" textFill="#0b74d9">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
