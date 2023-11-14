@@ -24,7 +24,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class contributeWordController implements Initializable {
+public class contributeWordController extends showDialog implements Initializable{
 
   public static boolean isShowingDialog = false;
   @FXML
@@ -59,16 +59,7 @@ public class contributeWordController implements Initializable {
     }
   }
 
-  private void showAsDialog(String path) throws IOException {
-    Parent parent = FXMLLoader.load(getClass().getResource(path));
-    Scene dialogScene = new Scene(parent);
-    Stage dialogStage = new Stage();
-    dialogStage.setScene(dialogScene);
-    dialogStage.setResizable(false);
-    dialogStage.setAlwaysOnTop(true);
-    dialogStage.initStyle(StageStyle.UNDECORATED);
-    dialogStage.show();
-  }
+
 
   boolean checkExistence(String newWord) {
 
