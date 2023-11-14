@@ -7,12 +7,6 @@ public abstract class Manager {
 
     public void showAllWords(Dictionary dictionary) {
         for (Word word : dictionary.getWordList()) {
-            System.out.println(word.getTargetWord());
-        }
-    }
-
-    public void print(Dictionary dictionary) {
-        for (Word word : dictionary.getWordList()) {
             if (dictionary.getId(word.getTargetWord()) != -1) {
                 System.out.println(word.getTargetWord());
             }
