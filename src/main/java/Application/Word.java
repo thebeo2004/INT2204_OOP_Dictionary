@@ -21,13 +21,13 @@ public class Word {
     this.explainWord = explainWord;
   }
 
-  public Word(String targetWord, String explainWord, String ipa) {
+  public Word(String targetWord, String ipa, String explainWord) {
     this.targetWord = targetWord;
     this.ipa = ipa;
     this.explainWord = explainWord;
   }
 
-  public Word(String targetWord, String explainWord, String ipa, String function) {
+  public Word(String targetWord, String ipa, String function, String explainWord) {
     this.targetWord = targetWord;
     this.ipa = ipa;
     this.function = function;
