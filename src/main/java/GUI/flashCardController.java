@@ -1,6 +1,7 @@
 package GUI;
 
 import Application.Word;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -15,12 +16,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
 import static GUI.Utility.*;
+import static GUI.deleteFlashcardDialogController.deletedFlashcard;
 
-public class flashCardController implements Initializable {
+public class flashCardController extends showDialog implements Initializable {
 
-  private List<Word> storage;
+  public static List<Word> storage;
   private boolean isHead = true;
   private int curIndex = 0;
+  private flashCardController controller;
+  public static boolean isShowDeleteDialog = false;
   @FXML
   private HBox flipAction;
 
@@ -38,6 +42,10 @@ public class flashCardController implements Initializable {
 
   @FXML
   private TextField typingIndex;
+
+  public void setController(flashCardController controller) {
+    this.controller = controller;
+  }
 
   private void setEmpty() {
     position.setText("0/0");
@@ -130,6 +138,34 @@ public class flashCardController implements Initializable {
     id = Math.min(id, storage.size());
     curIndex = id - 1;
     switchIndex();
+  }
+
+  @FXML
+  void deleteAction(MouseEvent event) throws IOException {
+    if (storage.isEmpty() || isShowDeleteDialog) {
+      return;
+    }
+
+    isShowDeleteDialog = true;
+    deleteFlashcardDialogController OwO = showAsDialog("deleteFlashcardDialog.fxml").getController();
+    OwO.setController(controller);
+    deletedFlashcard = storage.get(curIndex).getTargetWord();
+
+//    deleteFlashcardDialogController owo = loader
+  }
+
+  public void delete() {
+    if (storage.isEmpty()) {
+      setEmpty();
+    } else {
+      curIndex = curIndex % storage.size();
+      switchIndex();
+    }
+  }
+
+  @FXML
+  void showAction(MouseEvent event) {
+
   }
 
 }
