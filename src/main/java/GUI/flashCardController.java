@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -84,9 +83,11 @@ public class flashCardController extends showDialog implements Initializable {
 
     if (isHead) {
       isHead = false;
+      status.setText("Tail");
       setTailShow(storage.get(curIndex).getFunction(), storage.get(curIndex).getExplainWord());
     } else {
       isHead = true;
+      status.setText("Head");
       setHeadShow(storage.get(curIndex).getTargetWord(), storage.get(curIndex).getIpa());
     }
   }
@@ -94,16 +95,27 @@ public class flashCardController extends showDialog implements Initializable {
   private void switchIndex() {
     position.setText((curIndex + 1) + "/" + storage.size());
     isHead = true;
+    status.setText("Head");
     setHeadShow(storage.get(curIndex).getTargetWord(), storage.get(curIndex).getIpa());
   }
 
   @FXML
-  void switchAction(MouseEvent event) {
+  void nextAction(MouseEvent event) {
     if (storage.isEmpty()) {
       return;
     }
 
     curIndex = (curIndex + 1) % storage.size();
+    switchIndex();
+  }
+
+  @FXML
+  void backAction(MouseEvent event) {
+    if (storage.isEmpty()) {
+      return;
+    }
+
+    curIndex = (curIndex - 1 + storage.size()) % storage.size();
     switchIndex();
   }
 

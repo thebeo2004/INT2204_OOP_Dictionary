@@ -70,7 +70,7 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="59.0" prefWidth="238.0" />
+                  <HBox prefHeight="60.0" prefWidth="241.0" />
                   <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="79.0" style="-fx-background-color: #1dd1ff;" styleClass="flip" stylesheets="@../css/flashCard.css" text="Head">
                      <font>
                         <Font name="System Bold Italic" size="21.0" />
@@ -89,7 +89,7 @@
             </HBox>
             <HBox alignment="TOP_RIGHT" prefHeight="412.0" prefWidth="759.0" spacing="60.0" style="-fx-background-color: #FFFF;" styleClass="hbox2" stylesheets="@../css/flashCard.css">
                <children>
-                  <TextArea fx:id="textArea" editable="false" prefHeight="350.0" prefWidth="620.0" styleClass="text-area" stylesheets="@../css/flashCard.css" text="hello&#10;&#10;" wrapText="true">
+                  <TextArea fx:id="textArea" editable="false" prefHeight="350.0" prefWidth="620.0" style="-fx-background-color: #FFFF;" styleClass="text-area" stylesheets="@../css/flashCard.css" text="hello&#10;&#10;" wrapText="true">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -105,7 +105,16 @@
             </HBox>
             <HBox prefHeight="73.0" prefWidth="759.0" style="-fx-background-color: #FFFF;">
                <children>
-                  <HBox prefHeight="69.0" prefWidth="342.0" />
+                  <HBox alignment="CENTER" onMousePressed="#backAction" prefHeight="71.0" prefWidth="76.0" styleClass="Action" stylesheets="@../css/flashCard.css">
+                     <children>
+                        <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/back.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="71.0" prefWidth="284.0" />
                   <HBox fx:id="flipAction" alignment="CENTER" onMousePressed="#flipAction" prefHeight="56.0" prefWidth="71.0" styleClass="Action" stylesheets="@../css/flashCard.css">
                      <children>
                         <ImageView fitHeight="63.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
@@ -115,8 +124,8 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <HBox prefHeight="69.0" prefWidth="265.0" />
-                  <HBox fx:id="nextAction" alignment="CENTER" onMousePressed="#switchAction" prefHeight="69.0" prefWidth="65.0" styleClass="Action" stylesheets="@../css/flashCard.css">
+                  <HBox prefHeight="71.0" prefWidth="262.0" />
+                  <HBox fx:id="nextAction" alignment="CENTER" onMousePressed="#nextAction" prefHeight="71.0" prefWidth="75.0" styleClass="Action" stylesheets="@../css/flashCard.css">
                      <children>
                         <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
