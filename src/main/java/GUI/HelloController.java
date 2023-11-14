@@ -88,6 +88,7 @@ public class HelloController {
 
   @FXML
   void loadFlashCard(MouseEvent event) {
+    loadPage("flashCard");
     turnOffAll();
     turnOn(flashCard);
   }

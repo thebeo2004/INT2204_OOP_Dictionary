@@ -252,7 +252,7 @@ public class LookUpController extends showDialog implements Initializable {
     if (!isShowFlashcardDialog) {
       showAsDialog("flashcardDialog.fxml");
       isShowFlashcardDialog = true;
-      Word word = new Word(databaseManagement.lookUp(dictionary, targetWord.getText()).getTargetWord(),databaseManagement.lookUp(dictionary, targetWord.getText()).getExplainWord());
+      Word word = new Word(targetWord.getText(), ipa.getText(), function.getText(), explainWord.getText());
       flashCardManagement.addWord(flashCards, word);
       //System.out.println(databaseManagement.lookUp(dictionary, targetWord.getText()));
     }
