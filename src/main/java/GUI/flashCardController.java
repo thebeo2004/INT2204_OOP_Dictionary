@@ -24,6 +24,7 @@ public class flashCardController extends showDialog implements Initializable {
   private int curIndex = 0;
   private flashCardController controller;
   public static boolean isShowDeleteDialog = false;
+  public static boolean isShowAllList = false;
   @FXML
   private HBox flipAction;
 
@@ -176,8 +177,20 @@ public class flashCardController extends showDialog implements Initializable {
   }
 
   @FXML
-  void showAction(MouseEvent event) {
+  void showAction(MouseEvent event) throws IOException {
 
+    if (isShowAllList) {
+      return;
+    }
+
+    isShowAllList = true;
+    flashcardListController OwO = showAsDialog("flashcardList.fxml").getController();
+    OwO.setController(controller);
+  }
+
+  public void choosingFromList(int id) {
+    curIndex = id;
+    switchIndex();
   }
 
 }
