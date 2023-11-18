@@ -9,6 +9,7 @@ public class Utility {
   public static Dictionary dictionary = new Dictionary();
   public static DatabaseManagement databaseManagement = new DatabaseManagement();
   public static DictionaryManagement dictionaryManagement = new DictionaryManagement();
+  public static CrosswordGenerator crosswordGenerator = new CrosswordGenerator();
   public static Translator translator = new Translator();
   public static TextToSpeech textToSpeech = new TextToSpeech();
   public static Thesaurus thesaurus = new Thesaurus();
