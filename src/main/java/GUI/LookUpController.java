@@ -97,10 +97,7 @@ public class LookUpController extends showDialog implements Initializable {
   void show(Word word) {
     searchingHistory.add(word.getTargetWord());
 
-    targetWord.setText("");
-    ipa.setText("");
-    function.setText("");
-    explainWord.setText("");
+    clear();
 
     targetWord.setText(word.getTargetWord());
     ipa.setText(word.getIpa());
@@ -144,6 +141,13 @@ public class LookUpController extends showDialog implements Initializable {
     }
   }
 
+  public void clear() {
+    targetWord.setText("");
+    ipa.setText("");
+    function.setText("");
+    explainWord.setText("");
+  }
+
   @FXML
   void showSearchingHistory(MouseEvent event) throws FileNotFoundException {
 
@@ -176,7 +180,8 @@ public class LookUpController extends showDialog implements Initializable {
     }
     if (!isShowDeleteDialog) {
       deletedWord = targetWord.getText();
-      showAsDialog("deleteWordDialog.fxml");
+      deleteWordDialogController OwO = showAsDialog("deleteWordDialog.fxml").getController();
+      OwO.setController(controller);
       isShowDeleteDialog = true;
     }
   }
