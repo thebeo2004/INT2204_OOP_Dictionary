@@ -4,14 +4,15 @@ import java.util.*;
 import static GUI.Utility.*;
 
 public class CrosswordGenerator {
-    List<Word> wordHugeList;
-    List<Word> wordList;
-    Random rand = new Random();
-    Word solutionWord;
-    Word[] chosenWords;
+    private List<Word> wordHugeList;
+    private List<Word> wordList;
+    private Random rand = new Random();
+    private Word solutionWord;
+    private Word[] chosenWords;
+    private int length = 5;
 
     public CrosswordGenerator() {
-        wordHugeList = databaseManagement.loadCrosswordList(10);
+        wordHugeList = databaseManagement.loadCrosswordList(length);
         wordList = new ArrayList<>();
 
         for (int i = 0; i < 50; i++) {
@@ -72,5 +73,21 @@ public class CrosswordGenerator {
         for (Word word : chosenWords) {
             System.out.println(word.getTargetWord());
         }
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public List<String> getCrossword() {
+        List<String> crossword = new ArrayList<>();
+        for (Word word : chosenWords) {
+            crossword.add(word.getTargetWord());
+        }
+        return crossword;
     }
 }
