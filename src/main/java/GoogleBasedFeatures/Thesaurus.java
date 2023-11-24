@@ -30,6 +30,7 @@ public class Thesaurus {
     public void lookUp(String word) {
         synonyms.clear();
         antonyms.clear();
+        word = word.replace(" ", "%20");
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://dictionaryapi.com/api/v3/references/thesaurus/json/"
                         + word + "?key=5214f54f-235c-4414-b8de-0dcab17200d8"))
@@ -49,9 +50,15 @@ public class Thesaurus {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+        JsonNode synsNode = null;
+        JsonNode antsNode = null;
+        try {
+            synsNode = root.get(0).get("meta").get("syns");
+            antsNode = root.get(0).get("meta").get("ants");
+        } catch (NullPointerException e) {
+            return;
+        }
 
-        JsonNode synsNode = root.get(0).get("meta").get("syns");
-        JsonNode antsNode = root.get(0).get("meta").get("ants");
 
         for (JsonNode node : synsNode) {
             for (JsonNode syn : node) {
