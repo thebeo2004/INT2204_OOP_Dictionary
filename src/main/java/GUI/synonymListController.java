@@ -17,8 +17,14 @@ public class synonymListController extends basicListController {
   public void initialize(URL url, ResourceBundle resourceBundle) {
     super.initialize(url, resourceBundle);
     thesaurus.lookUp(synonymTarget);
+    int cnt = 0;
     for(String s: thesaurus.getSynonyms()) {
+      cnt++;
       tableView.getItems().add(s);
+
+      if (cnt > 100) {
+        break;
+      }
     }
   }
 
