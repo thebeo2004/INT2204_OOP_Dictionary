@@ -63,10 +63,7 @@
 }
 
 .table-row-cell:selected {
-    -fx-background-color: rgb(127, 172, 243);
-}
-.table-row-cell:selected .text {
-    -fx-fill : white ;
+    -fx-background-color: #beecff;
 }
 
 .table-row-cell:hover {
@@ -74,7 +71,6 @@
 }
 
 .table-row-cell:focused {
-    -fx-border-color: #ffffff;
     -fx-border-width: 0px 0px 0px 5px;
 }
 
