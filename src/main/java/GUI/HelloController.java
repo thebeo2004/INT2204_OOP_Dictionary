@@ -84,7 +84,8 @@ public class HelloController {
 
   @FXML
   void loadLookUp(MouseEvent event) {
-    loadPage("lookUp");
+    LookUpController OwO = loadPage("lookUp").getController();
+    OwO.setController(OwO);
     turnOffAll();
     turnOn(lookUp);
   }

@@ -3,6 +3,7 @@ package GUI;
 import static GUI.Utility.*;
 import static GUI.deleteWordDialogController.deletedWord;
 import static GUI.editingDialogController.editingWord;
+import static GUI.synonymListController.synonymTarget;
 
 import Application.Word;
 import java.io.FileInputStream;
@@ -33,6 +34,8 @@ import javafx.stage.StageStyle;
 
 public class LookUpController extends showDialog implements Initializable {
 
+  private LookUpController controller;
+  public static boolean isShowSynonymDialog;
   public static boolean isShowDeleteDialog;
   public static boolean isShowEditingDialog;
   public static boolean isShowFlashcardDialog;
@@ -66,7 +69,6 @@ public class LookUpController extends showDialog implements Initializable {
 
   @FXML
   private HBox updateButton;
-
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -124,6 +126,12 @@ public class LookUpController extends showDialog implements Initializable {
 //    typing.clear();
   }
 
+  public void show(String text) {
+    Word word = databaseManagement.lookUp(dictionary, text);
+    if (word != null) {
+      show(word);
+    }
+  }
   @FXML
   void choosingFromList(MouseEvent event) {
     if (tableView.getSelectionModel().getSelectedItem() == null) {
@@ -134,9 +142,6 @@ public class LookUpController extends showDialog implements Initializable {
     if (word != null) {
       show(word);
     }
-
-//    tableView.getItems().clear();
-//    typing.clear();
   }
 
   @FXML
@@ -256,5 +261,23 @@ public class LookUpController extends showDialog implements Initializable {
       flashCardManagement.addWord(flashCards, word);
       //System.out.println(databaseManagement.lookUp(dictionary, targetWord.getText()));
     }
+  }
+
+  @FXML
+  void showSynonymAction(MouseEvent event) throws IOException {
+    if(targetWord.getText().equals("") || targetWord.getText().equals("This word doesn't exist")) {
+      return;
+    }
+
+    if (!isShowSynonymDialog) {
+      synonymTarget = targetWord.getText();
+      synonymListController OwO = showAsDialog("synonymList.fxml").getController();
+      OwO.setController(controller);
+      isShowSynonymDialog = true;
+    }
+  }
+
+  public void setController(LookUpController controller) {
+    this.controller = controller;
   }
 }

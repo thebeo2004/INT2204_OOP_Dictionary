@@ -107,8 +107,24 @@
                         <Insets left="5.0" />
                      </opaqueInsets>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="221.0" layoutY="10.0" maxHeight="-Infinity" prefHeight="55.0" prefWidth="136.0" spacing="5.0" />
-                  <HBox fx:id="updateButton" alignment="CENTER" layoutX="363.0" layoutY="10.0" maxHeight="-Infinity" onMousePressed="#updateButtonAction" prefHeight="67.0" prefWidth="96.0" spacing="5.0" styleClass="updateAction" stylesheets="@../css/lookUp.css" visible="false">
+                  <HBox alignment="CENTER" layoutX="195.0" layoutY="10.0" maxHeight="-Infinity" onMousePressed="#showSynonymAction" prefHeight="61.0" prefWidth="131.0" spacing="5.0" styleClass="Action" stylesheets="@../css/lookUp.css">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/list1.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="27.0" prefWidth="91.0" text="Synonyms" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets left="5.0" />
+                     </opaqueInsets>
+                  </HBox>
+                  <HBox fx:id="updateButton" alignment="CENTER" layoutX="363.0" layoutY="10.0" maxHeight="-Infinity" onMousePressed="#updateButtonAction" prefHeight="61.0" prefWidth="100.0" spacing="5.0" styleClass="updateAction" stylesheets="@../css/lookUp.css" visible="false">
                      <children>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
