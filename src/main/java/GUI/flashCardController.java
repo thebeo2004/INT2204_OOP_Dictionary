@@ -84,7 +84,7 @@ public class flashCardController extends showDialog implements Initializable {
 
     if (isHead) {
       isHead = false;
-      status.setText("Tail");
+      status.setText("Explain");
       setTailShow(storage.get(curIndex).getFunction(), storage.get(curIndex).getExplainWord());
     } else {
       isHead = true;
@@ -96,7 +96,7 @@ public class flashCardController extends showDialog implements Initializable {
   private void switchIndex() {
     position.setText((curIndex + 1) + "/" + storage.size());
     isHead = true;
-    status.setText("Head");
+    status.setText("Word");
     setHeadShow(storage.get(curIndex).getTargetWord(), storage.get(curIndex).getIpa());
   }
 

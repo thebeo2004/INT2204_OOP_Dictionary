@@ -71,7 +71,7 @@
                      </children>
                   </HBox>
                   <HBox prefHeight="60.0" prefWidth="241.0" />
-                  <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="79.0" style="-fx-background-color: #1dd1ff;" styleClass="flip" stylesheets="@../css/flashCard.css" text="Head">
+                  <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="90.0" style="-fx-background-color: #1dd1ff;" styleClass="flip" stylesheets="@../css/flashCard.css" text="Word">
                      <font>
                         <Font name="System Bold Italic" size="21.0" />
                      </font></Label>
