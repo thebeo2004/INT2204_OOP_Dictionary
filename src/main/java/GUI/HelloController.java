@@ -48,16 +48,29 @@ public class HelloController {
     return loader;
   }
 
+  void turnOnHover(Button button) {
+    button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #0c2f43;"));
+    button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #035e8c;\n"
+        + "    color: #cbe1ea;"));
+  }
+
   void turnOff(Button button) {
     button.setStyle("-fx-background-color: #035e8c;\n"
         + "    color: #cbe1ea;");
+    turnOnHover(button);
   }
 
   void turnOn(Button button) {
+    button.setOnMouseEntered(e -> button.setStyle(""));
+    button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #1d2a57;\n"
+        + "  color: #cbe1ea;\n"
+        + "  -fx-border-color: #ffff;\n"
+        + "  -fx-border-width: 0px 0px 0px 3px;"));
     button.setStyle("-fx-background-color: #1d2a57;\n"
         + "  color: #cbe1ea;\n"
         + "  -fx-border-color: #ffff;\n"
         + "  -fx-border-width: 0px 0px 0px 3px;");
+//    turnOnHover(button);
   }
 
   void turnOffAll() {
@@ -71,7 +84,8 @@ public class HelloController {
 
   @FXML
   void loadLookUp(MouseEvent event) {
-    loadPage("lookUp");
+    LookUpController OwO = loadPage("lookUp").getController();
+    OwO.setController(OwO);
     turnOffAll();
     turnOn(lookUp);
   }

@@ -17,19 +17,13 @@ import static GUI.Utility.dictionary;
 import static GUI.flashCardController.storage;
 import static GUI.flashCardController.isShowAllList;
 
-public class flashcardListController extends basicDialogController implements Initializable {
+public class flashcardListController extends basicListController {
 
   private flashCardController controller;
-  @FXML
-  private TableColumn<String, String> tableColumn;
-
-  @FXML
-  private TableView<String> tableView;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    tableColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue()));
-    tableView.getItems().clear();
+    super.initialize(url, resourceBundle);
     for(Word w : storage) {
       tableView.getItems().add(w.getTargetWord());
     }
@@ -44,21 +38,8 @@ public class flashcardListController extends basicDialogController implements In
 
   @FXML
   @Override
-  protected void dragged(MouseEvent event) {
-    super.dragged(event);
-  }
-
-  @FXML
-  @Override
-  protected void pressed(MouseEvent event) {
-    super.pressed(event);
-  }
-
-  @FXML
-  void choosingFromList(MouseEvent event) {
-    if (tableView.getSelectionModel().getSelectedItem() == null) {
-      return;
-    }
+  public void choosingFromList(MouseEvent event) {
+    super.choosingFromList(event);
 
     String s = tableView.getSelectionModel().getSelectedItem();
 

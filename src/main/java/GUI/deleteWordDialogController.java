@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
 
 public class deleteWordDialogController extends basicDialogController {
 
+  private LookUpController controller;
   public static String deletedWord;
 
   @FXML
@@ -19,7 +20,11 @@ public class deleteWordDialogController extends basicDialogController {
   @FXML
   void dialogDeleteWord(MouseEvent event) {
 //    databaseManagement.deleteWord(dictionary, deletedWord);
+    controller.clear();
     close(event);
   }
 
+  public void setController(LookUpController controller) {
+    this.controller = controller;
+  }
 }
