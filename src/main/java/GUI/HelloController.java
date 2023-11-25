@@ -119,6 +119,7 @@ public class HelloController {
 
   @FXML
   void loadggTranslate(MouseEvent event) {
+    loadPage("ggtranslate");
     turnOffAll();
     turnOn(ggTranslate);
   }

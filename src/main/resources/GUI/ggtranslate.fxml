@@ -15,21 +15,21 @@
    <left>
       <VBox prefHeight="600.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="BASELINE_LEFT" prefHeight="230.0" prefWidth="300.0">
+            <HBox alignment="BOTTOM_LEFT" prefHeight="90.0" prefWidth="250.0">
                <children>
                   <ChoiceBox fx:id="targetBox" onMouseClicked="#choose" prefHeight="30.0" prefWidth="210.0">
                      <HBox.margin>
-                        <Insets top="200.0" />
+                        <Insets />
                      </HBox.margin>
                   </ChoiceBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="300.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="250.0" prefWidth="204.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <children>
-                  <TextArea fx:id="targetTextArea" onKeyTyped="#type" prefHeight="100.0" prefWidth="300.0" wrapText="true">
+                  <TextArea fx:id="targetTextArea" onKeyTyped="#type" prefHeight="350.0" prefWidth="280.0" wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -57,11 +57,11 @@
    <right>
       <VBox prefHeight="600.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="BASELINE_LEFT" prefHeight="230.0" prefWidth="300.0">
+            <HBox alignment="BOTTOM_LEFT" prefHeight="90.0" prefWidth="228.0">
                <children>
                   <ChoiceBox fx:id="definitionBox" prefHeight="30.0" prefWidth="210.0">
                      <HBox.margin>
-                        <Insets top="200.0" />
+                        <Insets />
                      </HBox.margin>
                   </ChoiceBox>
                </children>
@@ -69,9 +69,9 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="300.0">
+            <HBox prefHeight="250.0" prefWidth="287.0">
                <children>
-                  <TextArea fx:id="definitionTextArea" prefHeight="100.0" prefWidth="300.0" wrapText="true">
+                  <TextArea fx:id="definitionTextArea" editable="false" prefHeight="348.0" prefWidth="285.0" wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -105,11 +105,11 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="BOTTOM_CENTER" prefHeight="271.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false" onMousePressed="#translate" text="Translate!">
+                  <Button mnemonicParsing="false" onMousePressed="#translate" prefHeight="32.0" prefWidth="72.0" text="Translate">
                      <HBox.margin>
-                        <Insets top="260.0" />
+                        <Insets />
                      </HBox.margin>
                   </Button>
                </children>
@@ -117,4 +117,7 @@
          </children>
       </VBox>
    </center>
+   <top>
+      <HBox prefHeight="61.0" prefWidth="760.0" style="-fx-background-color: #0072b1;" BorderPane.alignment="CENTER" />
+   </top>
 </BorderPane>

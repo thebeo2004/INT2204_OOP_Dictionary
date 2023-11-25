@@ -192,9 +192,15 @@ public class LookUpController extends showDialog implements Initializable {
     explainWord.setEditable(true);
     updateButton.setVisible(true);
 
-    ipa.setStyle("-fx-background-color: #a0d6ff;");
-    function.setStyle("-fx-background-color: #a0d6ff;");
-    explainWord.setStyle("-fx-background-color: #a0d6ff;");
+    ipa.setStyle("-fx-background-color: #a0d6ff;\n"
+        + "  -fx-border-color: #a0d6ff;\n"
+        + "  -fx-border-width: 1 1 1 1;");
+    function.setStyle("-fx-background-color: #a0d6ff;\n"
+        + "  -fx-border-color: #a0d6ff;\n"
+        + "  -fx-border-width: 1 1 1 1;");
+    explainWord.setStyle("-fx-background-color: #a0d6ff;\n"
+        + "  -fx-border-color: #a0d6ff;\n"
+        + "  -fx-border-width: 1 1 1 1;");
   }
 
   void turnOffEdit() {
@@ -202,9 +208,15 @@ public class LookUpController extends showDialog implements Initializable {
     function.setEditable(false);
     explainWord.setEditable(false);
     updateButton.setVisible(false);
-    ipa.setStyle("-fx-background-color: #bfbfbf;");
-    function.setStyle("-fx-background-color: #bfbfbf;");
-    explainWord.setStyle("-fx-background-color: #bfbfbf;");
+    ipa.setStyle("-fx-background-color: #bfbfbf;\n"
+        + "  -fx-border-color: #bfbfbf;\n"
+        + "  -fx-border-width: 1 1 1 1;");
+    function.setStyle("-fx-background-color: #bfbfbf;\n"
+        + "  -fx-border-color: #bfbfbf;\n"
+        + "  -fx-border-width: 1 1 1 1;");
+    explainWord.setStyle("-fx-background-color: #bfbfbf;\n"
+        + "  -fx-border-color: #bfbfbf;\n"
+        + "  -fx-border-width: 1 1 1 1;");
 
     show(databaseManagement.lookUp(dictionary, targetWord.getText()));
   }

@@ -40,7 +40,7 @@
 
 .right-border {
     -fx-border-color: #dbdbdb;
-    -fx-border-width: 0 15 0 0;
+    -fx-border-width: 0 0 0 0;
 }
 
 .operation {
@@ -70,9 +70,9 @@
     -fx-background-color: #beecff;
 }
 
-.table-row-cell:focused {
-    -fx-border-width: 0px 0px 0px 5px;
-}
+/*.table-row-cell:focused {*/
+/*    !*-fx-border-width: 0px 0px 0px 5px;*!*/
+/*}*/
 
 /* scroll bar starts hear */
 

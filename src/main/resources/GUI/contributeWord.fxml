@@ -55,7 +55,7 @@
    <center>
       <VBox prefHeight="439.0" prefWidth="411.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_RIGHT" prefHeight="63.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #0078ba;" styleClass="operation" stylesheets="@../css/lookUp.css">
+            <HBox alignment="TOP_RIGHT" prefHeight="68.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #0078ba;" styleClass="operation" stylesheets="@../css/lookUp.css">
                <children>
                   <HBox alignment="CENTER" layoutX="363.0" layoutY="10.0" maxHeight="-Infinity" onMousePressed="#updateButtonAction" prefHeight="67.0" prefWidth="96.0" spacing="5.0" styleClass="updateAction" stylesheets="@../css/lookUp.css">
                      <children>
@@ -96,7 +96,7 @@
             </HBox>
             <HBox alignment="BASELINE_LEFT" layoutX="10.0" layoutY="66.0" prefHeight="35.0" prefWidth="545.0">
                <children>
-                  <TextField fx:id="ipa" prefHeight="44.0" prefWidth="560.0" promptText="\@ipa" style="-fx-background-color: #a0d6ff;">
+                  <TextField fx:id="ipa" prefHeight="36.0" prefWidth="562.0" promptText="\@ipa" style="-fx-background-color: #a0d6ff; -fx-border-color: #98ccf3; -fx-border-width: 0.5 0.5 0.5 0.5;">
                      <font>
                         <Font name="System Italic" size="16.0" />
                      </font>
@@ -108,7 +108,7 @@
             </HBox>
             <HBox alignment="BASELINE_LEFT" layoutX="10.0" layoutY="101.0" prefHeight="35.0" prefWidth="545.0">
                <children>
-                  <TextField fx:id="function" prefHeight="132.0" prefWidth="549.0" promptText="\@function" style="-fx-background-color: #a0d6ff;">
+                  <TextField fx:id="function" prefHeight="132.0" prefWidth="549.0" promptText="\@function" style="-fx-background-color: #a0d6ff; -fx-border-color: #98ccf3; -fx-border-width: 0.5 0.5 0.5 0.5;">
                      <font>
                         <Font name="Arial Nova" size="16.0" />
                      </font>
@@ -120,7 +120,7 @@
             </HBox>
             <HBox prefHeight="446.0" prefWidth="545.0">
                <children>
-                  <TextArea fx:id="explainWord" prefHeight="424.0" prefWidth="543.0" promptText="\@explaining" style="-fx-background-color: #a0d6ff;" text="&#10;&#10;" wrapText="true">
+                  <TextArea fx:id="explainWord" prefHeight="460.0" prefWidth="566.0" promptText="\@explaining" style="-fx-background-color: #a0d6ff; -fx-border-color: #98ccf3; -fx-border-width: 0.5 0.5 0.5 0.5;" text="&#10;&#10;" wrapText="true">
                      <font>
                         <Font name="Cambria Math" size="16.0" />
                      </font>
