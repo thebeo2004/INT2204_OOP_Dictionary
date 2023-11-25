@@ -25,8 +25,6 @@ public class CrosswordGenerator {
     }
 
     public void buildCrossword() {
-
-
         solutionWord = wordList.get(rand.nextInt(wordList.size()));
         String target = solutionWord.getTargetWord();
         System.out.println(target);
@@ -83,11 +81,7 @@ public class CrosswordGenerator {
         this.length = length;
     }
 
-    public List<String> getCrossword() {
-        List<String> crossword = new ArrayList<>();
-        for (Word word : chosenWords) {
-            crossword.add(word.getTargetWord());
-        }
-        return crossword;
+    public List<Word> getCrossword() {
+        return List.of(chosenWords);
     }
 }
