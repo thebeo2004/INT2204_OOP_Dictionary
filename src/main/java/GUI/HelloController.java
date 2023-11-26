@@ -1,5 +1,15 @@
 package GUI;
 
+import static GUI.Utility.databaseManagement;
+import static GUI.Utility.dictionary;
+
+import Application.Word;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,6 +19,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 public class HelloController {
@@ -97,10 +109,39 @@ public class HelloController {
     turnOn(contribute);
   }
 
+  private void saveFile(File file) throws IOException {
+    BufferedWriter writer = null;
+    try {
+      writer = new BufferedWriter(new FileWriter(file, false));
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+
+    for (Word word : dictionary.getWordList()) {
+      if (dictionary.getId(word.getTargetWord()) != -1) {
+        writer.write(word.getInfo());
+      }
+    }
+    try {
+      writer.close();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
   @FXML
-  void loadDownload(MouseEvent event) {
+  void loadDownload(MouseEvent event) throws IOException {
     turnOffAll();
     turnOn(download);
+
+    FileChooser fileChooser = new FileChooser();
+    FileChooser.ExtensionFilter extensionFilter = new ExtensionFilter("TXT files (*.txt)", "*.txt");
+    fileChooser.getExtensionFilters().add(extensionFilter);
+
+    File file = fileChooser.showSaveDialog(new Stage());
+
+    if (file != null) {
+      saveFile(file);
+    }
   }
 
   @FXML

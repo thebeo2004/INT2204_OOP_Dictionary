@@ -5,12 +5,15 @@ import java.util.List;
 public abstract class Manager {
     public void loadDictionary(Dictionary dictionary) {};
 
-    public void showAllWords(Dictionary dictionary) {
+    public String showAllWords(Dictionary dictionary) {
+        String ans = "";
         for (Word word : dictionary.getWordList()) {
             if (dictionary.getId(word.getTargetWord()) != -1) {
-                System.out.println(word.getTargetWord());
+                ans += word.getTargetWord() + "\n";
             }
         }
+
+        return ans;
     }
 
     public List<String> search(Dictionary dictionary, String text) {
