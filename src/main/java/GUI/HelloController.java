@@ -9,9 +9,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -23,7 +26,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
-public class HelloController extends basicDialogController {
+public class HelloController extends basicDialogController implements Initializable {
 
   @FXML
   private BorderPane borderPane;
@@ -41,10 +44,15 @@ public class HelloController extends basicDialogController {
   private Button ggTranslate;
 
   @FXML
-  private Button home;
+  private Button game;
 
   @FXML
   private Button lookUp;
+
+  @Override
+  public void initialize(URL url, ResourceBundle resourceBundle) {
+    loadLookUp(null);
+  }
 
   @FXML
   public FXMLLoader loadPage(String page) {
@@ -88,7 +96,7 @@ public class HelloController extends basicDialogController {
   void turnOffAll() {
     turnOff(lookUp);
     turnOff(download);
-    turnOff(home);
+    turnOff(game);
     turnOff(contribute);
     turnOff(flashCard);
     turnOff(ggTranslate);
@@ -153,9 +161,9 @@ public class HelloController extends basicDialogController {
   }
 
   @FXML
-  void loadHome(MouseEvent event) {
+  void loadGame(MouseEvent event) {
     turnOffAll();
-    turnOn(home);
+    turnOn(game);
   }
 
   @FXML

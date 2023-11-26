@@ -28,25 +28,6 @@
                      </padding></HBox>
                   <HBox prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="home" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadHome" onMouseReleased="#loadHome" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Home" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Icons/home.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <padding>
-                              <Insets left="16.0" />
-                           </padding>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="80.0" prefWidth="200.0">
-                     <children>
                         <Button fx:id="lookUp" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadLookUp" onMouseReleased="#loadLookUp" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Look Up" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -118,6 +99,25 @@
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Icons/card.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="16.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="80.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="game" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadGame" onMouseReleased="#loadGame" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Game" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/game.png" />
                                  </image>
                               </ImageView>
                            </graphic>
