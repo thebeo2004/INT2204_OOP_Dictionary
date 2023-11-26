@@ -17,7 +17,7 @@
    <left>
       <VBox prefHeight="400.0" prefWidth="215.0" styleClass="right-border" stylesheets="@../css/lookUp.css" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="63.0" prefWidth="200.0" spacing="8.0" styleClass="search-border">
+            <HBox alignment="CENTER" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="63.0" prefWidth="200.0" spacing="8.0" styleClass="search-border">
                <children>
                   <HBox maxHeight="-Infinity" prefHeight="20.0" prefWidth="163.0" styleClass="search-bar" stylesheets="@../css/lookUp.css">
                      <children>

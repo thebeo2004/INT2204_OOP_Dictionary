@@ -15,7 +15,7 @@
          <children>
             <VBox pickOnBounds="false" prefHeight="611.0" prefWidth="200.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="63.5" prefWidth="200.0" styleClass="hbox0" stylesheets="@../css/lookUp.css">
+                  <HBox alignment="CENTER_LEFT" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="63.5" prefWidth="200.0" styleClass="hbox0" stylesheets="@../css/lookUp.css">
                      <children>
                         <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>

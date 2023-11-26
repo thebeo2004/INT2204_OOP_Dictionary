@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 import static GUI.Utility.textToSpeech;
 import static GUI.Utility.translator;
 
-public class GoogleController implements Initializable {
+public class GoogleController extends basicDialogController implements Initializable {
 
     @FXML
     private ChoiceBox<String> definitionBox;

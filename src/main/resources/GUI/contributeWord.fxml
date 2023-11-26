@@ -17,7 +17,7 @@
    <left>
       <VBox prefHeight="400.0" prefWidth="215.0" styleClass="right-border" stylesheets="@../css/lookUp.css" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="63.0" prefWidth="200.0" spacing="10.0" styleClass="search-border">
+            <HBox alignment="CENTER" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="63.0" prefWidth="200.0" spacing="10.0" styleClass="search-border">
                <children>
                   <HBox maxHeight="-Infinity" prefHeight="30.0" prefWidth="180.0" styleClass="search-bar" stylesheets="@../css/lookUp.css">
                      <children>
@@ -33,7 +33,7 @@
             </HBox>
             <HBox prefHeight="540.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="tableView" prefHeight="540.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../css/lookUp.css">
+                  <TableView fx:id="tableView" prefHeight="537.0" prefWidth="222.0" styleClass="transparent" stylesheets="@../css/lookUp.css">
                      <columns>
                         <TableColumn fx:id="tableColumn" prefWidth="198.66665649414062" text="Checking Existence" />
                      </columns>
@@ -55,7 +55,7 @@
    <center>
       <VBox prefHeight="439.0" prefWidth="411.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_RIGHT" prefHeight="68.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #0078ba;" styleClass="operation" stylesheets="@../css/lookUp.css">
+            <HBox alignment="TOP_RIGHT" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="68.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #0078ba;" styleClass="operation" stylesheets="@../css/lookUp.css">
                <children>
                   <HBox alignment="CENTER" layoutX="363.0" layoutY="10.0" maxHeight="-Infinity" onMousePressed="#updateButtonAction" prefHeight="67.0" prefWidth="96.0" spacing="5.0" styleClass="updateAction" stylesheets="@../css/lookUp.css">
                      <children>

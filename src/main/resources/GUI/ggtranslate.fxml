@@ -118,6 +118,6 @@
       </VBox>
    </center>
    <top>
-      <HBox prefHeight="61.0" prefWidth="760.0" style="-fx-background-color: #0072b1;" BorderPane.alignment="CENTER" />
+      <HBox onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="61.0" prefWidth="760.0" style="-fx-background-color: #0072b1;" BorderPane.alignment="CENTER" />
    </top>
 </BorderPane>

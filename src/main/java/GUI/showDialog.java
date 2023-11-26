@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public abstract class showDialog {
+public abstract class showDialog extends basicDialogController {
   protected FXMLLoader showAsDialog(String path) throws IOException {
     FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
     Parent parent = loader.load();

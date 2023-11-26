@@ -23,7 +23,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
-public class HelloController {
+public class HelloController extends basicDialogController {
 
   @FXML
   private BorderPane borderPane;
