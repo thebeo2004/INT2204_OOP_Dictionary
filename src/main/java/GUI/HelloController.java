@@ -145,7 +145,8 @@ public class HelloController extends basicDialogController implements Initializa
     FileChooser.ExtensionFilter extensionFilter = new ExtensionFilter("TXT files (*.txt)", "*.txt");
     fileChooser.getExtensionFilters().add(extensionFilter);
 
-    File file = fileChooser.showSaveDialog(new Stage());
+    Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    File file = fileChooser.showSaveDialog(stage);
 
     if (file != null) {
       saveFile(file);
