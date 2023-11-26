@@ -1,62 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.deleteFlashcardDialogController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="408.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.deleteFlashcardDialogController">
    <children>
-      <VBox prefHeight="176.0" prefWidth="400.0">
+      <VBox layoutX="4.0" layoutY="3.0" prefHeight="170.0" prefWidth="400.0">
          <children>
-            <HBox alignment="TOP_RIGHT" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="62.0" prefWidth="400.0" spacing="105.0" style="-fx-background-color: #025d8b;">
+            <HBox alignment="CENTER_LEFT" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="46.0" prefWidth="400.0" spacing="7.0" style="-fx-border-color: #f33a00; -fx-border-width: 0 0 1 0; -fx-background-color: #f4f4f4;">
                <children>
-                  <Label prefHeight="65.0" prefWidth="140.0" text="Warning" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold Italic" size="34.0" />
-                     </font>
-                  </Label>
-                  <Circle fill="#b50e14" onMousePressed="#close" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-               </children>
-               <padding>
-                  <Insets right="5.0" top="5.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="400.0" styleClass="hbox" stylesheets="@../css/deleteDialog.css">
-               <children>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="32.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Icons/delete1.png" />
                      </image>
                   </ImageView>
-                  <Label styleClass="transparent" stylesheets="@../css/deleteDialog.css" text="You actually want to delete this flashcard?" textFill="#ae0a0a">
+                  <Label text="Warning">
                      <font>
-                        <Font name="System Italic" size="16.0" />
+                        <Font size="19.0" />
                      </font>
                   </Label>
                </children>
                <padding>
-                  <Insets left="40.0" />
+                  <Insets left="20.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="400.0" spacing="20.0" styleClass="transparent" stylesheets="@../css/deleteDialog.css">
+            <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="400.0" style="-fx-border-color: #ffffff; -fx-border-width: 0 0 1 0; -fx-background-color: #f4f4f4;">
                <children>
-                  <Label onMousePressed="#dialogDeleteFlashcard" prefHeight="32.0" prefWidth="232.0" style="-fx-background-radius: 10;" styleClass="deleteWord" stylesheets="@../css/deleteDialog.css" text="  Yes, I want to delete this flashcard" textFill="#0b74d9">
-                     <font>
-                        <Font name="System Italic" size="15.0" />
-                     </font>
-                  </Label>
+                  <VBox alignment="CENTER_LEFT" style="-fx-background-color: #f4f4f4;">
+                     <children>
+                        <Label text="This flashcard will disappear permanently.">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label text="Would you like to continue deleting this flashcard?">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
                <padding>
-                  <Insets left="5.0" />
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="400.0" spacing="10.0" style="-fx-background-color: #f4f4f4;">
+               <children>
+                  <Button mnemonicParsing="false" onMousePressed="#dialogDeleteFlashcard" prefHeight="25.0" prefWidth="41.0" style="-fx-background-color: #2f62bd;" text="OK" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onMousePressed="#close" text="Cancel" textFill="#2f62bd" />
+               </children>
+               <padding>
+                  <Insets right="20.0" />
                </padding>
             </HBox>
          </children>
+         <effect>
+            <DropShadow height="28.225" radius="11.908750000000001" width="21.41">
+               <color>
+                  <Color red="0.14035087823867798" green="0.12518951296806335" blue="0.12518951296806335" />
+               </color>
+            </DropShadow>
+         </effect>
       </VBox>
    </children>
 </AnchorPane>
