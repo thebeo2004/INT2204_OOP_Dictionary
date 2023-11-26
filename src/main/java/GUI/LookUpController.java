@@ -138,6 +138,11 @@ public class LookUpController extends showDialog implements Initializable {
     Word word = databaseManagement.lookUp(dictionary, tableView.getSelectionModel().getSelectedItem());
     if (word != null) {
       show(word);
+    } else {
+      targetWord.setText("This word doesn't exist");
+      ipa.setText("");
+      function.setText("");
+      explainWord.setText("");
     }
   }
 
@@ -228,6 +233,10 @@ public class LookUpController extends showDialog implements Initializable {
       if(targetWord.getText().equals("") || targetWord.getText().equals("This word doesn't exist")) {
         return;
       }
+      editButton.setOnMouseEntered(e -> editButton.setStyle(""));
+      editButton.setOnMouseExited(e -> editButton.setStyle("-fx-background-color: #003d5f;\n"
+          + "    -fx-border-width: 3 0 0 0;\n"
+          + "    -fx-border-color: #FFFF;"));
       editButton.setStyle("-fx-background-color: #003d5f;\n"
           + "    -fx-border-width: 3 0 0 0;\n"
           + "    -fx-border-color: #FFFF;");
@@ -237,6 +246,12 @@ public class LookUpController extends showDialog implements Initializable {
     } else {
       editButton.setStyle("-fx-background-color: #0078ba;\n"
           + "    -fx-border-width: 0 0 0 0;\n");
+
+      editButton.setOnMouseEntered(e -> editButton.setStyle("-fx-background-color: #003d5f;\n"
+          + "    -fx-border-width: 3 0 0 0;\n"
+          + "    -fx-border-color: #FFFF;"));
+      editButton.setOnMouseExited(e -> editButton.setStyle("-fx-background-color: #0078ba;\n"
+          + "    -fx-border-width: 0 0 0 0;\n"));
 
       turnOffEdit();
       isEditing = false;
