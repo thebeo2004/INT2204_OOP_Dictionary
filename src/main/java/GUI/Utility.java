@@ -18,4 +18,6 @@ public class Utility {
   public static FlashCardManagement flashCardManagement = new FlashCardManagement();
 
   public static List<String> searchingHistory = new ArrayList<String>();
+
+  public static List<String> acceptedCharacter = new ArrayList<>();
 }

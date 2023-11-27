@@ -34,6 +34,12 @@ public class HelloApplication extends Application {
   public static void main(String[] args) {
     databaseManagement.loadDictionary(dictionary);
     flashCardManagement.loadDictionary(flashCards);
+    for(char c = 'A'; c <= 'Z'; c++) {
+      String s = "";
+      s += c;
+      acceptedCharacter.add(s);
+    }
+
     launch();
   }
 }
