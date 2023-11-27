@@ -1,5 +1,7 @@
 package GUI;
 
+import static GUI.HelloApplication.scene;
+import static GUI.Utility.acceptedCharacter;
 import static GUI.Utility.databaseManagement;
 import static GUI.Utility.dictionary;
 
@@ -18,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
@@ -27,6 +30,10 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 public class HelloController extends basicDialogController implements Initializable {
+
+  private static boolean flag = false;
+  private boolean isPlayingGame = false;
+  private gameController gameControl;
 
   @FXML
   private BorderPane borderPane;
@@ -104,6 +111,7 @@ public class HelloController extends basicDialogController implements Initializa
 
   @FXML
   void loadLookUp(MouseEvent event) {
+    isPlayingGame = false;
     LookUpController OwO = loadPage("lookUp").getController();
     OwO.setController(OwO);
     turnOffAll();
@@ -112,6 +120,7 @@ public class HelloController extends basicDialogController implements Initializa
 
   @FXML
   void loadContribute(MouseEvent event) {
+    isPlayingGame = false;
     loadPage("contributeWord");
     turnOffAll();
     turnOn(contribute);
@@ -155,6 +164,7 @@ public class HelloController extends basicDialogController implements Initializa
 
   @FXML
   void loadFlashCard(MouseEvent event) {
+    isPlayingGame = false;
     flashCardController OwO = loadPage("flashCard").getController();
     OwO.setController(OwO);
     turnOffAll();
@@ -163,13 +173,39 @@ public class HelloController extends basicDialogController implements Initializa
 
   @FXML
   void loadGame(MouseEvent event) {
+
+    isPlayingGame = true;
+    gameControl = loadPage("game").getController();
+    gameControl.setController(gameControl);
     turnOffAll();
-    loadPage("crossword");
     turnOn(game);
+
+    if (!flag) {
+      scene.setOnKeyPressed((KeyEvent e) -> {
+
+        if (isPlayingGame) {
+          String key = e.getCode().toString();
+
+          for(String s : acceptedCharacter) {
+            if (key.equals(s)) {
+              gameControl.keyPressed(key);
+            }
+          }
+        }
+      });
+
+      flag = true;
+    }
+  }
+
+  @FXML
+  void loadGameController(MouseEvent event) {
+    gameControl.transferController();
   }
 
   @FXML
   void loadggTranslate(MouseEvent event) {
+    isPlayingGame = false;
     loadPage("ggtranslate");
     turnOffAll();
     turnOn(ggTranslate);
