@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+
+<Label fx:id="label" alignment="CENTER" onMousePressed="#pressed" prefHeight="35.0" prefWidth="37.0" style="-fx-background-color: #cdcdcd;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.puzzleCellController">
+   <font>
+      <Font name="System Bold" size="23.0" />
+   </font>
+</Label>
