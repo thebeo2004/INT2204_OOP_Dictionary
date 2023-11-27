@@ -19,10 +19,11 @@ import javafx.stage.StageStyle;
 
 public class HelloApplication extends Application {
 
+  public static Scene scene;
   @Override
   public void start(Stage stage) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("sample.fxml"));
-    Scene scene = new Scene(fxmlLoader.load(), 960, 600);
+    scene = new Scene(fxmlLoader.load(), 960, 600);
     stage.setTitle("Hello!");
     stage.setScene(scene);
     stage.setResizable(false);
