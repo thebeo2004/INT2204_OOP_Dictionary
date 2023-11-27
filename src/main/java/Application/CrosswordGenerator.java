@@ -97,4 +97,9 @@ public class CrosswordGenerator {
         }
         return false;
     }
+
+    public int getColumn() {
+        String solution = solutionWord.getTargetWord();
+        return chosenWords[0].getTargetWord().indexOf(solution.charAt(0));
+    }
 }
