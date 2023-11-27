@@ -28,7 +28,7 @@
                      </padding></HBox>
                   <HBox prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="lookUp" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadLookUp" onMouseReleased="#loadLookUp" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Look Up" textFill="WHITE">
+                        <Button fx:id="lookUp" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadLookUp" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Look Up" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -53,7 +53,7 @@
                   </HBox>
                   <HBox prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="contribute" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadContribute" onMouseReleased="#loadContribute" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text=" Contribute" textFill="WHITE">
+                        <Button fx:id="contribute" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadContribute" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text=" Contribute" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -72,7 +72,7 @@
                   </HBox>
                   <HBox prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="ggTranslate" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadggTranslate" onMouseReleased="#loadggTranslate" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Google Translate" textFill="WHITE">
+                        <Button fx:id="ggTranslate" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadggTranslate" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Google Translate" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -91,7 +91,7 @@
                   </HBox>
                   <HBox prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="flashCard" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadFlashCard" onMouseReleased="#loadFlashCard" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Flash Card" textFill="WHITE">
+                        <Button fx:id="flashCard" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadFlashCard" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Flash Card" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -110,7 +110,7 @@
                   </HBox>
                   <HBox prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="game" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadGame" onMouseReleased="#loadGame" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Game" textFill="WHITE">
+                        <Button fx:id="game" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadGame" onMouseReleased="#loadGameController" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Game" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -129,7 +129,7 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="460.0" prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="download" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadDownload" onMouseReleased="#loadDownload" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Download" textFill="WHITE">
+                        <Button fx:id="download" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#loadDownload" prefHeight="80.0" prefWidth="200.0" stylesheets="@../css/lookUp.css" text="Download" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
