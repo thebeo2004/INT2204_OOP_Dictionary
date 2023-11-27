@@ -164,6 +164,7 @@ public class HelloController extends basicDialogController implements Initializa
   @FXML
   void loadGame(MouseEvent event) {
     turnOffAll();
+    loadPage("crossword");
     turnOn(game);
   }
 

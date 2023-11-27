@@ -1,6 +1,7 @@
 package GUI;
 
 import Application.Word;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,8 +21,9 @@ import static GUI.Utility.*;
 
 public class CrosswordController {
 
-    private List<String> crosswordStrings = null;
+    private List<String> crosswordStrings = new ArrayList<>();
     private List<String> answerStrings = new ArrayList<>();
+    private List<String> hints = new ArrayList<>();
     char[][] crossword = null;
 
     private int w;
@@ -38,11 +40,27 @@ public class CrosswordController {
     @FXML
     public Button submitButton;
 
+    private List<String> getHints() {
+        List<String> hints = new ArrayList<>();
+        for (String temp : crosswordStrings) {
+            String hint = translator.translate(temp.trim(), "en", "vi");
+            hints.add(hint);
+        }
+        return hints;
+    }
+
     @FXML
     public void generateCrossword(MouseEvent mouseEvent) {
         panel = new CrosswordPanel();
         borderPane.setCenter(panel);
         generate(panel);
+        Thread thread = new Thread(() -> {
+            hints = getHints();
+            Platform.runLater(() -> {
+                display(panel);
+            });
+        });
+        thread.start();
     };
 
     @FXML
@@ -54,7 +72,7 @@ public class CrosswordController {
 
     private void generate(CrosswordPanel panel) {
         crosswordGenerator.buildCrossword();
-        crosswordStrings = new ArrayList<>();
+        crosswordStrings.clear();
         for (Word word : crosswordGenerator.getCrossword()) {
             crosswordStrings.add(word.getTargetWord());
         };
@@ -70,6 +88,9 @@ public class CrosswordController {
                 crossword[x][y] = temp.charAt(x);
             }
         }
+    }
+
+    private void display(CrosswordPanel panel) {
         panel.setCrossword(crossword);
     }
 
@@ -77,24 +98,27 @@ public class CrosswordController {
         private TextField[][] grid;
 
         void setCrossword(char[][] array) {
-            getChildren().clear();
-
+            if (!getChildren().isEmpty()) {
+                getChildren().clear();
+            }
+            String solution = crosswordGenerator.getSolution();
             grid = new TextField[w][h];
 
             for (int y = 0; y < h; y++) {
                 int width = wordWidth[y];
                 Random random = new Random();
                 int rand = random.nextInt(width);
+                int col = crosswordStrings.get(y).indexOf(solution.charAt(y));
                 while (array[rand][y] == ' ') {
                     rand = random.nextInt(width);
                 }
                 for (int x = 0; x < width; x++) {
                     char character = array[x][y];
-                    if (character != ' ' && x != rand) {
+                    if (character != ' ' && x != rand && x != col) {
                         grid[x][y] = new TextField(String.valueOf(character));
                         grid[x][y].setFont(Font.font("Arial", 20));
                         add(grid[x][y], x, y);
-                    } else if (x != rand) {
+                    } else if (x != rand && x != col) {
                         add(new Label(), x, y);
                     } else {
                         grid[x][y] = new TextField();
@@ -109,7 +133,9 @@ public class CrosswordController {
             if (!answerStrings.isEmpty()) {
                 answerStrings.clear();
             }
-
+            if (grid == null) {
+                return;
+            }
             for (int i = 0; i < h; i++) {
                 String temp = "";
                 for (int j = 0; j < wordWidth[i]; j++) {

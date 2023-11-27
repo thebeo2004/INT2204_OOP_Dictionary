@@ -14,17 +14,16 @@ public class CrosswordGenerator {
     public CrosswordGenerator() {
         wordHugeList = databaseManagement.loadCrosswordList(length);
         wordList = new ArrayList<>();
-
-        for (int i = 0; i < 50; i++) {
-            int index = rand.nextInt(wordHugeList.size());
-            Word word = wordHugeList.get(index);
-            if (!wordList.contains(word) && !word.getTargetWord().contains("-")) {
-                wordList.add(word);
-            }
-        }
     }
 
     public void buildCrossword() {
+        for (int i = 0; i < 100; i++) {
+            int index = rand.nextInt(wordHugeList.size());
+            Word word = wordHugeList.get(index);
+            if (!wordList.contains(word) && !word.getTargetWord().contains("-") && !word.getTargetWord().contains("'")) {
+                wordList.add(word);
+            }
+        }
         solutionWord = wordList.get(rand.nextInt(wordList.size()));
         String target = solutionWord.getTargetWord();
         System.out.println(target);
@@ -38,7 +37,7 @@ public class CrosswordGenerator {
                     wordList.get(rand.nextInt(wordList.size())).getExplainWord());
             int charIndex = word.getTargetWord().indexOf(character);
 
-            if (charIndex >= 0) {
+            if (charIndex >= 0 && !Objects.equals(word.getTargetWord(), solutionWord.getTargetWord())) {
                 chosenWords[i] = word;
             } else {
                 i--;
@@ -83,5 +82,9 @@ public class CrosswordGenerator {
 
     public List<Word> getCrossword() {
         return List.of(chosenWords);
+    }
+
+    public String getSolution() {
+        return solutionWord.getTargetWord();
     }
 }

@@ -122,7 +122,9 @@ public class DatabaseManagement extends Manager {
 
             Statement statement = connection.createStatement();
 
-            resultSet = statement.executeQuery("select * from " + table + " where length(target) <= " + String.valueOf(length));
+            resultSet = statement.executeQuery("select * from " + table
+                    + " where length(target) <= " + String.valueOf(length)
+                    + " and length(target) >= " + String.valueOf(3));
 
             while (resultSet.next()) {
                 Word word = new Word(resultSet.getString("target"), resultSet.getString("definition"));
