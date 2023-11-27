@@ -20,7 +20,7 @@ public class CrosswordGenerator {
         for (int i = 0; i < 100; i++) {
             int index = rand.nextInt(wordHugeList.size());
             Word word = wordHugeList.get(index);
-            if (!wordList.contains(word) && !word.getTargetWord().contains("-") && !word.getTargetWord().contains("'")) {
+            if (!wordList.contains(word) && word.getTargetWord().matches("[a-zA-Z]+")) {
                 wordList.add(word);
             }
         }
@@ -37,7 +37,8 @@ public class CrosswordGenerator {
                     wordList.get(rand.nextInt(wordList.size())).getExplainWord());
             int charIndex = word.getTargetWord().indexOf(character);
 
-            if (charIndex >= 0 && !Objects.equals(word.getTargetWord(), solutionWord.getTargetWord())) {
+            if (charIndex >= 0 && !Objects.equals(word.getTargetWord(), solutionWord.getTargetWord())
+                    && !checkDuplicates(chosenWords, word.getTargetWord())) {
                 chosenWords[i] = word;
             } else {
                 i--;
@@ -91,5 +92,14 @@ public class CrosswordGenerator {
 
     public String getSolution() {
         return solutionWord.getTargetWord();
+    }
+
+    private boolean checkDuplicates(Word[] words, String word) {
+        for (Word w : words) {
+            if (w != null && w.getTargetWord() != null && w.getTargetWord().equals(word)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

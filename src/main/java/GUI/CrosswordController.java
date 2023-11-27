@@ -63,6 +63,11 @@ public class CrosswordController {
         thread.start();
     };
 
+    public int getColumn() {
+        String solution = crosswordGenerator.getSolution();
+        return crosswordStrings.get(0).indexOf(solution.charAt(0));
+    }
+
     @FXML
     public void submit(MouseEvent mouseEvent) {
         panel.compare();
@@ -93,6 +98,7 @@ public class CrosswordController {
     private void display(CrosswordPanel panel) {
         panel.setCrossword(crossword);
     }
+
 
     private class CrosswordPanel extends GridPane {
         private TextField[][] grid;
