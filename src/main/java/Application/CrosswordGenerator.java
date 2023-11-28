@@ -81,13 +81,8 @@ public class CrosswordGenerator {
         this.length = length;
     }
 
-    public List<String> getCrossword() {
-        List<String> tmp = new ArrayList<>();
-        for(Word w : chosenWords) {
-            tmp.add(w.getTargetWord());
-        }
-
-        return tmp;
+    public List<Word> getCrossword() {
+        return Arrays.asList(chosenWords);
     }
 
     public String getSolution() {

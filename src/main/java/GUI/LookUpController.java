@@ -89,7 +89,8 @@ public class LookUpController extends showDialog implements Initializable {
     tableView.getItems().clear();
     loadTimeIcon("src/main/resources/Icons/delivery_time.png");
     tableColumn.setText("Searching Result");
-    for(String s : databaseManagement.search(dictionary, typing.getText())) {
+    String text = typing.getText().toLowerCase();
+    for(String s : databaseManagement.search(dictionary, text)) {
       tableView.getItems().add(s);
     }
   }

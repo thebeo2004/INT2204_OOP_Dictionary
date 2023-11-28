@@ -4,7 +4,11 @@ import static GUI.Utility.crosswordGenerator;
 
 import Application.Puzzle;
 import Application.Word;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +22,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 
 public class gameController extends basicDialogController implements Initializable {
 
@@ -32,6 +38,8 @@ public class gameController extends basicDialogController implements Initializab
   private List<puzzleCellController> controllerList = new ArrayList<>();
   private List<Puzzle> puzzleList = new ArrayList<>();
   private List<String> storage;
+  private Player player = null;
+  private FileInputStream audio = null;
   @FXML
   private GridPane cellGrid;
   @FXML
@@ -118,7 +126,12 @@ public class gameController extends basicDialogController implements Initializab
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     crosswordGenerator.buildCrossword();
-    storage = crosswordGenerator.getCrossword();
+    List<Word> wordList = crosswordGenerator.getCrossword();
+    List<String> temp = new ArrayList<>();
+    for (Word word : wordList) {
+        temp.add(word.getTargetWord());
+    }
+    storage = temp;
     getData();
     setPuzzleList();
     setActive();
@@ -129,7 +142,19 @@ public class gameController extends basicDialogController implements Initializab
   }
 
   public void changeStatus(int x, int y) {
-    //Sound Effect for choosing action
+    Thread thread = new Thread (() -> {
+      try {
+        audio = new FileInputStream("src/main/resources/Sounds/choose.mp3");
+        player = new Player(audio);
+        player.play();
+        Thread.sleep(2000);
+        player = null;
+        audio = null;
+      } catch (JavaLayerException | InterruptedException | FileNotFoundException e) {
+        throw new RuntimeException(e);
+      }
+    });
+    thread.start();
     for (puzzleCellController p : controllerList) {
       p.turnOff();
     }
@@ -139,7 +164,6 @@ public class gameController extends basicDialogController implements Initializab
         cellController[y][j].turnOn();
       }
     }
-
     cellController[y][x].setChosen();
   }
 
@@ -156,7 +180,19 @@ public class gameController extends basicDialogController implements Initializab
   }
 
   private void closePuzzle(int id) {
-    //Sound Effect for right answer
+    Thread thread = new Thread (() -> {
+      try {
+        audio = new FileInputStream("src/main/resources/Sounds/finish.mp3");
+        player = new Player(audio);
+        player.play();
+        Thread.sleep(3000);
+        player = null;
+        audio = null;
+      } catch (JavaLayerException | InterruptedException | FileNotFoundException e) {
+        throw new RuntimeException(e);
+      }
+    });
+    thread.start();
     int x = puzzleList.get(id).getX();
     int y = puzzleList.get(id).getY();
     int length = puzzleList.get(id).getLength();
