@@ -34,7 +34,7 @@ public class HelloController extends basicDialogController implements Initializa
   private static boolean flag = false;
   private boolean isPlayingGame = false;
   private gameController gameControl;
-
+  private HelloController mainController;
   @FXML
   private BorderPane borderPane;
 
@@ -59,6 +59,10 @@ public class HelloController extends basicDialogController implements Initializa
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     loadLookUp(null);
+  }
+
+  public void setMainController(HelloController mainController) {
+    this.mainController = mainController;
   }
 
   @FXML
@@ -171,6 +175,12 @@ public class HelloController extends basicDialogController implements Initializa
     turnOn(flashCard);
   }
 
+  public void startNewGame() {
+    isPlayingGame = false;
+    loadGame(null);
+    loadGameController(null);
+  }
+
   @FXML
   void loadGame(MouseEvent event) {
 
@@ -181,6 +191,7 @@ public class HelloController extends basicDialogController implements Initializa
     isPlayingGame = true;
     gameControl = loadPage("game").getController();
     gameControl.setController(gameControl);
+    gameControl.setMainController(mainController);
     turnOffAll();
     turnOn(game);
 
