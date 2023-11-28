@@ -100,7 +100,7 @@ public class gameController extends basicDialogController implements Initializab
       String s = puzzleList.get(i).getText();
       for (int j = x; j < x + puzzleList.get(i).getLength(); j++) {
         loadCell(y, j);
-        cellController[y][j].setText(s.charAt(j - x));
+        cellController[y][j].setText("" + s.charAt(j - x));
       }
     }
   }
@@ -142,7 +142,29 @@ public class gameController extends basicDialogController implements Initializab
     cellController[y][x].setChosen();
   }
 
-  public void keyPressed(String s) {
+  private puzzleCellController chosenCell() {
+    for(puzzleCellController p : controllerList) {
+      if (p.isChosen()) {
+        return p;
+      }
+    }
+    return null;
+  }
 
+  public void keyPressed(String s) {
+    puzzleCellController OwO = chosenCell();
+
+    if (OwO == null) {
+      return;
+    }
+
+    OwO.setText(s);
+    int x = OwO.getX();
+    int y = OwO.getY();
+
+    if (x < MAX_COLUMN - 1 && cellController[y][x + 1] != null) {
+      OwO.turnOn();
+      cellController[y][x + 1].setChosen();
+    }
   }
 }
