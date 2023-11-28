@@ -39,4 +39,8 @@ public class Puzzle {
   public String getText() {
     return text;
   }
+
+  public String getExplain() {
+    return explain;
+  }
 }
