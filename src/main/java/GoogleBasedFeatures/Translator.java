@@ -1,5 +1,6 @@
 package GoogleBasedFeatures;
 
+import org.jsoup.Jsoup;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,6 +16,7 @@ public class Translator {
   public String translate(String text, String target, String explain) {
     StringBuilder response = new StringBuilder();
     try {
+      URLEncoder.encode(text, StandardCharsets.UTF_8);
       String urlStr =
           "https://script.google.com/macros/s/AKfycbySjXbo-BOQvv2toFcle3m9Fx0bj_2XqXtyO3pA5oCXC7iMPPNSONe9tCFWC_sKBl1mGw/exec"
               + "?q="
@@ -29,6 +31,7 @@ public class Translator {
       BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream()));
       String output = "";
       while ((output = input.readLine()) != null) {
+        output = Jsoup.parse(output).text();
         response.append(output);
       }
       input.close();

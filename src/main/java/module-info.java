@@ -7,9 +7,10 @@ module GUI {
   requires java.sql;
   requires freetts;
   requires jlayer;
-    requires java.net.http;
-    requires com.fasterxml.jackson.databind;
+  requires org.jsoup;
+  requires java.net.http;
+  requires com.fasterxml.jackson.databind;
 
-    opens GUI to javafx.fxml;
+  opens GUI to javafx.fxml;
   exports GUI;
 }
