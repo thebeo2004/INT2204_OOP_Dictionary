@@ -18,7 +18,7 @@
          <children>
             <HBox onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="62.0" prefWidth="760.0" style="-fx-background-color: #0072b1;">
                <children>
-                  <HBox alignment="CENTER" maxHeight="-Infinity" onMousePressed="#newGame" prefHeight="61.0" prefWidth="72.0" spacing="5.0" styleClass="Action" stylesheets="@../css/lookUp.css">
+                  <HBox alignment="CENTER" maxHeight="-Infinity" onMousePressed="#newGameButton" prefHeight="61.0" prefWidth="72.0" spacing="5.0" styleClass="Action" stylesheets="@../css/lookUp.css">
                      <children>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>

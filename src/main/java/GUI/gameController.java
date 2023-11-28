@@ -34,6 +34,7 @@ public class gameController extends showDialog implements Initializable {
   public static boolean isNewGameDialog = false;
   private boolean isTransfer = false;
   private gameController controller;
+  private HelloController mainController;
   private static final int MAX_ROW = 12;
   private static final int MAX_COLUMN = 20;
   private int start_x;
@@ -162,13 +163,27 @@ public class gameController extends showDialog implements Initializable {
     this.controller = controller;
   }
 
+  public void setMainController(HelloController mainController) {
+    this.mainController = mainController;
+  }
+
   private void showExplain(int id) {
     explain.setText(puzzleList.get(id).getExplain());
   }
 
   @FXML
-  void newGame(MouseEvent event) {
+  void newGameButton(MouseEvent event) throws IOException {
+    if (isNewGameDialog) {
+      return;
+    }
 
+    isNewGameDialog = true;
+    NewGameDialogController OwO = showAsDialog("newGameDialog.fxml").getController();
+    OwO.setController(controller);
+  }
+
+  public void startNewGame() {
+    mainController.startNewGame();
   }
 
   @FXML
