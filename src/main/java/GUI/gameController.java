@@ -1,6 +1,7 @@
 package GUI;
 
 import static GUI.Utility.crosswordGenerator;
+import static GUI.Utility.generateNumber;
 
 import Application.Puzzle;
 import Application.Word;
@@ -18,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -25,11 +27,11 @@ import javafx.scene.layout.GridPane;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
-public class gameController extends basicDialogController implements Initializable {
+public class gameController extends showDialog implements Initializable {
 
   private boolean isTransfer = false;
   private gameController controller;
-  private static final int MAX_ROW = 11;
+  private static final int MAX_ROW = 12;
   private static final int MAX_COLUMN = 20;
   private int start_x;
   private int start_y;
@@ -44,6 +46,12 @@ public class gameController extends basicDialogController implements Initializab
   private GridPane cellGrid;
   @FXML
   private AnchorPane pane = new AnchorPane();
+  @FXML
+  private Label explain = new Label();
+  @FXML
+  private Label star;
+  @FXML
+  private Label trophy;
 
   private void setStart_x(int width) {
     start_x = (int) (MAX_COLUMN - width) / 2;
@@ -108,8 +116,13 @@ public class gameController extends basicDialogController implements Initializab
       String s = puzzleList.get(i).getText();
       for (int j = x; j < x + puzzleList.get(i).getLength(); j++) {
         loadCell(y, j);
-        cellController[y][j].setText("" + s.charAt(j - x));
       }
+      for(Integer j : generateNumber(s.length())) {
+        cellController[y][x + j].setText("" + s.charAt(j));
+        cellController[y][x + j].setClose();
+      }
+
+      System.out.println(s);
     }
   }
 
@@ -121,6 +134,8 @@ public class gameController extends basicDialogController implements Initializab
     for (puzzleCellController p : controllerList) {
       p.setController(controller);
     }
+
+    isTransfer = true;
   }
 
   @Override
@@ -141,7 +156,22 @@ public class gameController extends basicDialogController implements Initializab
     this.controller = controller;
   }
 
+  private void showExplain(int id) {
+    explain.setText(puzzleList.get(id).getExplain());
+  }
+
+  @FXML
+  void newGame(MouseEvent event) {
+
+  }
+
+  @FXML
+  void showHint(MouseEvent event) {
+
+  }
+
   public void changeStatus(int x, int y) {
+    showExplain(y - start_y);
     Thread thread = new Thread (() -> {
       try {
         audio = new FileInputStream("src/main/resources/Sounds/choose.mp3");
