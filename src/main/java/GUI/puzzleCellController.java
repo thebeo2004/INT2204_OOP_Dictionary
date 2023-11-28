@@ -87,4 +87,8 @@ public class puzzleCellController {
   public boolean isChosen() {
     return chosen;
   }
+
+  public String getText() {
+    return label.getText();
+  }
 }
