@@ -2,17 +2,15 @@ package GUI;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 
 public class puzzleCellController {
   private int x;
   private int y;
   private gameController controller;
-  private boolean isOff = true;
-  private boolean isChosen = false;
-  private boolean isClose = false;
+  private boolean off = true;
+  private boolean chosen = false;
+  private boolean close = false;
   @FXML
   private Label label;
 
@@ -20,42 +18,40 @@ public class puzzleCellController {
     this.controller = controller;
   }
 
-  public void setText(char c) {
-    String s = "";
-    s += c;
+  public void setText(String s) {
     label.setText(s.toUpperCase());
   }
 
   public void setClose() {
-    isClose = true;
-    isChosen = false;
+    close = true;
+    chosen = false;
     label.setStyle("-fx-background-color: #f4e7a3");
   }
 
   public void turnOff() {
-    if (isClose) {
+    if (close) {
       return;
     }
-    isChosen = false;
-    isOff = true;
+    chosen = false;
+    off = true;
     label.setStyle("-fx-background-color: #cdcdcd");
   }
 
   public void turnOn() {
-    if (isClose) {
+    if (close) {
       return;
     }
-    isChosen = false;
-    isOff = false;
+    chosen = false;
+    off = false;
     label.setStyle("-fx-background-color: #c6ffc6");
   }
 
   public void setChosen() {
-    if (isClose) {
+    if (close) {
       return;
     }
-    isChosen = true;
-    isOff = false;
+    chosen = true;
+    off = false;
     label.setStyle("-fx-background-color: #88fea6");
   }
 
@@ -67,8 +63,28 @@ public class puzzleCellController {
     this.y = y;
   }
 
+  public int getX() {
+    return x;
+  }
+
+  public int getY() {
+    return y;
+  }
+
   @FXML
   void pressed(MouseEvent event) {
     controller.changeStatus(x, y);
+  }
+
+  public boolean isOff() {
+    return off;
+  }
+
+  public boolean isClose() {
+    return close;
+  }
+
+  public boolean isChosen() {
+    return chosen;
   }
 }
