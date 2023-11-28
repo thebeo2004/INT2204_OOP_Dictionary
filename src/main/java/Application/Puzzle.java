@@ -20,7 +20,7 @@ public class Puzzle {
   }
 
   public void setText(String text) {
-    this.text = text;
+    this.text = text.toUpperCase();
     this.explain = translator.translate(text, "en", "vi");
   }
 
