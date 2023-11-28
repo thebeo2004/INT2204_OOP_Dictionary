@@ -20,8 +20,12 @@ public class Puzzle {
   }
 
   public void setText(String text) {
+    String temp = text.toLowerCase();
     this.text = text.toUpperCase();
-    this.explain = translator.translate(text, "en", "vi");
+    Thread thread = new Thread(() -> {
+      this.explain = translator.translate(temp, "en", "vi");
+    });
+    thread.start();
   }
 
   public int getX() {
