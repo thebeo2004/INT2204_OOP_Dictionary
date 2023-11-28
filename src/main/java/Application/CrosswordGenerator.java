@@ -9,7 +9,7 @@ public class CrosswordGenerator {
     private Random rand = new Random();
     private Word solutionWord;
     private Word[] chosenWords;
-    private int length = 5;
+    private int length = 10;
 
     public CrosswordGenerator() {
         wordHugeList = databaseManagement.loadCrosswordList(length);
@@ -24,7 +24,11 @@ public class CrosswordGenerator {
                 wordList.add(word);
             }
         }
-        solutionWord = wordList.get(rand.nextInt(wordList.size()));
+        int tmp = -1;
+        while (tmp < 4) {
+            tmp = rand.nextInt(wordList.size());
+            solutionWord = wordList.get(tmp);
+        }
         String target = solutionWord.getTargetWord();
         System.out.println(target);
         chosenWords = new Word[target.length()];
