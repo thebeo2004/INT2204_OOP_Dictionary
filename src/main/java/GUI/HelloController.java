@@ -174,6 +174,10 @@ public class HelloController extends basicDialogController implements Initializa
   @FXML
   void loadGame(MouseEvent event) {
 
+    if (isPlayingGame) {
+      return;
+    }
+
     isPlayingGame = true;
     gameControl = loadPage("game").getController();
     gameControl.setController(gameControl);
