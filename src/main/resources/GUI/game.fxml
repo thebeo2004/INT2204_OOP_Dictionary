@@ -53,14 +53,14 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="63.0" prefWidth="233.0" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" onMousePressed="#showHint" prefHeight="45.0" prefWidth="90.0" style="-fx-background-color: #1dd1ff; -fx-background-radius: 10;" text="Hint">
+                  <HBox prefHeight="59.0" prefWidth="260.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMousePressed="#showHintButton" prefHeight="47.0" prefWidth="65.0" style="-fx-background-color: #1dd1ff; -fx-background-radius: 10;" text="Hint">
                      <font>
                         <Font name="System Bold Italic" size="21.0" />
                      </font>
                   </Label>
                   <HBox prefHeight="59.0" prefWidth="239.0" />
-                  <Label fx:id="star" alignment="CENTER" prefHeight="36.0" prefWidth="51.0" style="-fx-background-color: #FFFF;" text="15">
+                  <Label fx:id="star" alignment="CENTER" prefHeight="36.0" prefWidth="51.0" style="-fx-background-color: #FFFF;" text=" 15">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>

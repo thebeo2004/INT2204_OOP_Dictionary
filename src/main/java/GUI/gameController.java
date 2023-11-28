@@ -29,6 +29,9 @@ import javazoom.jl.player.Player;
 
 public class gameController extends showDialog implements Initializable {
 
+  private int solutionRow;
+  public static boolean isShowHintDialog = false;
+  public static boolean isNewGameDialog = false;
   private boolean isTransfer = false;
   private gameController controller;
   private static final int MAX_ROW = 12;
@@ -150,6 +153,9 @@ public class gameController extends showDialog implements Initializable {
     getData();
     setPuzzleList();
     setActive();
+
+    //Show number of stars
+    //Show number of trophy
   }
 
   public void setController(gameController controller) {
@@ -166,8 +172,30 @@ public class gameController extends showDialog implements Initializable {
   }
 
   @FXML
-  void showHint(MouseEvent event) {
+  void showHintButton(MouseEvent event) throws IOException {
+    puzzleCellController OwO = chosenCell();
 
+    if (OwO == null || isShowHintDialog) {
+      return;
+    }
+
+    isShowHintDialog = true;
+    ShowHintDialogController UwU = showAsDialog("showHintDialog.fxml").getController();
+    UwU.setController(controller);
+    solutionRow = OwO.getY() - start_y;
+  }
+
+  public void showHint() {
+    //Check if number of stars >= 5
+    int x = puzzleList.get(solutionRow).getX();
+    int y = puzzleList.get(solutionRow).getY();
+    String s = puzzleList.get(solutionRow).getText();
+    for (int j = x; j < x + puzzleList.get(solutionRow).getLength(); j++) {
+      cellController[y][j].setText("" + s.charAt(j - x));
+      cellController[y][j].setClose();
+    }
+
+    rightAnswerSound();
   }
 
   public void changeStatus(int x, int y) {
@@ -209,7 +237,7 @@ public class gameController extends showDialog implements Initializable {
     return userAnswer.equals(puzzleList.get(id).getText());
   }
 
-  private void closePuzzle(int id) {
+  private void rightAnswerSound() {
     Thread thread = new Thread (() -> {
       try {
         audio = new FileInputStream("src/main/resources/Sounds/finish.mp3");
@@ -223,6 +251,9 @@ public class gameController extends showDialog implements Initializable {
       }
     });
     thread.start();
+  }
+  private void closePuzzle(int id) {
+    rightAnswerSound();
     int x = puzzleList.get(id).getX();
     int y = puzzleList.get(id).getY();
     int length = puzzleList.get(id).getLength();
@@ -231,7 +262,6 @@ public class gameController extends showDialog implements Initializable {
       cellController[y][i].setClose();
     }
   }
-
 
   private puzzleCellController chosenCell() {
     for(puzzleCellController p : controllerList) {
