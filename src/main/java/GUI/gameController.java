@@ -129,6 +129,7 @@ public class gameController extends basicDialogController implements Initializab
   }
 
   public void changeStatus(int x, int y) {
+    //Sound Effect for choosing action
     for (puzzleCellController p : controllerList) {
       p.turnOff();
     }
@@ -141,6 +142,30 @@ public class gameController extends basicDialogController implements Initializab
 
     cellController[y][x].setChosen();
   }
+
+  private boolean checkUserAnswer(int id) {
+    String userAnswer = "";
+    int x = puzzleList.get(id).getX();
+    int y = puzzleList.get(id).getY();
+    int length = puzzleList.get(id).getLength();
+
+    for(int i = x; i < x + length; i++) {
+      userAnswer += cellController[y][i].getText();
+    }
+    return userAnswer.equals(puzzleList.get(id).getText());
+  }
+
+  private void closePuzzle(int id) {
+    //Sound Effect for right answer
+    int x = puzzleList.get(id).getX();
+    int y = puzzleList.get(id).getY();
+    int length = puzzleList.get(id).getLength();
+
+    for(int i = x; i < x + length; i++) {
+      cellController[y][i].setClose();
+    }
+  }
+
 
   private puzzleCellController chosenCell() {
     for(puzzleCellController p : controllerList) {
@@ -161,6 +186,10 @@ public class gameController extends basicDialogController implements Initializab
     OwO.setText(s);
     int x = OwO.getX();
     int y = OwO.getY();
+
+    if (checkUserAnswer(y - start_y)) {
+      closePuzzle(y - start_y);
+    }
 
     if (x < MAX_COLUMN - 1 && cellController[y][x + 1] != null) {
       OwO.turnOn();
