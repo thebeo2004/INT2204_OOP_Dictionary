@@ -242,7 +242,7 @@ public class gameController extends showDialog implements Initializable {
     return null;
   }
 
-  public void keyPressed(String s) {
+  public void keyCharacterTyping(String s) {
     puzzleCellController OwO = chosenCell();
 
     if (OwO == null) {
@@ -261,5 +261,15 @@ public class gameController extends showDialog implements Initializable {
       OwO.turnOn();
       cellController[y][x + 1].setChosen();
     }
+  }
+
+  public void keyDeleteTyping() {
+    puzzleCellController OwO = chosenCell();
+
+    if (OwO == null || OwO.isClose()) {
+      return;
+    }
+
+    OwO.setText("");
   }
 }

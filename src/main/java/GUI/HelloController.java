@@ -189,11 +189,15 @@ public class HelloController extends basicDialogController implements Initializa
 
         if (isPlayingGame) {
           String key = e.getCode().toString();
-
+          System.out.println(key);
           for(String s : acceptedCharacter) {
             if (key.equals(s)) {
-              gameControl.keyPressed(key);
+              gameControl.keyCharacterTyping(key);
             }
+          }
+
+          if (key.equals("BACK_SPACE") || key.equals("DELETE")) {
+            gameControl.keyDeleteTyping();
           }
         }
       });
