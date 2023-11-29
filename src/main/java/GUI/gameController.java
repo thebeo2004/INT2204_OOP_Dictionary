@@ -241,6 +241,19 @@ public class gameController extends showDialog implements Initializable {
     stars += crossPuzzle.getLength();
     showResult();
     //Sound effect for wining game
+    Thread thread = new Thread (() -> {
+      try {
+        audio = new FileInputStream("src/main/resources/Sounds/win.mp3");
+        player = new Player(audio);
+        player.play();
+        Thread.sleep(2000);
+        player = null;
+        audio = null;
+      } catch (JavaLayerException | InterruptedException | FileNotFoundException e) {
+        throw new RuntimeException(e);
+      }
+    });
+    thread.start();
     numberPuzzle--;
     GameOverDialogController OwO = showAsDialog("gameOverDialog.fxml").getController();
     OwO.setController(controller);
@@ -298,7 +311,7 @@ public class gameController extends showDialog implements Initializable {
         throw new RuntimeException(e);
       }
     });
-    thread.start();
+    if (numberPuzzle > 1) thread.start();
 
     numberPuzzle--;
     try {
