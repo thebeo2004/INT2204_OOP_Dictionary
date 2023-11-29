@@ -2,6 +2,7 @@ package GUI;
 
 import static GUI.Utility.crosswordGenerator;
 import static GUI.Utility.generateNumber;
+import static GUI.GameOverDialogController.*;
 
 import Application.Puzzle;
 import Application.Word;
@@ -30,6 +31,7 @@ import javazoom.jl.player.Player;
 public class gameController extends showDialog implements Initializable {
 
   private int solutionRow;
+  private int numberPuzzle;
   public static boolean isShowHintDialog = false;
   public static boolean isNewGameDialog = false;
   private boolean isTransfer = false;
@@ -39,7 +41,6 @@ public class gameController extends showDialog implements Initializable {
   private static final int MAX_COLUMN = 20;
   private int start_x;
   private int start_y;
-  private int end_y;
   private puzzleCellController[][] cellController = new puzzleCellController[MAX_ROW][MAX_COLUMN];
   private List<puzzleCellController> controllerList = new ArrayList<>();
   private List<Puzzle> puzzleList = new ArrayList<>();
@@ -72,6 +73,8 @@ public class gameController extends showDialog implements Initializable {
       puzzleList.get(i)
           .setX(start_x + storage.get(i).length() - puzzleList.get(i).getText().length());
     }
+
+    numberPuzzle = puzzleList.size();
   }
 
   private String convert(String text) {
@@ -145,6 +148,7 @@ public class gameController extends showDialog implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     crosswordGenerator.buildCrossword();
+    crossPuzzle.setText(crosswordGenerator.getSolution());
     List<Word> wordList = crosswordGenerator.getCrossword();
     List<String> temp = new ArrayList<>();
     for (Word word : wordList) {
@@ -213,6 +217,15 @@ public class gameController extends showDialog implements Initializable {
     rightAnswerSound();
   }
 
+  private void gameOver() throws IOException {
+    if (numberPuzzle != 0) {
+      return;
+    }
+    //Sound effect for wining game
+    numberPuzzle--;
+    GameOverDialogController OwO = showAsDialog("gameOverDialog.fxml").getController();
+    OwO.setController(controller);
+  }
   public void changeStatus(int x, int y) {
     showExplain(y - start_y);
     Thread thread = new Thread (() -> {
@@ -266,6 +279,14 @@ public class gameController extends showDialog implements Initializable {
       }
     });
     thread.start();
+
+    numberPuzzle--;
+    try {
+      gameOver();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
   }
   private void closePuzzle(int id) {
     rightAnswerSound();
