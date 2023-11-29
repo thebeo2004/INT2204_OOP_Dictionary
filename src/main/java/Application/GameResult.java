@@ -34,9 +34,9 @@ public class GameResult {
     this.trophies = trophies;
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/Data/progress.txt/", false));
-      writer.write(trophies);
+      writer.write(String.valueOf(trophies));
       writer.write("\n");
-      writer.write(stars);
+      writer.write(String.valueOf(stars));
       writer.close();
     } catch (IOException e) {
       throw new RuntimeException(e);
