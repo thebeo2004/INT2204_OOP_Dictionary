@@ -16,6 +16,10 @@ public class TextToSpeech {
                     "&client=tw-ob&q=" + URLEncoder.encode(text, StandardCharsets.UTF_8));
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            int statusCode = connection.getResponseCode();
+            if (statusCode == 400) {
+                return;
+            }
             InputStream audio = connection.getInputStream();
             Player player = new Player(audio);
             player.play();

@@ -1,6 +1,7 @@
 package GUI;
 
 import static GUI.LookUpController.isShowDeleteDialog;
+import static GUI.Utility.*;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
@@ -19,7 +20,7 @@ public class deleteWordDialogController extends basicDialogController {
 
   @FXML
   void dialogDeleteWord(MouseEvent event) {
-//    databaseManagement.deleteWord(dictionary, deletedWord);
+    databaseManagement.deleteWord(dictionary, deletedWord);
     controller.clear();
     close(event);
   }

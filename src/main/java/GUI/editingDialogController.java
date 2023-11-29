@@ -24,7 +24,7 @@ public class editingDialogController extends basicDialogController{
 
   @FXML
   void updateDictionary(MouseEvent event) {
-//    databaseManagement.editWord(dictionary, editingWord);
+    databaseManagement.editWord(dictionary, editingWord);
     close(event);
   }
 }

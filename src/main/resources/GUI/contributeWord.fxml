@@ -87,7 +87,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <TextField fx:id="targetWord" prefHeight="96.0" prefWidth="511.0" promptText="//You have to fill in target Word" style="-fx-background-color: #FFFF;">
+                  <TextField fx:id="targetWord" prefHeight="96.0" prefWidth="511.0" promptText="You have to fill in target Word" style="-fx-background-color: #FFFF;">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>

@@ -8,10 +8,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import static GUI.Utility.textToSpeech;
 import static GUI.Utility.translator;
@@ -32,16 +32,32 @@ public class GoogleController extends basicDialogController implements Initializ
 
     private String input;
     private String output;
-    private Map<String, String> languages = new HashMap<>();
+    private static final TreeMap<String, String> languages = new TreeMap<>();
+
+    public static void loadList() {
+        try {
+            languages.put("Auto-detect", "");
+            Scanner scanner = new Scanner(new File("src/main/resources/Data/languages.txt"));
+            while (scanner.hasNextLine()) {
+                String temp = scanner.nextLine();
+                String lang = temp.substring(0, temp.indexOf('|'));
+                String key = temp.substring(temp.indexOf('|') + 1);
+                languages.put(lang, key);
+            }
+
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        languages.put("English", "en");
-        languages.put("Vietnamese", "vi");
-        languages.put("Japanese", "ja");
-        languages.put("Chinese", "zh");
+
         targetBox.getItems().addAll(languages.keySet());
         definitionBox.getItems().addAll(languages.keySet());
+        definitionBox.getItems().remove("Auto-detect");
+
         targetBox.setValue("English");
         definitionBox.setValue("Vietnamese");
     }
@@ -58,11 +74,30 @@ public class GoogleController extends basicDialogController implements Initializ
 
     @FXML
     void translate(MouseEvent event) {
-        output = translator.translate(input, languages.get(targetBox.getValue()), languages.get(definitionBox.getValue()));
-        if (output == null) {
-            return;
+        String target = languages.get(targetBox.getValue());
+        String definition = languages.get(definitionBox.getValue());
+
+        Thread thread = new Thread(() -> {
+            output = translator.translate(input, target, definition);
+            if (output == null) {
+                return;
+            }
+        });
+
+        Thread wait = new Thread(() -> {
+            try {
+                thread.join();
+                definitionTextArea.setText(output);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        if (target.equals(definition)) {
+            definitionTextArea.setText(input);
+        } else {
+            thread.start();
+            wait.start();
         }
-        definitionTextArea.setText(output);
     }
 
     @FXML
@@ -70,7 +105,10 @@ public class GoogleController extends basicDialogController implements Initializ
         if (input == null) {
             return;
         }
-        textToSpeech.speak(input, languages.get(targetBox.getValue()));
+        Thread thread = new Thread(() -> {
+            textToSpeech.speak(input, languages.get(targetBox.getValue()));
+        });
+        thread.start();
     }
 
     @FXML
@@ -78,6 +116,9 @@ public class GoogleController extends basicDialogController implements Initializ
         if (input == null) {
             return;
         }
-        textToSpeech.speak(input, languages.get(definitionBox.getValue()));
+        Thread thread = new Thread(() -> {
+            textToSpeech.speak(output, languages.get(definitionBox.getValue()));
+        });
+        thread.start();
     }
 }

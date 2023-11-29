@@ -20,7 +20,7 @@ public class addingNewWordDialogController extends basicDialogController{
   @FXML
   void addWordAction(MouseEvent event) {
     super.close(event);
-//    databaseManagement.addWord(dictionary, addedWord);
+    databaseManagement.addWord(dictionary, addedWord);
     isShowingDialog = false;
   }
 }

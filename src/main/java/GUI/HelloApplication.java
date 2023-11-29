@@ -1,20 +1,13 @@
 package GUI;
 
 import static GUI.Utility.*;
-import static GUI.Utility.dictionaryManagement;
 
-import java.io.FileInputStream;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-import Application.*;
 import javafx.stage.StageStyle;
 
 public class HelloApplication extends Application {
@@ -36,6 +29,7 @@ public class HelloApplication extends Application {
   }
 
   public static void main(String[] args) {
+    GoogleController.loadList();
     databaseManagement.loadDictionary(dictionary);
     flashCardManagement.loadDictionary(flashCards);
     for(char c = 'A'; c <= 'Z'; c++) {

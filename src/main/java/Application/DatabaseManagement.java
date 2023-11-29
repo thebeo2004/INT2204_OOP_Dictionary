@@ -1,9 +1,6 @@
 package Application;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DatabaseManagement extends Manager {
@@ -55,15 +52,18 @@ public class DatabaseManagement extends Manager {
     public void addWord(Dictionary dictionary, Word word) {
         if (lookUp(dictionary, word.getTargetWord()) == null) {
             dictionary.addWord(word);
-            String query = "INSERT INTO " + table + " (id, target, definition) VALUES (null, '" + word.getTargetWord() + "', '" + word.getExplainWord() + "');";
+            String explain = "@" + word.getIpa() + "\n" + "*" + word.getFunction() + "\n" + word.getExplainWord();
+            String query = "INSERT INTO " + table + " (id, target, definition) VALUES (null, '" + word.getTargetWord() + "', '" + explain + "');";
             try {
                 Class.forName("org.sqlite.JDBC");
 
                 connection = DriverManager.getConnection(url);
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-                Statement statement = connection.createStatement();
-
-                statement.executeUpdate(query);
+                preparedStatement.execute();
+//                Statement statement = connection.createStatement();
+//
+//                statement.executeUpdate(query);
 
                 connection.close();
             } catch (Exception e) {
@@ -71,6 +71,8 @@ public class DatabaseManagement extends Manager {
             }
         }
     }
+
+
 
     @Override
     public void deleteWord(Dictionary dictionary, String text) {
@@ -94,7 +96,6 @@ public class DatabaseManagement extends Manager {
     @Override
     public void editWord(Dictionary dictionary, Word word) {
         super.editWord(dictionary, word);
-        //dictionary.editWord(word);
         String query = "UPDATE " + table + " SET definition = '" + word.getExplainWord() + "' WHERE target = '" + word.getTargetWord() + "';";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

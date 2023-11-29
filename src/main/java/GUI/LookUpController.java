@@ -14,10 +14,7 @@ import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -29,8 +26,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class LookUpController extends showDialog implements Initializable {
 
@@ -277,8 +272,11 @@ public class LookUpController extends showDialog implements Initializable {
     if (targetWord.getText().equals("") || targetWord.getText().equals("This word doesn't exist")) {
       return;
     }
+    Thread thread = new Thread(() -> {
+      textToSpeech.speakEn(targetWord.getText());
+    });
+    thread.start();
 
-    textToSpeech.speakEn(targetWord.getText());
   }
 
   @FXML
@@ -301,7 +299,6 @@ public class LookUpController extends showDialog implements Initializable {
     if(targetWord.getText().equals("") || targetWord.getText().equals("This word doesn't exist")) {
       return;
     }
-
     if (!isShowSynonymDialog) {
       synonymTarget = targetWord.getText();
       synonymListController OwO = showAsDialog("synonymList.fxml").getController();
