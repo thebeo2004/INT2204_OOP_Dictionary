@@ -30,6 +30,6 @@ public class GameOverDialogController extends basicDialogController implements I
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     crossWord.setText("Cross Word: " + crossPuzzle.getText());
-    crossExplain.setText(crossPuzzle.getExplain());
+    crossExplain.setText("Explain: " + crossPuzzle.getExplain());
   }
 }
