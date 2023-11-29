@@ -36,4 +36,5 @@ public class Utility {
     return ans;
   }
 
+  public static GameResult gameResult = new GameResult();
 }
