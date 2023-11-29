@@ -1,12 +1,25 @@
 package Application;
 
+import java.io.*;
+
 public class GameResult {
   private int trophies;
   private int stars;
 
   public GameResult() {
-    //read from file
-    //read from file
+    BufferedReader reader = null;
+    try {
+      reader = new BufferedReader(new FileReader("src/main/resources/Data/progress.txt/"));
+      trophies.setText(String.valueOf(reader.readLine()));
+      stars.setText(String.valueOf(reader.readLine()));
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+    try {
+      reader.close();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   public int getTrophies() {
@@ -17,13 +30,16 @@ public class GameResult {
     return stars;
   }
 
-  public void setTrophies(int trophies) {
+  public void setScore(int trophies, int stars) {
     this.trophies = trophies;
-    //write file
-  }
-
-  public void setStars(int stars) {
-    this.stars = stars;
-    //write file
+    try {
+      BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/Data/progress.txt/", false));
+      writer.write(trophies);
+      writer.write("\n");
+      writer.write(stars);
+      writer.close();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
   }
 }
