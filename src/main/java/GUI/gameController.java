@@ -35,6 +35,7 @@ public class gameController extends showDialog implements Initializable {
   private int numberPuzzle;
   public static boolean isShowHintDialog = false;
   public static boolean isNewGameDialog = false;
+  public static boolean isShowQuitDialog = false;
   private boolean isTransfer = false;
   private gameController controller;
   private HelloController mainController;
@@ -214,6 +215,16 @@ public class gameController extends showDialog implements Initializable {
     solutionRow = OwO.getY() - start_y;
   }
 
+  private void showAnswer(int row) {
+    int x = puzzleList.get(row).getX();
+    int y = puzzleList.get(row).getY();
+    String s = puzzleList.get(row).getText();
+    for (int j = x; j < x + puzzleList.get(row).getLength(); j++) {
+      cellController[y][j].setText("" + s.charAt(j - x));
+      cellController[y][j].setClose();
+    }
+  }
+
   public void showHint() {
     //Check if number of stars >= 5
     if (stars < 5) {
@@ -221,17 +232,48 @@ public class gameController extends showDialog implements Initializable {
     }
     stars -= 5;
     showResult();
-
-    int x = puzzleList.get(solutionRow).getX();
-    int y = puzzleList.get(solutionRow).getY();
-    String s = puzzleList.get(solutionRow).getText();
-    for (int j = x; j < x + puzzleList.get(solutionRow).getLength(); j++) {
-      cellController[y][j].setText("" + s.charAt(j - x));
-      cellController[y][j].setClose();
-    }
-
+    showAnswer(solutionRow);
     rightAnswerSound();
   }
+
+  @FXML
+  void quitGameButton(MouseEvent event) throws IOException {
+    if (isShowQuitDialog) {
+      return;
+    }
+
+    isShowQuitDialog = true;
+    QuitGameDialogController OwO = showAsDialog("quitGameDialog.fxml").getController();
+    OwO.setController(controller);
+  }
+
+  public void quitGame() {
+    numberPuzzle = -1;
+    for(int i = 0; i < puzzleList.size(); i++) {
+      showAnswer(i);
+    }
+  }
+
+
+//  @FXML
+//  void addingFlashCardButton(MouseEvent event) throws IOException {
+//    puzzleCellController OwO = chosenCell();
+//    if (OwO == null) {
+//      return;
+//    }
+//
+//    int y = OwO.getY();
+//    Puzzle puzzle = puzzleList.get(y - start_y);
+//
+//    for(int x = puzzle.getX(); x < puzzle.getX() + puzzle.getLength(); x++) {
+//      if (!cellController[y][x].isClose()) {
+//        return;
+//      }
+//    }
+//
+//    showAsDialog("flashcardDialog.fxml");
+//    //Adding flashcard
+//  }
 
   private void gameOver() throws IOException {
     if (numberPuzzle != 0) {

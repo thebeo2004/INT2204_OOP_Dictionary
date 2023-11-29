@@ -151,6 +151,7 @@ public class HelloController extends basicDialogController implements Initializa
   }
   @FXML
   void loadDownload(MouseEvent event) throws IOException {
+    isPlayingGame = false;
     turnOffAll();
     turnOn(download);
 
@@ -200,7 +201,6 @@ public class HelloController extends basicDialogController implements Initializa
 
         if (isPlayingGame) {
           String key = e.getCode().toString();
-          System.out.println(key);
           for(String s : acceptedCharacter) {
             if (key.equals(s)) {
               gameControl.keyCharacterTyping(key);

@@ -32,6 +32,20 @@
                         </Label>
                      </children>
                   </HBox>
+                  <HBox alignment="CENTER" layoutX="99.0" layoutY="10.0" maxHeight="-Infinity" onMousePressed="#quitGameButton" prefHeight="61.0" prefWidth="110.0" spacing="5.0" styleClass="Action" stylesheets="@../css/lookUp.css">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/quit.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="27.0" prefWidth="91.0" text="Quit Game" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
                </children>
                <padding>
                   <Insets left="17.0" />
