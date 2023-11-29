@@ -1,6 +1,7 @@
 package GUI;
 
 import static GUI.Utility.crosswordGenerator;
+import static GUI.Utility.gameResult;
 import static GUI.Utility.generateNumber;
 import static GUI.GameOverDialogController.*;
 
@@ -54,9 +55,11 @@ public class gameController extends showDialog implements Initializable {
   @FXML
   private Label explain = new Label();
   @FXML
-  private Label star;
+  private Label starLabel = new Label();
+  private int stars;
   @FXML
-  private Label trophy;
+  private Label trophyLabel = new Label();
+  private int trophies;
 
   private void setStart_x(int width) {
     start_x = (int) (MAX_COLUMN - width) / 2;
@@ -159,8 +162,15 @@ public class gameController extends showDialog implements Initializable {
     setPuzzleList();
     setActive();
 
-    //Show number of stars
-    //Show number of trophy
+    trophies = gameResult.getTrophies();
+    stars = gameResult.getStars();
+    showResult();
+  }
+
+  private void showResult() {
+    trophyLabel.setText("" + trophies);
+    starLabel.setText("" + stars);
+    gameResult.setScore(trophies, stars);
   }
 
   public void setController(gameController controller) {
@@ -206,6 +216,12 @@ public class gameController extends showDialog implements Initializable {
 
   public void showHint() {
     //Check if number of stars >= 5
+    if (stars < 5) {
+      return;
+    }
+    stars -= 5;
+    showResult();
+
     int x = puzzleList.get(solutionRow).getX();
     int y = puzzleList.get(solutionRow).getY();
     String s = puzzleList.get(solutionRow).getText();
@@ -221,6 +237,9 @@ public class gameController extends showDialog implements Initializable {
     if (numberPuzzle != 0) {
       return;
     }
+    trophies += 1;
+    stars += crossPuzzle.getLength();
+    showResult();
     //Sound effect for wining game
     numberPuzzle--;
     GameOverDialogController OwO = showAsDialog("gameOverDialog.fxml").getController();

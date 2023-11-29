@@ -46,7 +46,7 @@
                               <Image url="@../Icons/trophy.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="trophy" prefHeight="36.0" prefWidth="35.0" text="5">
+                        <Label fx:id="trophyLabel" prefHeight="36.0" prefWidth="35.0" text="5">
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>
@@ -60,7 +60,7 @@
                      </font>
                   </Label>
                   <HBox prefHeight="59.0" prefWidth="239.0" />
-                  <Label fx:id="star" alignment="CENTER" prefHeight="36.0" prefWidth="51.0" style="-fx-background-color: #FFFF;" text=" 15">
+                  <Label fx:id="starLabel" alignment="CENTER" prefHeight="36.0" prefWidth="51.0" style="-fx-background-color: #FFFF;" text=" 15">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -72,7 +72,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="422.0" prefWidth="760.0" styleClass="hbox2" stylesheets="@../css/flashCard.css">
+            <HBox prefHeight="422.0" prefWidth="760.0" style="-fx-background-color: #ffffff;" styleClass="hbox2" stylesheets="@../css/flashCard.css">
                <children>
                   <GridPane fx:id="cellGrid" prefHeight="422.0" prefWidth="761.0">
                     <columnConstraints>
@@ -114,7 +114,7 @@
                   </GridPane>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="760.0">
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="760.0" style="-fx-background-color: #ffffff;">
                <children>
                   <Label fx:id="explain" alignment="CENTER" prefHeight="17.0" prefWidth="623.0">
                      <font>
