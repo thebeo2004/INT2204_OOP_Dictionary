@@ -246,6 +246,7 @@ public class gameController extends showDialog implements Initializable {
     OwO.setController(controller);
   }
   public void changeStatus(int x, int y) {
+    System.out.println(storage.toString());
     showExplain(y - start_y);
     Thread thread = new Thread (() -> {
       try {

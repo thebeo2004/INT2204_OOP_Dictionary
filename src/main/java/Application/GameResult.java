@@ -32,6 +32,7 @@ public class GameResult {
 
   public void setScore(int trophies, int stars) {
     this.trophies = trophies;
+    this.stars = stars;
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/Data/progress.txt/", false));
       writer.write(String.valueOf(trophies));
