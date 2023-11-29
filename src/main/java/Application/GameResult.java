@@ -10,8 +10,8 @@ public class GameResult {
     BufferedReader reader = null;
     try {
       reader = new BufferedReader(new FileReader("src/main/resources/Data/progress.txt/"));
-      trophies.setText(String.valueOf(reader.readLine()));
-      stars.setText(String.valueOf(reader.readLine()));
+      trophies = Integer.parseInt(reader.readLine());
+      stars = Integer.parseInt(reader.readLine());
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
