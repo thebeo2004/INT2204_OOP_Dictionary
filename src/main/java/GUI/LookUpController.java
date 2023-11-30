@@ -104,7 +104,7 @@ public class LookUpController extends showDialog implements Initializable {
   @FXML
   void show(ActionEvent event) {
 
-    Word word = databaseManagement.lookUp(dictionary, typing.getText());
+    Word word = databaseManagement.lookUp(dictionary, typing.getText().toLowerCase());
 
     if (word != null) {
       show(word);

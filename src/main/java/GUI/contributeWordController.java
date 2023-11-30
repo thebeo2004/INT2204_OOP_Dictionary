@@ -54,7 +54,7 @@ public class contributeWordController extends showDialog implements Initializabl
       return;
     }
     tableView.getItems().clear();
-    for(String s : databaseManagement.search(dictionary, typing.getText())) {
+    for(String s : databaseManagement.search(dictionary, typing.getText().toLowerCase())) {
       tableView.getItems().add(s);
     }
   }
@@ -82,7 +82,7 @@ public class contributeWordController extends showDialog implements Initializabl
       return;
     }
 
-    if (checkExistence(targetWord.getText())) {
+    if (checkExistence(targetWord.getText().toLowerCase())) {
       if (!isShowingDialog) {
         showAsDialog("invalidNewWordDialog.fxml");
         isShowingDialog = true;
