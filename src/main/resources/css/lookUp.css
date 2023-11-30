@@ -50,7 +50,7 @@
 
 .table-view .column-header,
 .table-view .column-header-background .filler {
-    -fx-cell-size: 20;
+    -fx-cell-size: 30;
     -fx-background-color: #e9e9e9;
 }
 

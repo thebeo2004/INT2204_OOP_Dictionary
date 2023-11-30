@@ -3,32 +3,40 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="400.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.synonymListController">
+<AnchorPane prefHeight="405.0" prefWidth="206.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.synonymListController">
    <children>
-      <VBox prefHeight="400.0" prefWidth="200.0">
+      <VBox layoutX="3.0" layoutY="3.0" prefHeight="400.0" prefWidth="200.0">
          <children>
             <HBox alignment="TOP_RIGHT" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #0078ba;">
                <children>
-                  <Circle fill="#d23b4d" onMousePressed="#close" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#d23b4d" onMousePressed="#close" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets right="5.0" top="5.0" />
+                  <Insets right="2.0" top="2.0" />
                </padding>
             </HBox>
-            <TableView fx:id="tableView" onMousePressed="#choosingFromList" prefHeight="361.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../css/lookUp.css">
+            <TableView fx:id="tableView" onMousePressed="#choosingFromList" prefHeight="365.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../css/lookUp.css">
                <columns>
                   <TableColumn fx:id="tableColumn" prefWidth="198.66668701171875" text="Synonyms" />
                </columns>
             </TableView>
          </children>
+         <effect>
+            <DropShadow height="141.69" radius="90.2975" width="221.5">
+               <color>
+                  <Color green="0.6392157077789307" blue="0.9921568632125854" />
+               </color></DropShadow>
+         </effect>
       </VBox>
    </children>
 </AnchorPane>

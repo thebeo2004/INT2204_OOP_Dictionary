@@ -38,7 +38,9 @@ public class synonymListController extends basicListController {
   @FXML
   @Override
   public void choosingFromList(MouseEvent event) {
-    super.choosingFromList(event);
+    if (tableView.getSelectionModel().getSelectedItem() == null) {
+      return;
+    }
     String s = tableView.getSelectionModel().getSelectedItem();
     controller.show(s);
   }

@@ -195,7 +195,7 @@
                <children>
                   <TextField fx:id="function" editable="false" prefHeight="132.0" prefWidth="549.0" style="-fx-background-color: #bfbfbf; -fx-border-color: #bfbfbf; -fx-border-width: 1 1 1 1;">
                      <font>
-                        <Font name="Arial Nova" size="16.0" />
+                        <Font size="16.0" />
                      </font>
                      <padding>
                         <Insets left="48.0" />
