@@ -22,6 +22,10 @@ public class puzzleCellController {
     label.setText(s.toUpperCase());
   }
 
+  public void showCrossWord() {
+    label.setStyle("-fx-background-color: #7fc784");
+  }
+
   public void setClose() {
     close = true;
     chosen = false;

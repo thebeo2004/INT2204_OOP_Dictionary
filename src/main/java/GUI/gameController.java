@@ -32,6 +32,7 @@ import javazoom.jl.player.Player;
 public class gameController extends showDialog implements Initializable {
 
   private int solutionRow;
+  private int answerCol;
   private int numberPuzzle;
   public static boolean isShowHintDialog = false;
   public static boolean isNewGameDialog = false;
@@ -64,6 +65,8 @@ public class gameController extends showDialog implements Initializable {
 
   private void setStart_x(int width) {
     start_x = (int) (MAX_COLUMN - width) / 2;
+    answerCol = start_x + crosswordGenerator.getColumn();
+    System.out.println(start_x +  " " + answerCol);
   }
 
   private void setStart_y(int height) {
@@ -248,10 +251,12 @@ public class gameController extends showDialog implements Initializable {
   }
 
   public void quitGame() {
+
     numberPuzzle = -1;
     for(int i = 0; i < puzzleList.size(); i++) {
       showAnswer(i);
     }
+    showCrossWord();
   }
 
 
@@ -279,6 +284,7 @@ public class gameController extends showDialog implements Initializable {
     if (numberPuzzle != 0) {
       return;
     }
+    showCrossWord();
     trophies += 1;
     stars += crossPuzzle.getLength();
     showResult();
@@ -315,6 +321,12 @@ public class gameController extends showDialog implements Initializable {
     cellController[y][x].setChosen();
   }
 
+  private void showCrossWord() {
+
+    for(int i = start_y; i < start_y + puzzleList.size(); i++) {
+      cellController[i][answerCol].showCrossWord();
+    }
+  }
   private boolean checkUserAnswer(int id) {
     String userAnswer = "";
     int x = puzzleList.get(id).getX();
