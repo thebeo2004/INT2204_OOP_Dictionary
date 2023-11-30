@@ -65,9 +65,9 @@
             </HBox>
          </children>
          <effect>
-            <DropShadow height="28.225" radius="11.908750000000001" width="21.41">
+            <DropShadow height="24.82" radius="11.057500000000001" width="21.41">
                <color>
-                  <Color red="0.14035087823867798" green="0.12518951296806335" blue="0.12518951296806335" />
+                  <Color red="0.1411764770746231" green="0.125490203499794" blue="0.125490203499794" />
                </color>
             </DropShadow>
          </effect>

@@ -146,9 +146,9 @@
                         </Button>
                      </children></HBox>
                   <HBox prefHeight="19.0" prefWidth="200.0" />
-                  <HBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="461.0" prefHeight="54.0" prefWidth="200.0">
+                  <HBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="461.0" prefHeight="65.0" prefWidth="200.0">
                      <children>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#exitWindow" prefHeight="51.0" prefWidth="200.0" style="-fx-border-color: #FFFF;" styleClass="exit" stylesheets="@../css/lookUp.css" text="Exit" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onMousePressed="#exitWindow" prefHeight="58.5" prefWidth="200.0" style="-fx-border-color: #FFFF;" styleClass="exit" stylesheets="@../css/lookUp.css" text="Exit" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>

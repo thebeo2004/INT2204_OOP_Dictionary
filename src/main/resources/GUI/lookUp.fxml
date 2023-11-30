@@ -17,7 +17,7 @@
    <left>
       <VBox prefHeight="400.0" prefWidth="215.0" styleClass="right-border" stylesheets="@../css/lookUp.css" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="63.0" prefWidth="200.0" spacing="8.0" styleClass="search-border">
+            <HBox alignment="CENTER" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="60.66666" prefWidth="200.0" spacing="8.0" styleClass="search-border">
                <children>
                   <HBox maxHeight="-Infinity" prefHeight="20.0" prefWidth="163.0" styleClass="search-bar" stylesheets="@../css/lookUp.css">
                      <children>
@@ -42,7 +42,7 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <HBox prefHeight="539.0" prefWidth="204.0">
+            <HBox prefHeight="539.0" prefWidth="215.0">
                <children>
                   <TableView fx:id="tableView" onMousePressed="#choosingFromList" prefHeight="622.0" prefWidth="216.0">
                     <columns>
@@ -66,7 +66,7 @@
    <center>
       <VBox prefHeight="439.0" prefWidth="411.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="65.0" prefWidth="545.0" style="-fx-background-color: #0078ba; -fx-border-color: #0078ba; -fx-border-width: 0 0 0.5 0;" styleClass="operation" stylesheets="@../css/lookUp.css">
+            <HBox prefHeight="60.666" prefWidth="545.0" style="-fx-background-color: #0078ba; -fx-border-color: #0078ba; -fx-border-width: 0 0 0.5 0;" styleClass="operation" stylesheets="@../css/lookUp.css">
                <children>
                   <HBox fx:id="editButton" alignment="CENTER" layoutX="433.0" layoutY="10.0" maxHeight="-Infinity" onMousePressed="#editWordAction" prefHeight="61.0" prefWidth="72.0" spacing="5.0" styleClass="Action" stylesheets="@../css/lookUp.css">
                      <children>
@@ -159,7 +159,7 @@
                <children>
                   <HBox alignment="CENTER" onMousePressed="#volumeAction" prefHeight="30.0" prefWidth="24.0" style="-fx-background-color: #FFFF;" styleClass="volume" stylesheets="@../css/lookUp.css">
                      <children>
-                        <ImageView fitHeight="25.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Icons/volume.png" />
                            </image>
@@ -169,7 +169,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </HBox>
-                  <Label fx:id="targetWord" prefHeight="27.0" prefWidth="544.0" styleClass="transparent" stylesheets="@../css/lookUp.css" underline="true" wrapText="true">
+                  <Label fx:id="targetWord" prefHeight="0.0" prefWidth="509.0" styleClass="transparent" stylesheets="@../css/lookUp.css" underline="true" wrapText="true">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -203,7 +203,7 @@
                   </TextField>
                </children>
             </HBox>
-            <HBox prefHeight="446.0" prefWidth="545.0">
+            <HBox prefHeight="437.0" prefWidth="545.0">
                <children>
                   <TextArea fx:id="explainWord" editable="false" prefHeight="460.0" prefWidth="573.0" style="-fx-background-color: #bfbfbf; -fx-border-color: #bfbfbf; -fx-border-width: 1 1 1 1;" text="&#10;&#10;&#10;" wrapText="true">
                      <font>

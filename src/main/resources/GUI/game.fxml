@@ -16,7 +16,7 @@
    <children>
       <VBox prefHeight="600.0" prefWidth="760.0">
          <children>
-            <HBox onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="62.0" prefWidth="760.0" style="-fx-background-color: #0072b1;">
+            <HBox onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="60.66666" prefWidth="760.0" style="-fx-background-color: #0072b1;">
                <children>
                   <HBox alignment="CENTER" maxHeight="-Infinity" onMousePressed="#newGameButton" prefHeight="61.0" prefWidth="72.0" spacing="5.0" styleClass="Action" stylesheets="@../css/lookUp.css">
                      <children>
@@ -128,7 +128,7 @@
                   </GridPane>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="760.0" style="-fx-background-color: #ffffff;">
+            <HBox alignment="CENTER" prefHeight="58.0" prefWidth="760.0" style="-fx-background-color: #ffffff;">
                <children>
                   <Label fx:id="explain" alignment="CENTER" prefHeight="17.0" prefWidth="623.0">
                      <font>

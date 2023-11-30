@@ -17,7 +17,7 @@
    <left>
       <VBox prefHeight="400.0" prefWidth="215.0" styleClass="right-border" stylesheets="@../css/lookUp.css" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="63.0" prefWidth="200.0" spacing="10.0" styleClass="search-border">
+            <HBox alignment="CENTER" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="60.66666" prefWidth="200.0" spacing="10.0" styleClass="search-border">
                <children>
                   <HBox maxHeight="-Infinity" prefHeight="30.0" prefWidth="180.0" styleClass="search-bar" stylesheets="@../css/lookUp.css">
                      <children>
@@ -31,11 +31,11 @@
                   </HBox>
                </children>
             </HBox>
-            <HBox prefHeight="540.0" prefWidth="200.0">
+            <HBox prefHeight="540.0" prefWidth="215.0">
                <children>
-                  <TableView fx:id="tableView" prefHeight="537.0" prefWidth="222.0" styleClass="transparent" stylesheets="@../css/lookUp.css">
+                  <TableView fx:id="tableView" prefHeight="427.0" prefWidth="215.0" styleClass="transparent" stylesheets="@../css/lookUp.css">
                      <columns>
-                        <TableColumn fx:id="tableColumn" prefWidth="198.66665649414062" text="Checking Existence" />
+                        <TableColumn fx:id="tableColumn" prefWidth="214.66665315628052" text="Checking Existence" />
                      </columns>
                      <HBox.margin>
                         <Insets />
@@ -55,7 +55,7 @@
    <center>
       <VBox prefHeight="439.0" prefWidth="411.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_RIGHT" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="68.0" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #0078ba;" styleClass="operation" stylesheets="@../css/lookUp.css">
+            <HBox alignment="TOP_RIGHT" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="60.6666" prefWidth="545.0" spacing="20.0" style="-fx-background-color: #0078ba;" styleClass="operation" stylesheets="@../css/lookUp.css">
                <children>
                   <HBox alignment="CENTER" layoutX="363.0" layoutY="10.0" maxHeight="-Infinity" onMousePressed="#updateButtonAction" prefHeight="67.0" prefWidth="96.0" spacing="5.0" styleClass="updateAction" stylesheets="@../css/lookUp.css">
                      <children>
@@ -64,9 +64,9 @@
                               <Image url="@../Icons/tick.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="27.0" prefWidth="83.0" text="Update" textFill="WHITE">
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="61.0" text="Update" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="18.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
                      </children>
@@ -76,21 +76,24 @@
                   <Insets left="20.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="545.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="545.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="21.0" prefWidth="25.0" style="-fx-background-color: #FFFF;" styleClass="volume" stylesheets="@../css/lookUp.css">
                      <children>
-                        <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Icons/add1.png" />
                            </image>
                         </ImageView>
                      </children>
                   </HBox>
-                  <TextField fx:id="targetWord" prefHeight="96.0" prefWidth="511.0" promptText="You have to fill in target Word" style="-fx-background-color: #FFFF;">
+                  <TextField fx:id="targetWord" prefHeight="30.0" prefWidth="514.0" promptText="You have to fill in target Word" style="-fx-background-color: #FFFF;">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
                   </TextField>
                </children>
             </HBox>
@@ -101,7 +104,7 @@
                         <Font name="System Italic" size="16.0" />
                      </font>
                      <padding>
-                        <Insets left="25.0" />
+                        <Insets left="48.0" />
                      </padding>
                   </TextField>
                </children>
@@ -113,14 +116,14 @@
                         <Font name="Arial Nova" size="16.0" />
                      </font>
                      <padding>
-                        <Insets left="35.0" />
+                        <Insets left="48.0" />
                      </padding>
                   </TextField>
                </children>
             </HBox>
-            <HBox prefHeight="446.0" prefWidth="545.0">
+            <HBox prefHeight="439.0" prefWidth="545.0">
                <children>
-                  <TextArea fx:id="explainWord" prefHeight="460.0" prefWidth="566.0" promptText="\@explaining" style="-fx-background-color: #a0d6ff; -fx-border-color: #98ccf3; -fx-border-width: 0.5 0.5 0.5 0.5;" text="&#10;&#10;" wrapText="true">
+                  <TextArea fx:id="explainWord" prefHeight="442.0" prefWidth="545.0" promptText="\@explaining" style="-fx-background-color: #a0d6ff; -fx-border-color: #98ccf3; -fx-border-width: 0.5 0.5 0.5 0.5;" text="&#10;&#10;" wrapText="true">
                      <font>
                         <Font name="Cambria Math" size="16.0" />
                      </font>
