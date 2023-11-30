@@ -78,14 +78,18 @@ public class DatabaseManagement extends Manager {
     public void deleteWord(Dictionary dictionary, String text) {
         super.deleteWord(dictionary, text);
         String query = "DELETE FROM " + table + " WHERE target = '" + text + "';";
+
         try {
             Class.forName("org.sqlite.JDBC");
 
             connection = DriverManager.getConnection(url);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-            Statement statement = connection.createStatement();
+            preparedStatement.execute();
 
-            statement.executeUpdate(query);
+//            Statement statement = connection.createStatement();
+//
+//            statement.executeUpdate(query);
 
             connection.close();
         } catch (Exception e) {
@@ -102,9 +106,13 @@ public class DatabaseManagement extends Manager {
 
             connection = DriverManager.getConnection(url);
 
-            Statement statement = connection.createStatement();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-            statement.executeUpdate(query);
+            preparedStatement.execute();
+
+//            Statement statement = connection.createStatement();
+//
+//            statement.executeUpdate(query);
 
             connection.close();
         } catch (Exception e) {
